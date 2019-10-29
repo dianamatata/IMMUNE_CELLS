@@ -1,0 +1,24 @@
+
+#STEP1
+bsub -o buildmetabamfile_EGAD00001002670_H3K27ac.out -e buildmetabamfile_EGAD00001002670_H3K27ac.err -J buildmetabamfile_EGAD00001002670_K27 -q normal -M 16000000 "python3.5 build_metabamfile_v2.py /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/H3K27ac EGAD00001002670_H3K27ac.metafile.bam"
+bsub -o buildmetabamfile_EGAD00001002670_H3K4me1.out -e buildmetabamfile_EGAD00001002670_H3K4me1.err -J buildmetabamfile_EGAD00001002670_me1 -q normal -M 32000000 "python3.5 build_metabamfile_v2.py /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/H3K4me1 EGAD00001002670_H3K4me1.metafile.bam"
+
+#STEP2
+python3 launch_homer.py EGAD00001002670_H3K27ac.metafile.bam /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/H3K27ac/ HOMER_files/EGAD00001002670_H3K27ac/
+python3 launch_homer.py EGAD00001002670_H3K4me1.metafile.bam /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/H3K4me1/ HOMER_files/EGAD00001002670_H3K4me1/
+
+#STEP3
+python3.5 parse_homer_table.py HOMER_files/EGAD00001002670_H3K27ac/EGAD00001002670_H3K27ac.quantif.txt H3K27ac_
+python3.5 parse_homer_table.py HOMER_files/EGAD00001002670_H3K4me1/EGAD00001002670_H3K4me1.quantif.txt H3K4me1_
+
+#STEP4
+python3.5 run_cis_eqtl_v2.0.py HOMER_files/EGAD00001002670_H3K4me1/EGAD00001002670_H3K4me1.quantif.bed.gz QTLtools_EGAD00001002670_H3K4me1_1000perm_100chunks /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/METADATA/delimited_maps/Donor_id_Sex.map
+python3.5 run_cis_eqtl_v2.0.py HOMER_files/EGAD00001002670_H3K27ac/EGAD00001002670_H3K27ac.quantif.bed.gz QTLtools_EGAD00001002670_H3K27ac_1000perm_100chunks /data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells/EGAD00001002670/METADATA/delimited_maps/Donor_id_Sex.map
+
+#STEP5
+Rscript plot_PC_vs_eQTL.R "QTLtools_EGAD00001002670_H3K4me1_1000perm_100chunks/permutations_cov*.significant.txt" 16
+Rscript plot_PC_vs_eQTL.R "QTLtools_EGAD00001002670_H3K27ac_1000perm_100chunks/permutations_cov*.significant.txt" 26
+
+
+
+
