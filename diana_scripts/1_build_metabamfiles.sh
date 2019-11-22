@@ -9,6 +9,9 @@ DATA_FOLDER=/data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_c
 OUTPUT_FOLDER=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/step1_metabam
 PY_SCRIPT=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/diana_scripts/build_metabamfile_v3.py
 
+mkdir -p $OUTPUT_FOLDER
+
+
 for cell_type in ${Cell_Types[@]}; do
     for histone in ${Histone_Modifications[@]}; do
         echo "$cell_type""_$histone"
