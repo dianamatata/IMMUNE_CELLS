@@ -18,7 +18,7 @@ for j in range(number_of_samples):
     i = samples_selected[j]
     # glob.glob cannot find recursively in subfolder but needs the exact folder. otherwise: https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-files-recursively
     subsample = "/data/unige/funpopgen/odelanea/SHARE/downsampleBAM/bin/sampleBAM " + files[
-        i] + " 1000000 " + outputtag + "_" + str(i) + ".bam"
+        i] + " 1000000 " + outputtag + "_" + str(j) + ".bam"
     print(subsample)
     os.system(subsample)
 
