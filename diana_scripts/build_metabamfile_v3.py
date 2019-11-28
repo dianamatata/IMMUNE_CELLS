@@ -6,7 +6,14 @@ import random
 
 datafolder = sys.argv[1]
 outputfile = sys.argv[2]
+samples_to_exclude = sys.argv[3]
 outputtag = outputfile.replace('.bam', '')
+
+## next is for testing
+# samples_to_exclude_file= 'samples_to_exclude.txt'
+# bam_names='list_bam_EGAD00001002672_H3K27ac.txt'
+# bam_files = open(bam_names, "r").readlines()
+# bam_files=[x.replace('\n', '') for i,x in enumerate(bam_files)]
 
 
 """
@@ -15,13 +22,15 @@ by getting the index of the bam_files in a list and shuffling it and taking the 
 and also removing the indices of the file not conform 
 """
 
+samples_to_exclude = open(samples_to_exclude_file, "r").readlines()
+samples_to_exclude = [x.replace('\n', '') for i, x in enumerate(samples_to_exclude)]
+
 num_bam_files = 50
 bam_files = glob.glob(datafolder + '/*.bam')
-samples_selected = list(range(len(bam_files)))
-random.shuffle(samples_selected)
-
-forbidden_index = [i for i,x in enumerate(bam_files) if 'Blueprint' in x]
-samples_selected.remove(forbidden_index[0])
+bam_files_filtered = [x for i, x in enumerate(bam_files) if
+                      x[:-4] not in samples_to_exclude]  # remove forbidden samples
+random.shuffle(bam_files_filtered)  # randomize order
+samples_selected = list(range(len(bam_files_filtered)))
 
 """
 subsample 50  bam_files (1 bam/individual and take 1000000 samples in each bam file)
@@ -29,17 +38,17 @@ keep track of the selected one through list bam_files_selected, and write the li
 """
 # to make glob.glob recursive:   recursive=True or  https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-bam_files-recursively
 
-bam_files_selected=[]
+bam_files_selected = []
 
 for j in range(num_bam_files):
     i = samples_selected[j]
-    subsample = "/data/unige/funpopgen/odelanea/SHARE/downsampleBAM/bin/sampleBAM " + bam_files[
+    subsample = "/data/unige/funpopgen/odelanea/SHARE/downsampleBAM/bin/sampleBAM " + bam_files_filtered[
         i] + " 1000000 " + outputtag + "_" + str(j) + ".bam"
-    bam_files_selected.append(bam_files[i])
+    bam_files_selected.append(bam_files_filtered[i])
     print(subsample)
     os.system(subsample)
 
-with open('bam_files_selected.txt','a') as f:  # a is append mode
+with open('bam_files_selected.txt', 'a') as f:  # a is append mode
     f.write("\n".join(bam_files_selected))
 
 mergebam = '/software/UHTS/Analysis/samtools/1.4/bin/samtools merge ' + outputfile + ' ' + outputtag + "_*.bam"
