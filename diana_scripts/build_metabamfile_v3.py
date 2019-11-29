@@ -3,10 +3,11 @@ import glob
 import subprocess
 import sys
 import random
+from pathlib import Path
 
 datafolder = sys.argv[1]
 outputfile = sys.argv[2]
-samples_to_exclude = sys.argv[3]
+samples_to_exclude_file = sys.argv[3]
 outputtag = outputfile.replace('.bam', '')
 
 ## next is for testing
@@ -28,7 +29,7 @@ samples_to_exclude = [x.replace('\n', '') for i, x in enumerate(samples_to_exclu
 num_bam_files = 50
 bam_files = glob.glob(datafolder + '/*.bam')
 bam_files_filtered = [x for i, x in enumerate(bam_files) if
-                      x[:-4] not in samples_to_exclude]  # remove forbidden samples
+                      Path(x).stem not in samples_to_exclude]  # remove forbidden samples, and also only take the file without full path and suffix '.bam'
 random.shuffle(bam_files_filtered)  # randomize order
 samples_selected = list(range(len(bam_files_filtered)))
 
@@ -40,10 +41,9 @@ keep track of the selected one through list bam_files_selected, and write the li
 
 bam_files_selected = []
 
-for j in range(num_bam_files):
-    i = samples_selected[j]
+for i in range(num_bam_files):
     subsample = "/data/unige/funpopgen/odelanea/SHARE/downsampleBAM/bin/sampleBAM " + bam_files_filtered[
-        i] + " 1000000 " + outputtag + "_" + str(j) + ".bam"
+        i] + " 1000000 " + outputtag + "_" + str(i+1) + ".bam"
     bam_files_selected.append(bam_files_filtered[i])
     print(subsample)
     os.system(subsample)
