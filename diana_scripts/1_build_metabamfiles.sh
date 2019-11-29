@@ -16,6 +16,7 @@ mkdir -p $OUTPUT_FOLDER
 for cell_type in ${Cell_Types[@]}; do
     for histone in ${Histone_Modifications[@]}; do
         echo "$cell_type""_$histone"
+        # run python script in 1 job/cell type/histone modification
         cmd="bsub -o $OUTPUT_FOLDER/buildmetabamfile_$cell_type""_$histone.out -e $OUTPUT_FOLDER/buildmetabamfile_$cell_type""_$histone.err -J buildmetabamfile_$cell_type""_$histone -q normal -M 64000000 \"python3.5 $PY_SCRIPT $DATA_FOLDER/$cell_type/$histone $OUTPUT_FOLDER/$cell_type""_$histone""_50samples.metafile.bam\" $SAMPLES_EXCLUDED"
         echo "$cmd"
         eval $cmd
