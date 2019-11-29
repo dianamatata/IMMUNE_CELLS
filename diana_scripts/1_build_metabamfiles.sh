@@ -8,7 +8,7 @@ declare -a Histone_Modifications=("H3K4me1" "H3K27ac")
 DATA_FOLDER=/data/unige/funpopgen/2backup/grey2/external_data/Blueprint_immune_cells
 OUTPUT_FOLDER=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/step1_metabam
 SAMPLES_EXCLUDED=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/diana_scripts/samples_to_exclude.txt
-PY_SCRIPT=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/diana_scripts/build_metabamfile_v3.py
+PY_SCRIPT=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/diana_scripts/1_bis_build_metabamfiles.py
 
 mkdir -p $OUTPUT_FOLDER
 
