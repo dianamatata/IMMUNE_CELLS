@@ -35,7 +35,7 @@ samples_selected = list(range(len(bam_files_filtered)))
 
 """
 subsample 50  bam_files (1 bam/individual and take 1000000 samples in each bam file)
-keep track of the selected one through list bam_files_selected, and write the list in file bam_files_selected.txt
+keep track of the selected one through list bam_files_filtered, and write the list in file bam_files_selected.txt
 """
 # to make glob.glob recursive:   recursive=True or  https://stackoverflow.com/questions/2186525/how-to-use-glob-to-find-bam_files-recursively
 
@@ -48,7 +48,7 @@ for i in range(num_bam_files):
     print(subsample)
     os.system(subsample)
 
-with open('bam_files_selected.txt', 'a') as f:  # a is append mode
+with open('bam_files_selected.txt', 'w') as f:  # a is append mode, w rewrite the file
     f.write("\n".join(bam_files_selected))
 
 mergebam = '/software/UHTS/Analysis/samtools/1.4/bin/samtools merge ' + outputfile + ' ' + outputtag + "_*.bam"
