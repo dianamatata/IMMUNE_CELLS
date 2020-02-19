@@ -42,7 +42,7 @@ keep track of the selected one through list bam_files_filtered, and write the li
 bam_files_selected = []
 
 for i in range(num_bam_files):
-    subsample = "/data/unige/funpopgen/odelanea/SHARE/downsampleBAM/bin/sampleBAM " + bam_files_filtered[
+    subsample = "/home/users/a/avalosma/bin/downsampleBAM/bin/sampleBAM " + bam_files_filtered[
         i] + " 1000000 " + outputtag + "_" + str(i+1) + ".bam"
     bam_files_selected.append(bam_files_filtered[i])
     print(subsample)
