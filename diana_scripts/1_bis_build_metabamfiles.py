@@ -45,12 +45,15 @@ for i in range(num_bam_files):
     subsample = "/home/users/a/avalosma/bin/downsampleBAM/bin/sampleBAM " + bam_files_filtered[
         i] + " 1000000 " + outputtag + "_" + str(i+1) + ".bam"
     bam_files_selected.append(bam_files_filtered[i])
-    print(subsample)
+    #print(bam_files_filtered[i])
     os.system(subsample)
+print('substampling finished')
 
 with open('bam_files_selected.txt', 'w') as f:  # a is append mode, w rewrite the file
     f.write("\n".join(bam_files_selected))
+print('bam_files_selected.txt created')
 
-mergebam = '/software/UHTS/Analysis/samtools/1.4/bin/samtools merge ' + outputfile + ' ' + outputtag + "_*.bam"
+mergebam = 'samtools merge ' + outputfile + ' ' + outputtag + "_*.bam"
 print(mergebam)
 os.system(mergebam)
+print('mergebam file created')
