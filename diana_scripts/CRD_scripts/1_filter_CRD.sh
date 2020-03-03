@@ -10,7 +10,7 @@ for cell_type in 'EGAD00001002670'  'EGAD00001002672' 'EGAD00001002673' ; do
         LI=$DATADIR/${cell_type}_merged_residuals.bed.gz
         for c in $(seq 1 22); do
 		LO=$OUT_FOLDER/$cell_type\.chr$c
-		cat $LO.module.txt | awk '{ if ($30 == 1 && $25 > 1) print $4 }' | gzip -c > $OUT_FOLDER/$cell_type\_ALL.modules.MOD1.NRE2.txt.gz
+		zcat $LO.module.txt | awk '{ if ($30 == 1 && $25 > 1) print $4 }' | gzip -c > $OUT_FOLDER/$cell_type\_ALL.modules.MOD1.NRE2.txt.gz
 	done
 done
 
