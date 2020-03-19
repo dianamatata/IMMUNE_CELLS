@@ -19,7 +19,7 @@ for cell_type in 'EGAD00001002670'  'EGAD00001002672' 'EGAD00001002673' ; do
 		cmd2="$CLOMICs topo --bed $LI --tree $LO.1.tgz --chr $c --out $LO\.tree.txt.gz && rm $LO\.*.tgz"
 		cmd3="$CLOMICs call --tree $LO\.tree.txt.gz --threshold 2 --out $LO\.module.txt.gz"
 		cmd4="bgzip $LO\.module.txt.gz"
-		cmd="$cmd1 && $cmd2 && $cmd3 && $cmd4"
+		cmd="$cmd1 && $cmd2 && $cmd3"
 
 		# CLOMICS build to make the dendogram/tree, topo to annotate and call to have a threshold
 		# next filter on col 25 N_REG col 30 MOD, MOD=1 if CRD, N_REG nbr of peaks, at least 2 RE

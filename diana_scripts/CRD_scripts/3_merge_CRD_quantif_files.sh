@@ -14,5 +14,6 @@ for cell_type in 'EGAD00001002670'  'EGAD00001002672' 'EGAD00001002673' ; do
 
 		tabix -p bed $DATADIR/${cell_type}.ALLchr.${module}.txt.gz
 		bgzip $DATADIR/${cell_type}.chr*.${module}.txt
+		rm  $DATADIR/${cell_type}.ALLchr.${module}.unsorted.txt
 	done
 done
