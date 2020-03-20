@@ -1,12 +1,15 @@
 #!/bin/bash
 
+FOLDER1="/home/users/a/avalosma/scratch/step1_metabam"
+mkdir -o $FOLDER1
+
 # merge metabamfiles with samtools
-samtools merge H3K4me1.metafile.bam EGAD0000100267?_H3K4me1_50samples.metafile.bam
+samtools merge $FOLDER1/H3K4me1.metafile.bam $FOLDER1/EGAD0000100267?_H3K4me1_50samples.metafile.bam
 echo "H3K4me1.metafile.bam created"
-samtools merge H3K27ac.metafile.bam EGAD0000100267?_H3K27ac_50samples.metafile.bam
+samtools merge $FOLDER1/H3K27ac.metafile.bam $FOLDER1/EGAD0000100267?_H3K27ac_50samples.metafile.bam
 echo "H3K27ac.metafile.bam created"
 
 # sort metabam files
-samtools sort -o H3K27ac.sorted.metafile.bam H3K27ac.metafile.bam      
-samtools sort -o H3K4me1.sorted.metafile.bam H3K4me1.metafile.bam  
+samtools sort -o $FOLDER1/H3K27ac.sorted.metafile.bam $FOLDER1/H3K27ac.metafile.bam      
+samtools sort -o $FOLDER1/H3K4me1.sorted.metafile.bam $FOLDER1/H3K4me1.metafile.bam  
 echo "H3K27ac.sorted.metafile.bam and H3K4me1.sorted.metafile.bam created: H3K4me1.metafile.bam and H3K27ac.metafile.bam sorted"
