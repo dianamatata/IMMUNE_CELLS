@@ -11,6 +11,8 @@ library(corrplot) # graphical display of a correlation matrix, confidence interv
 # (bp intersect mono and neut/bp neut= %shared in neut by mono)
 
 # plot
+# plot(rnorm(50), rnorm(50))
+
 pdf("CRD_pairwise_comparisons_between_cell_types.pdf Method 1")
 M0 = matrix(c(1,0.5559791012801089, 0.29371452801106906,
               0.517517715921954, 1, 0.2821886091864699,
@@ -23,18 +25,19 @@ dev.off()
 
 #### Method 2: Look at the shared peaks belonging to CRDs among cell types
 # very small results, up to 3% of shared peaks
+# these are the values for the bar plot
 
 peakset_neut = as.data.frame(fread('../peaks/EGAD00001002670.ALLchr.peaksID',header=F))
 peakset_mono = as.data.frame(fread('../peaks/EGAD00001002672.ALLchr.peaksID',header=F))
 peakset_tcel = as.data.frame(fread('../peaks/EGAD00001002673.ALLchr.peaksID',header=F))
 
-neut = length(peakset_neut$V2)
-mono = length(peakset_mono$V2)
-tcel = length(peakset_tcel$V2)
-all = length(intersect(intersect(peakset_neut$V2,peakset_mono$V2),peakset_tcel$V2))
-neut_and_mono = length(intersect(peakset_neut$V2,peakset_mono$V2))
-neut_and_tcel = length(intersect(peakset_neut$V2,peakset_tcel$V2))
-tcel_and_mono = length(intersect(peakset_tcel$V2,peakset_mono$V2))
+neut = length(peakset_neut$V1)
+mono = length(peakset_mono$V1)
+tcel = length(peakset_tcel$V1)
+all = length(intersect(intersect(peakset_neut$V1,peakset_mono$V1),peakset_tcel$V1))
+neut_and_mono = length(intersect(peakset_neut$V1,peakset_mono$V1))
+neut_and_tcel = length(intersect(peakset_neut$V1,peakset_tcel$V1))
+tcel_and_mono = length(intersect(peakset_tcel$V1,peakset_mono$V1))
 
 expressionInput2 <- c(neutrophil = (neut-all-(neut_and_mono-all)-(neut_and_tcel-all)), monocyte = (mono-all-(tcel_and_mono-all)-(neut_and_mono-all)), tcell = (tcel-all-(neut_and_tcel-all)-(tcel_and_mono-all)), `neutrophil&monocyte` = neut_and_mono-all,
                      `neutrophil&tcell` = neut_and_tcel-all,`monocyte&tcell` = tcel_and_mono-all, `neutrophil&monocyte&tcell` = all)
@@ -53,8 +56,8 @@ dev.off()
 pdf("Overlap_CRD_beds2.pdf",paper='a4r')
 upset(fromExpression(expressionInput2), order.by = "degree",text.scale=1.8)
 upset(fromExpression(expressionInput2), order.by = "freq",text.scale=1.8,main.bar.color="orange",matrix.color="blue")
-dev.off()
 
+dev.off()
 
 #### Method 3: Look at the shared peaks belonging to CRDs among cell types
 # take the peaks of 1 CRD, what is the % of shared in the other cell type? if more than 50% shared, the CRD is shared amon the 2 cell types
