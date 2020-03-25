@@ -1,0 +1,1890 @@
+Sender: LSF System <lsfadmin@cpt02>
+Subject: Job 971580: </data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/70_vs_73_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz --permute 200 --chunk 32 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_73/gene_CRD_mean_chunk32\.txt> in cluster <ug> Done
+
+Job </data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/70_vs_73_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz --permute 200 --chunk 32 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_73/gene_CRD_mean_chunk32\.txt> was submitted from host <cpt01> by user <grey2> in cluster <ug>.
+Job was executed on host(s) <cpt02>, in queue <normal>, as user <grey2> in cluster <ug>.
+</home/grey2> was used as the home directory.
+</data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS> was used as the working directory.
+Started at Fri Mar 15 14:02:57 2019
+Results reported at Fri Mar 15 14:03:02 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/70_vs_73_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz --permute 200 --chunk 32 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_73/gene_CRD_mean_chunk32\.txt
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               2.78 sec.
+    Max Memory :             3.11 MB
+    Average Memory :         3.11 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               31 MB
+
+    Max Processes :          1
+    Max Threads :            1
+
+The output (if any) follows:
+
+
+[32mQTLtools[0m
+  * Authors : Olivier DELANEAU / Halit ONGEN / Emmanouil DERMITZAKIS
+  * Contact : olivier.delaneau@gmail.com / halit.ongen@unige.ch / Emmanouil.Dermitzakis@unige.ch
+  * Webpage : https://qtltools.github.io/qtltools/
+  * Version : 1.1
+  * Date    : 15/03/2019 - 14:02:59
+  * Citation: A complete tool set for molecular QTL discovery and analysis, https://doi.org/10.1101/068635
+
+[32mMAPPING QTL IN CIS[0m
+  * TASK: Perform 200 permutations
+  * Linear model: Phe ~ Var
+  * Cis-window size is 1000000 bp
+  * Chunk = [32/100]
+
+Scanning phenotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz]
+  * 21589 phenotypes included
+  * 10706 phenotypes are on the negative strand
+
+Initialize random number generator
+  * Built-in seed is 15112011
+  * First Integer = 30554
+  * First Double = 0.0126695
+
+Reading sample list from [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz]
+  * #samples = 196
+
+Reading sample list from [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/70_vs_73_ALL.ALLchr.mean.txt.gz]
+  * #samples = 165
+
+Merging sample sets from all input files
+  * #files = 2
+  * #samples in all files = 165
+  * #samples NOT in all files (i.e. ignored) = 31
+
+Reading phenotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002675_v3.0/EGAD00001002675_RNA.PC10.bed.gz]
+  * target region [12:57146157-105352522]
+  * 290 phenotypes included
+  * 140 phenotypes are on the negative strand
+
+Reading genotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/70_vs_73_ALL.ALLchr.mean.txt.gz]
+  * File format detected: BED
+  * 165 samples included
+  * 2 samples without phenotype data
+  * target region [12:56146157-106352522]
+  * 68 variants included
+
+Processing phenotype [ENSG00000198056.7] [1/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_9432, d=-857750, pv=0.0230723, s=-0.1782]
+  * Beta parameters: [s1=0.960565, s2=6.67804]
+  * Adjusted p-values: [emp=0.104478, beta=0.117887]
+
+Processing phenotype [ENSG00000166866.8] [2/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=38739, pv=0.0195999, s=-0.1831]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=4.61053]
+  * Adjusted p-values: [emp=0.114428, beta=0.0919965]
+
+Processing phenotype [ENSG00000166881.5] [3/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9716, d=59430, pv=0.0365721, s=0.1609]
+  * Beta parameters: [s1=1.00058, s2=5.84355]
+  * Adjusted p-values: [emp=0.134328, beta=0.138137]
+
+Processing phenotype [ENSG00000166886.8] [4/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=0, pv=0.0422263, s=0.1627]
+  * Beta parameters: [s1=1.00066, s2=6.51121]
+  * Adjusted p-values: [emp=0.243781, beta=0.23568]
+
+Processing phenotype [ENSG00000123384.9] [5/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=481631, pv=0.432649, s=0.0612]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999992, s2=4.53328]
+  * Adjusted p-values: [emp=0.925373, beta=0.928635]
+
+Processing phenotype [ENSG00000166888.5] [6/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=19021, pv=0.00108672, s=0.2590]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999967, s2=5.25946]
+  * Adjusted p-values: [emp=0.00995025, beta=0.00333667]
+
+Processing phenotype [ENSG00000182199.6] [7/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9716, d=-200694, pv=0.409635, s=0.0651]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.83271]
+  * Adjusted p-values: [emp=0.905473, beta=0.916765]
+
+Processing phenotype [ENSG00000185482.3] [8/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=138075, pv=0.0349567, s=0.1649]
+  * Beta parameters: [s1=1.00068, s2=5.5273]
+  * Adjusted p-values: [emp=0.199005, beta=0.182453]
+
+Processing phenotype [ENSG00000258830.1] [9/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=-441972, pv=0.0946953, s=0.1310]
+  * Beta parameters: [s1=0.977153, s2=5.44343]
+  * Adjusted p-values: [emp=0.39801, beta=0.408366]
+
+Processing phenotype [ENSG00000201198.1] [10/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=194828, pv=0.246366, s=0.0922]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=4.10021]
+  * Adjusted p-values: [emp=0.696517, beta=0.710748]
+
+Processing phenotype [ENSG00000268367.1] [11/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=-403955, pv=0.531393, s=-0.0505]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999989, s2=4.76556]
+  * Adjusted p-values: [emp=0.99005, beta=0.980704]
+
+Processing phenotype [ENSG00000179912.14] [12/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=-307451, pv=0.115076, s=0.1234]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999967, s2=5.04401]
+  * Adjusted p-values: [emp=0.422886, beta=0.405946]
+
+Processing phenotype [ENSG00000258001.1] [13/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=179008, pv=0.0711265, s=0.1436]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=4.9131]
+  * Adjusted p-values: [emp=0.303483, beta=0.331987]
+
+Processing phenotype [ENSG00000139269.2] [14/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=286133, pv=0.113207, s=0.1189]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999964, s2=5.29178]
+  * Adjusted p-values: [emp=0.487562, beta=0.473678]
+
+Processing phenotype [ENSG00000111087.5] [15/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=278321, pv=0.149826, s=-0.1130]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00006, s2=4.09492]
+  * Adjusted p-values: [emp=0.527363, beta=0.543982]
+
+Processing phenotype [ENSG00000166986.8] [16/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=-462985, pv=0.1268, s=0.1183]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999934, s2=3.76797]
+  * Adjusted p-values: [emp=0.532338, beta=0.505577]
+
+Processing phenotype [ENSG00000123329.13] [17/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=476354, pv=0.0901973, s=0.1305]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=5.10793]
+  * Adjusted p-values: [emp=0.467662, beta=0.436739]
+
+Processing phenotype [ENSG00000252865.1] [18/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=99060, pv=0.148569, s=0.1123]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999982, s2=4.75923]
+  * Adjusted p-values: [emp=0.572139, beta=0.560659]
+
+Processing phenotype [ENSG00000264046.1] [19/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=224539, pv=0.113431, s=-0.1237]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=5.04272]
+  * Adjusted p-values: [emp=0.442786, beta=0.462945]
+
+Processing phenotype [ENSG00000208028.1] [20/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=-219197, pv=0.0837207, s=-0.1376]
+  * Beta parameters: [s1=0.997604, s2=6.16668]
+  * Adjusted p-values: [emp=0.373134, beta=0.407586]
+
+Processing phenotype [ENSG00000175197.5] [21/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9716, d=491884, pv=0.122449, s=0.1229]
+  * Beta parameters: [s1=0.859064, s2=5.59423]
+  * Adjusted p-values: [emp=0.447761, beta=0.491466]
+
+Processing phenotype [ENSG00000166987.10] [22/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9716, d=-492077, pv=0.278023, s=-0.0843]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.4693]
+  * Adjusted p-values: [emp=0.820896, beta=0.80161]
+
+Processing phenotype [ENSG00000175203.10] [23/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=-191125, pv=0.0168412, s=-0.1862]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999946, s2=4.25131]
+  * Adjusted p-values: [emp=0.079602, beta=0.103198]
+
+Processing phenotype [ENSG00000166908.13] [24/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=-578714, pv=0.310577, s=0.0786]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.44806]
+  * Adjusted p-values: [emp=0.840796, beta=0.834686]
+
+Processing phenotype [ENSG00000135506.11] [25/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=-580837, pv=0.0606081, s=-0.1468]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.68249]
+  * Adjusted p-values: [emp=0.298507, beta=0.270596]
+
+Processing phenotype [ENSG00000257342.1] [26/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=709050, pv=0.0337263, s=0.1663]
+  * Beta parameters: [s1=1.0193, s2=5.71051]
+  * Adjusted p-values: [emp=0.199005, beta=0.178668]
+
+Processing phenotype [ENSG00000257499.1] [27/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=612547, pv=0.0386748, s=-0.1568]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999954, s2=5.33297]
+  * Adjusted p-values: [emp=0.174129, beta=0.171188]
+
+Processing phenotype [ENSG00000255737.2] [28/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=12185, pv=0.00324342, s=0.2289]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=5.61483]
+  * Adjusted p-values: [emp=0.0199005, beta=0.0088206]
+
+Processing phenotype [ENSG00000135452.5] [29/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=443, pv=0.000877685, s=0.2456]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999952, s2=4.40076]
+  * Adjusted p-values: [emp=0.00995025, beta=0.00606425]
+
+Processing phenotype [ENSG00000135439.6] [30/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=0, pv=0.00234052, s=0.2359]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.94942]
+  * Adjusted p-values: [emp=0.0149254, beta=0.0112199]
+
+Processing phenotype [ENSG00000135446.11] [31/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=0, pv=0.0989715, s=0.1229]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=4.00436]
+  * Adjusted p-values: [emp=0.41791, beta=0.425268]
+
+Processing phenotype [ENSG00000257921.1] [32/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8717, d=-659910, pv=0.220848, s=-0.0980]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.65705]
+  * Adjusted p-values: [emp=0.651741, beta=0.670662]
+
+Processing phenotype [ENSG00000123297.11] [33/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=-770129, pv=0.0255526, s=-0.1762]
+  * Beta parameters: [s1=1.09049, s2=6.15962]
+  * Adjusted p-values: [emp=0.0895522, beta=0.0875647]
+
+Processing phenotype [ENSG00000206749.1] [34/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=793800, pv=0.00783108, s=-0.2061]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.26465]
+  * Adjusted p-values: [emp=0.0447761, beta=0.0519068]
+
+Processing phenotype [ENSG00000135407.6] [35/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9352, d=806244, pv=0.015819, s=-0.1873]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=3.67112]
+  * Adjusted p-values: [emp=0.154229, beta=0.108052]
+
+Processing phenotype [ENSG00000207789.1] [36/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9716, d=796059, pv=0.00843755, s=-0.2066]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999962, s2=5.25279]
+  * Adjusted p-values: [emp=0.0348259, beta=0.0331767]
+
+Processing phenotype [ENSG00000257953.1] [37/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=-203123, pv=0.0192689, s=0.1857]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999968, s2=4.8789]
+  * Adjusted p-values: [emp=0.0845771, beta=0.0791745]
+
+Processing phenotype [ENSG00000175215.5] [38/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9432, d=212770, pv=0.000436104, s=0.2718]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=5.68785]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00139046]
+
+Processing phenotype [ENSG00000257698.1] [39/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=179416, pv=0.0170253, s=0.1903]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999957, s2=4.72656]
+  * Adjusted p-values: [emp=0.0696517, beta=0.0909317]
+
+Processing phenotype [ENSG00000166896.3] [40/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8503, d=-184782, pv=0.0749127, s=0.1442]
+  * Beta parameters: [s1=0.959983, s2=5.55358]
+  * Adjusted p-values: [emp=0.303483, beta=0.320647]
+
+Processing phenotype [ENSG00000118596.7] [41/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9893, d=79117, pv=0.0250192, s=0.1716]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=1.02251]
+  * Adjusted p-values: [emp=0.0597015, beta=0.0422953]
+
+Processing phenotype [ENSG00000242922.2] [42/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_12772, d=91585, pv=0.000368633, s=0.2837]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=2.47309]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00025171]
+
+Processing phenotype [ENSG00000257528.1] [43/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_12772, d=0, pv=1.93333e-05, s=0.3215]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999999, s2=2.08188]
+  * Adjusted p-values: [emp=0.00497512, beta=1.38773e-05]
+
+Processing phenotype [ENSG00000213363.4] [44/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12772, d=0, pv=0.000291033, s=0.2740]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=2.46036]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00247653]
+
+Processing phenotype [ENSG00000252883.1] [45/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12772, d=0, pv=0.000239703, s=0.2879]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999978, s2=3.19397]
+  * Adjusted p-values: [emp=0.00497512, beta=0.000422209]
+
+Processing phenotype [ENSG00000257880.1] [46/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12772, d=0, pv=0.000162612, s=0.2923]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999982, s2=3.26048]
+  * Adjusted p-values: [emp=0.00497512, beta=3.58961e-05]
+
+Processing phenotype [ENSG00000258316.1] [47/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_8844, d=-72265, pv=0.000537543, s=0.2688]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999986, s2=3.82076]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00328123]
+
+Processing phenotype [ENSG00000135655.9] [48/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_12772, d=-496, pv=2.94892e-12, s=0.4920]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999957, s2=3.98472]
+  * Adjusted p-values: [emp=0.00497512, beta=1.37793e-11]
+
+Processing phenotype [ENSG00000198673.6] [49/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_12772, d=19308, pv=3.75978e-10, s=0.4696]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=4.56403]
+  * Adjusted p-values: [emp=0.00497512, beta=4.57364e-10]
+
+Processing phenotype [ENSG00000200814.1] [50/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_12772, d=74355, pv=5.19155e-07, s=0.3745]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999971, s2=3.86074]
+  * Adjusted p-values: [emp=0.00497512, beta=2.52455e-06]
+
+Processing phenotype [ENSG00000061987.10] [51/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_8793, d=683174, pv=0.0578037, s=-0.1479]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.33445]
+  * Adjusted p-values: [emp=0.20398, beta=0.191675]
+
+Processing phenotype [ENSG00000257568.1] [52/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_9702, d=-401621, pv=0.0100774, s=0.2062]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=3.93382]
+  * Adjusted p-values: [emp=0.0497512, beta=0.028908]
+
+Processing phenotype [ENSG00000202034.1] [53/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_8844, d=208005, pv=0.0681905, s=-0.1442]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999993, s2=4.20278]
+  * Adjusted p-values: [emp=0.283582, beta=0.248845]
+
+Processing phenotype [ENSG00000257354.1] [54/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_9702, d=283801, pv=0.0687028, s=0.1429]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=5.07258]
+  * Adjusted p-values: [emp=0.228856, beta=0.232201]
+
+Processing phenotype [ENSG00000221949.2] [55/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_8793, d=-546557, pv=0.0864202, s=-0.1345]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999983, s2=4.41571]
+  * Adjusted p-values: [emp=0.303483, beta=0.31657]
+
+Processing phenotype [ENSG00000241941.2] [56/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_8844, d=-321149, pv=0.0726685, s=-0.1409]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999978, s2=3.61573]
+  * Adjusted p-values: [emp=0.248756, beta=0.250367]
+
+Processing phenotype [ENSG00000213352.3] [57/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_12772, d=-495384, pv=0.199265, s=0.0981]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999982, s2=3.65729]
+  * Adjusted p-values: [emp=0.572139, beta=0.569088]
+
+Processing phenotype [ENSG00000111110.6] [58/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_9702, d=33688, pv=0.0101277, s=0.1936]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=3.22347]
+  * Adjusted p-values: [emp=0.0497512, beta=0.0448086]
+
+Processing phenotype [ENSG00000177990.7] [59/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_8793, d=257781, pv=0.0350747, s=0.1607]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=3.13442]
+  * Adjusted p-values: [emp=0.139303, beta=0.120867]
+
+Processing phenotype [ENSG00000118600.6] [60/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9702, d=-878454, pv=0.049042, s=0.1550]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=2.86476]
+  * Adjusted p-values: [emp=0.139303, beta=0.129945]
+
+Processing phenotype [ENSG00000184575.7] [61/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_12910, d=162055, pv=0.0895524, s=0.1343]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999983, s2=1.90668]
+  * Adjusted p-values: [emp=0.169154, beta=0.177508]
+
+Processing phenotype [ENSG00000255566.1] [62/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-123075, pv=0.279059, s=0.0818]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99997, s2=1.01664]
+  * Adjusted p-values: [emp=0.263682, beta=0.26601]
+
+Processing phenotype [ENSG00000183735.5] [63/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=114525, pv=0.130273, s=-0.1204]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999976, s2=0.985897]
+  * Adjusted p-values: [emp=0.159204, beta=0.131866]
+
+Processing phenotype [ENSG00000256199.1] [64/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-32767, pv=0.309923, s=-0.0813]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99999, s2=1.035]
+  * Adjusted p-values: [emp=0.328358, beta=0.320797]
+
+Processing phenotype [ENSG00000223294.1] [65/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=0, pv=0.926384, s=0.0074]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=0.929803]
+  * Adjusted p-values: [emp=0.930348, beta=0.911374]
+
+Processing phenotype [ENSG00000256670.1] [66/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=7697, pv=0.243373, s=0.0943]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999987, s2=0.830156]
+  * Adjusted p-values: [emp=0.273632, beta=0.250196]
+
+Processing phenotype [ENSG00000153179.7] [67/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-8751, pv=0.574812, s=0.0441]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=1.02188]
+  * Adjusted p-values: [emp=0.597015, beta=0.597393]
+
+Processing phenotype [ENSG00000207546.1] [68/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-20747, pv=0.898744, s=-0.0100]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999982, s2=0.98642]
+  * Adjusted p-values: [emp=0.890547, beta=0.88819]
+
+Processing phenotype [ENSG00000225195.2] [69/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-26582, pv=0.327097, s=-0.0768]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999997, s2=1.03356]
+  * Adjusted p-values: [emp=0.338308, beta=0.336419]
+
+Processing phenotype [ENSG00000256314.1] [70/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=53257, pv=0.626378, s=-0.0381]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=1.04587]
+  * Adjusted p-values: [emp=0.656716, beta=0.663172]
+
+Processing phenotype [ENSG00000268028.1] [71/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=94787, pv=0.634356, s=0.0383]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999985, s2=1.16575]
+  * Adjusted p-values: [emp=0.681592, beta=0.676042]
+
+Processing phenotype [ENSG00000135677.5] [72/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=157685, pv=0.248055, s=0.0854]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=0.976898]
+  * Adjusted p-values: [emp=0.238806, beta=0.243313]
+
+Processing phenotype [ENSG00000111490.8] [73/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-179047, pv=0.00227105, s=0.2366]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=0.934153]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00299748]
+
+Processing phenotype [ENSG00000243020.1] [74/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=266937, pv=0.036564, s=0.1677]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999998, s2=1.12213]
+  * Adjusted p-values: [emp=0.0298507, beta=0.0301062]
+
+Processing phenotype [ENSG00000255693.1] [75/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-281632, pv=0.69306, s=0.0310]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=1.1152]
+  * Adjusted p-values: [emp=0.751244, beta=0.748425]
+
+Processing phenotype [ENSG00000174106.2] [76/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-567809, pv=0.405306, s=0.0647]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999973, s2=1.06845]
+  * Adjusted p-values: [emp=0.477612, beta=0.459069]
+
+Processing phenotype [ENSG00000174099.6] [77/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-676881, pv=0.248148, s=-0.0900]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=0.905221]
+  * Adjusted p-values: [emp=0.253731, beta=0.246193]
+
+Processing phenotype [ENSG00000250280.2] [78/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_12910, d=-679895, pv=0.0506782, s=-0.1508]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99998, s2=1.03972]
+  * Adjusted p-values: [emp=0.0497512, beta=0.0480409]
+
+Processing phenotype [ENSG00000215208.3] [79/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_12910, d=818265, pv=0.341816, s=0.0736]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=1.67259]
+  * Adjusted p-values: [emp=0.532338, beta=0.551734]
+
+Processing phenotype [ENSG00000250748.2] [80/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9553, d=-647492, pv=0.140342, s=-0.1138]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999982, s2=1.57379]
+  * Adjusted p-values: [emp=0.218905, beta=0.249916]
+
+Processing phenotype [ENSG00000149948.9] [81/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9553, d=465733, pv=0.403754, s=-0.0631]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999973, s2=2.70106]
+  * Adjusted p-values: [emp=0.771144, beta=0.770642]
+
+Processing phenotype [ENSG00000197301.3] [82/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9527, d=-825896, pv=0.190465, s=-0.1036]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=3.47614]
+  * Adjusted p-values: [emp=0.467662, beta=0.446622]
+
+Processing phenotype [ENSG00000239335.4] [83/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12225, d=489541, pv=0.0034259, s=0.2324]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999953, s2=2.77545]
+  * Adjusted p-values: [emp=0.00497512, beta=0.0135426]
+
+Processing phenotype [ENSG00000139233.2] [84/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12225, d=-489524, pv=0.111197, s=0.1245]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=3.21455]
+  * Adjusted p-values: [emp=0.283582, beta=0.320409]
+
+Processing phenotype [ENSG00000228144.2] [85/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12225, d=-450307, pv=0.00238774, s=0.2421]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999947, s2=2.45499]
+  * Adjusted p-values: [emp=0.0248756, beta=0.0113099]
+
+Processing phenotype [ENSG00000155957.11] [86/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12225, d=-450220, pv=0.000368171, s=0.2762]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=3.22921]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00146613]
+
+Processing phenotype [ENSG00000090376.4] [87/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9527, d=519184, pv=0.0217461, s=0.1746]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999962, s2=2.43194]
+  * Adjusted p-values: [emp=0.0746269, beta=0.0747261]
+
+Processing phenotype [ENSG00000225422.3] [88/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9527, d=-472829, pv=0.0761018, s=0.1362]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=2.91268]
+  * Adjusted p-values: [emp=0.19403, beta=0.174529]
+
+Processing phenotype [ENSG00000266539.1] [89/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_12225, d=-384670, pv=0.192271, s=0.1005]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=2.7221]
+  * Adjusted p-values: [emp=0.477612, beta=0.473135]
+
+Processing phenotype [ENSG00000256072.1] [90/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9527, d=-450629, pv=0.027663, s=0.1664]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=2.86789]
+  * Adjusted p-values: [emp=0.0746269, beta=0.0695643]
+
+Processing phenotype [ENSG00000127311.5] [91/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9553, d=0, pv=0.000118997, s=0.2880]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=2.62297]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00040723]
+
+Processing phenotype [ENSG00000238528.1] [92/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9553, d=-40057, pv=0.00777932, s=0.2015]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=3.12038]
+  * Adjusted p-values: [emp=0.0547264, beta=0.0331578]
+
+Processing phenotype [ENSG00000155974.7] [93/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9553, d=498524, pv=0.000114616, s=0.2927]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=3.82612]
+  * Adjusted p-values: [emp=0.00497512, beta=0.000906306]
+
+Processing phenotype [ENSG00000111530.7] [94/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9914, d=244969, pv=0.0474815, s=-0.1498]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99996, s2=6.28656]
+  * Adjusted p-values: [emp=0.208955, beta=0.182766]
+
+Processing phenotype [ENSG00000127334.10] [95/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9527, d=-577948, pv=0.123295, s=0.1208]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999976, s2=4.67318]
+  * Adjusted p-values: [emp=0.442786, beta=0.439039]
+
+Processing phenotype [ENSG00000235872.2] [96/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9527, d=600529, pv=0.134465, s=0.1157]
+  * Beta parameters: [s1=0.920599, s2=6.2774]
+  * Adjusted p-values: [emp=0.487562, beta=0.509486]
+
+Processing phenotype [ENSG00000111554.10] [97/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9078, d=-257167, pv=0.10635, s=-0.1276]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999988, s2=3.06115]
+  * Adjusted p-values: [emp=0.298507, beta=0.286716]
+
+Processing phenotype [ENSG00000251301.2] [98/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=272190, pv=0.352776, s=0.0712]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999979, s2=2.58587]
+  * Adjusted p-values: [emp=0.666667, beta=0.670692]
+
+Processing phenotype [ENSG00000127314.12] [99/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9078, d=-10561, pv=0.106016, s=-0.1248]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=3.14976]
+  * Adjusted p-values: [emp=0.263682, beta=0.274131]
+
+Processing phenotype [ENSG00000234040.3] [100/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9914, d=821868, pv=0.261084, s=-0.0841]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999976, s2=3.26384]
+  * Adjusted p-values: [emp=0.577114, beta=0.565475]
+
+Processing phenotype [ENSG00000206650.1] [101/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9078, d=27097, pv=0.101442, s=-0.1289]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99997, s2=3.47752]
+  * Adjusted p-values: [emp=0.308458, beta=0.28651]
+
+Processing phenotype [ENSG00000234925.2] [102/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9914, d=837674, pv=0.20751, s=-0.0987]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=3.03134]
+  * Adjusted p-values: [emp=0.532338, beta=0.52295]
+
+Processing phenotype [ENSG00000241825.2] [103/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=-505122, pv=0.453441, s=-0.0583]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999993, s2=3.38484]
+  * Adjusted p-values: [emp=0.845771, beta=0.841652]
+
+Processing phenotype [ENSG00000111581.5] [104/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=-507261, pv=0.11134, s=-0.1223]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=3.13291]
+  * Adjusted p-values: [emp=0.263682, beta=0.287286]
+
+Processing phenotype [ENSG00000247363.2] [105/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=508282, pv=0.0571813, s=0.1467]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99998, s2=2.70526]
+  * Adjusted p-values: [emp=0.154229, beta=0.164403]
+
+Processing phenotype [ENSG00000233560.2] [106/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=-526161, pv=0.326175, s=0.0765]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999979, s2=3.30689]
+  * Adjusted p-values: [emp=0.701493, beta=0.691357]
+
+Processing phenotype [ENSG00000175782.7] [107/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9270, d=-566633, pv=0.612494, s=0.0397]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999955, s2=2.84786]
+  * Adjusted p-values: [emp=0.955224, beta=0.945081]
+
+Processing phenotype [ENSG00000251695.2] [108/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_9078, d=-192067, pv=0.641884, s=0.0347]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999957, s2=3.41425]
+  * Adjusted p-values: [emp=0.965174, beta=0.963143]
+
+Processing phenotype [ENSG00000256678.1] [109/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9078, d=205201, pv=0.309789, s=0.0761]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999989, s2=1.69529]
+  * Adjusted p-values: [emp=0.502488, beta=0.490627]
+
+Processing phenotype [ENSG00000135679.16] [110/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9078, d=-207898, pv=0.67933, s=-0.0317]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=2.43815]
+  * Adjusted p-values: [emp=0.925373, beta=0.926593]
+
+Processing phenotype [ENSG00000256325.1] [111/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9078, d=-227840, pv=0.37779, s=0.0697]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999992, s2=2.2141]
+  * Adjusted p-values: [emp=0.616915, beta=0.614653]
+
+Processing phenotype [ENSG00000256664.1] [112/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9270, d=-662473, pv=0.602081, s=0.0397]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=1.92866]
+  * Adjusted p-values: [emp=0.855721, beta=0.845407]
+
+Processing phenotype [ENSG00000257181.1] [113/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9078, d=242959, pv=0.671653, s=-0.0326]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.92872]
+  * Adjusted p-values: [emp=0.875622, beta=0.891496]
+
+Processing phenotype [ENSG00000135678.6] [114/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_9078, d=371292, pv=0.493015, s=-0.0528]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999971, s2=1.97985]
+  * Adjusted p-values: [emp=0.716418, beta=0.732206]
+
+Processing phenotype [ENSG00000111605.12] [115/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-639259, pv=0.817496, s=-0.0176]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999974, s2=1.12308]
+  * Adjusted p-values: [emp=0.840796, beta=0.830865]
+
+Processing phenotype [ENSG00000257818.1] [116/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-684119, pv=0.783525, s=0.0216]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999989, s2=0.972897]
+  * Adjusted p-values: [emp=0.741294, beta=0.761426]
+
+Processing phenotype [ENSG00000090382.2] [117/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-748063, pv=0.738672, s=-0.0266]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999971, s2=1.06815]
+  * Adjusted p-values: [emp=0.761194, beta=0.759425]
+
+Processing phenotype [ENSG00000257764.1] [118/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=753947, pv=0.730642, s=-0.0275]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99999, s2=0.981093]
+  * Adjusted p-values: [emp=0.726368, beta=0.730007]
+
+Processing phenotype [ENSG00000127337.2] [119/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-759425, pv=0.73081, s=-0.0280]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.11919]
+  * Adjusted p-values: [emp=0.761194, beta=0.763519]
+
+Processing phenotype [ENSG00000166225.4] [120/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-870071, pv=0.829588, s=0.0173]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999984, s2=0.976737]
+  * Adjusted p-values: [emp=0.81592, beta=0.804582]
+
+Processing phenotype [ENSG00000166226.7] [121/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_9078, d=-985056, pv=0.0781184, s=-0.1417]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999978, s2=0.981025]
+  * Adjusted p-values: [emp=0.0547264, beta=0.0482485]
+
+Processing phenotype [ENSG00000127328.17] [122/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000258052.1] [123/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257613.1] [124/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000111596.7] [125/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257815.1] [126/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000139292.8] [127/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_8900, d=339773, pv=0.248079, s=0.0917]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=1.9107]
+  * Adjusted p-values: [emp=0.437811, beta=0.45022]
+
+Processing phenotype [ENSG00000212461.1] [128/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=252491, pv=0.234557, s=0.0959]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999968, s2=1.94318]
+  * Adjusted p-values: [emp=0.432836, beta=0.428716]
+
+Processing phenotype [ENSG00000173451.2] [129/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=228837, pv=0.489349, s=-0.0536]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.75236]
+  * Adjusted p-values: [emp=0.716418, beta=0.699774]
+
+Processing phenotype [ENSG00000133858.11] [130/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=-224121, pv=0.110899, s=-0.1274]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999952, s2=1.68821]
+  * Adjusted p-values: [emp=0.263682, beta=0.244502]
+
+Processing phenotype [ENSG00000258064.1] [131/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=217642, pv=0.27211, s=-0.0809]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=1.74914]
+  * Adjusted p-values: [emp=0.457711, beta=0.460107]
+
+Processing phenotype [ENSG00000139291.8] [132/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=205759, pv=0.246634, s=-0.0895]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999959, s2=2.62851]
+  * Adjusted p-values: [emp=0.452736, beta=0.468418]
+
+Processing phenotype [ENSG00000080371.4] [133/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_8900, d=24669, pv=0.360302, s=0.0689]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=1.96504]
+  * Adjusted p-values: [emp=0.58209, beta=0.5822]
+
+Processing phenotype [ENSG00000257410.1] [134/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11434, d=-92219, pv=0.160231, s=0.1104]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=1.64262]
+  * Adjusted p-values: [emp=0.323383, beta=0.329422]
+
+Processing phenotype [ENSG00000121749.11] [135/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_8900, d=-48195, pv=0.00763687, s=0.2144]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.78727]
+  * Adjusted p-values: [emp=0.039801, beta=0.0126507]
+
+Processing phenotype [ENSG00000257802.1] [136/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_8900, d=58916, pv=0.267558, s=0.0896]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.97003]
+  * Adjusted p-values: [emp=0.402985, beta=0.453397]
+
+Processing phenotype [ENSG00000253719.2] [137/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_10081, d=857903, pv=0.230338, s=-0.0959]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999999, s2=1.01954]
+  * Adjusted p-values: [emp=0.263682, beta=0.256873]
+
+Processing phenotype [ENSG00000257386.1] [138/290]
+  * #variants in cis = 1
+  * Best hit: [id=12_internal_10081, d=-857041, pv=0.240597, s=-0.0943]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999992, s2=1.02086]
+  * Adjusted p-values: [emp=0.233831, beta=0.242738]
+
+Processing phenotype [ENSG00000180881.15] [139/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10081, d=-4746, pv=0.137009, s=-0.1165]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=3.10578]
+  * Adjusted p-values: [emp=0.308458, beta=0.311911]
+
+Processing phenotype [ENSG00000139278.5] [140/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10081, d=0, pv=0.00837934, s=0.2059]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=3.39363]
+  * Adjusted p-values: [emp=0.0298507, beta=0.0181801]
+
+Processing phenotype [ENSG00000257497.1] [141/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10081, d=0, pv=0.224834, s=0.0965]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999999, s2=3.49333]
+  * Adjusted p-values: [emp=0.532338, beta=0.556401]
+
+Processing phenotype [ENSG00000111615.8] [142/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10081, d=21029, pv=0.0215157, s=0.1819]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999984, s2=3.44297]
+  * Adjusted p-values: [emp=0.079602, beta=0.0635867]
+
+Processing phenotype [ENSG00000139289.8] [143/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_8853, d=88214, pv=0.026035, s=0.1678]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999967, s2=2.9148]
+  * Adjusted p-values: [emp=0.0646766, beta=0.0794765]
+
+Processing phenotype [ENSG00000257941.1] [144/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10742, d=-35600, pv=0.0620929, s=0.1483]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999986, s2=2.97299]
+  * Adjusted p-values: [emp=0.149254, beta=0.196275]
+
+Processing phenotype [ENSG00000187109.8] [145/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10742, d=63095, pv=0.30499, s=0.0813]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999988, s2=3.4237]
+  * Adjusted p-values: [emp=0.676617, beta=0.698134]
+
+Processing phenotype [ENSG00000179941.5] [146/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_10081, d=857835, pv=0.541609, s=0.0486]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999998, s2=2.86102]
+  * Adjusted p-values: [emp=0.910448, beta=0.899105]
+
+Processing phenotype [ENSG00000091039.12] [147/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_8853, d=614091, pv=0.176105, s=-0.1056]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=1.75891]
+  * Adjusted p-values: [emp=0.338308, beta=0.320577]
+
+Processing phenotype [ENSG00000186908.10] [148/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10742, d=-741650, pv=0.274551, s=0.0856]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999969, s2=1.98214]
+  * Adjusted p-values: [emp=0.457711, beta=0.448664]
+
+Processing phenotype [ENSG00000257445.1] [149/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10742, d=-836285, pv=0.605885, s=0.0409]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=1.85912]
+  * Adjusted p-values: [emp=0.850746, beta=0.841649]
+
+Processing phenotype [ENSG00000175183.5] [150/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10742, d=857122, pv=0.0328234, s=0.1627]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=2.04576]
+  * Adjusted p-values: [emp=0.0746269, beta=0.0866326]
+
+Processing phenotype [ENSG00000067798.9] [151/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000258048.1] [152/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000177425.6] [153/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000269531.1] [154/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000258044.1] [155/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000201942.1] [156/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257557.1] [157/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000058272.11] [158/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257741.1] [159/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000207763.1] [160/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000258215.1] [161/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000208022.1] [162/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000111058.3] [163/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000111052.3] [164/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000127720.3] [165/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10011, d=-406957, pv=0.173067, s=0.1088]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=2.16634]
+  * Adjusted p-values: [emp=0.288557, beta=0.269345]
+
+Processing phenotype [ENSG00000133773.7] [166/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10011, d=407265, pv=0.242909, s=-0.0953]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999977, s2=2.10217]
+  * Adjusted p-values: [emp=0.462687, beta=0.438556]
+
+Processing phenotype [ENSG00000257875.1] [167/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11735, d=401709, pv=0.801534, s=0.0193]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999987, s2=1.92661]
+  * Adjusted p-values: [emp=0.960199, beta=0.952499]
+
+Processing phenotype [ENSG00000179104.3] [168/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_11735, d=183285, pv=0.00019432, s=0.2929]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999993, s2=1.55033]
+  * Adjusted p-values: [emp=0.00497512, beta=0.00138727]
+
+Processing phenotype [ENSG00000133641.11] [169/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000198707.8] [170/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000139324.7] [171/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000246363.2] [172/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8885, d=-447675, pv=0.0191131, s=0.1750]
+  * Beta parameters: [s1=0.888991, s2=7.50209]
+  * Adjusted p-values: [emp=0.114428, beta=0.108043]
+
+Processing phenotype [ENSG00000257629.1] [173/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8885, d=439597, pv=0.111681, s=0.1210]
+  * Beta parameters: [s1=1.02372, s2=6.18762]
+  * Adjusted p-values: [emp=0.552239, beta=0.557635]
+
+Processing phenotype [ENSG00000257156.1] [174/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8885, d=-157801, pv=0.015547, s=0.1876]
+  * Beta parameters: [s1=1.07199, s2=7.03346]
+  * Adjusted p-values: [emp=0.079602, beta=0.10257]
+
+Processing phenotype [ENSG00000257820.1] [175/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_10317, d=-79396, pv=0.00954173, s=0.1982]
+  * Beta parameters: [s1=1.07841, s2=7.50522]
+  * Adjusted p-values: [emp=0.0696517, beta=0.0679278]
+
+Processing phenotype [ENSG00000139318.6] [176/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8975, d=0, pv=0.0070098, s=0.2074]
+  * Beta parameters: [s1=0.985506, s2=6.52967]
+  * Adjusted p-values: [emp=0.0547264, beta=0.0432907]
+
+Processing phenotype [ENSG00000226982.4] [177/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8975, d=-100911, pv=0.08349, s=0.1403]
+  * Beta parameters: [s1=0.916258, s2=6.1461]
+  * Adjusted p-values: [emp=0.457711, beta=0.465162]
+
+Processing phenotype [ENSG00000257594.1] [178/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8975, d=125624, pv=0.0483883, s=0.1544]
+  * Beta parameters: [s1=0.90116, s2=6.4189]
+  * Adjusted p-values: [emp=0.313433, beta=0.311102]
+
+Processing phenotype [ENSG00000139323.9] [179/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8975, d=126842, pv=0.0387501, s=0.1611]
+  * Beta parameters: [s1=1.04386, s2=9.19416]
+  * Adjusted p-values: [emp=0.268657, beta=0.257468]
+
+Processing phenotype [ENSG00000259075.1] [180/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_11368, d=-145629, pv=0.0492416, s=0.1539]
+  * Beta parameters: [s1=1.05909, s2=6.44106]
+  * Adjusted p-values: [emp=0.273632, beta=0.278471]
+
+Processing phenotype [ENSG00000258302.1] [181/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8885, d=0, pv=0.0559376, s=0.1496]
+  * Beta parameters: [s1=0.834669, s2=8.77385]
+  * Adjusted p-values: [emp=0.298507, beta=0.293799]
+
+Processing phenotype [ENSG00000266347.1] [182/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_10110, d=-237216, pv=0.146004, s=0.1167]
+  * Beta parameters: [s1=1.02936, s2=7.60576]
+  * Adjusted p-values: [emp=0.621891, beta=0.606044]
+
+Processing phenotype [ENSG00000070961.10] [183/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_11368, d=0, pv=0.124454, s=0.1190]
+  * Beta parameters: [s1=0.960137, s2=7.114]
+  * Adjusted p-values: [emp=0.587065, beta=0.60124]
+
+Processing phenotype [ENSG00000257480.1] [184/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8589, d=0, pv=0.0133582, s=0.1955]
+  * Beta parameters: [s1=0.937979, s2=6.74603]
+  * Adjusted p-values: [emp=0.109453, beta=0.0942515]
+
+Processing phenotype [ENSG00000257242.1] [185/290]
+  * #variants in cis = 17
+  * Best hit: [id=12_internal_8973, d=-12832, pv=0.0499874, s=0.1539]
+  * Beta parameters: [s1=0.980895, s2=18.0846]
+  * Adjusted p-values: [emp=0.572139, beta=0.579966]
+
+Processing phenotype [ENSG00000257922.1] [186/290]
+  * #variants in cis = 17
+  * Best hit: [id=12_internal_9381, d=49923, pv=0.0394666, s=-0.1624]
+  * Beta parameters: [s1=0.927731, s2=14.2803]
+  * Adjusted p-values: [emp=0.517413, beta=0.514163]
+
+Processing phenotype [ENSG00000245904.2] [187/290]
+  * #variants in cis = 17
+  * Best hit: [id=12_internal_10491, d=-121595, pv=0.0127387, s=0.1960]
+  * Beta parameters: [s1=1.15111, s2=14.7649]
+  * Adjusted p-values: [emp=0.189055, beta=0.172384]
+
+Processing phenotype [ENSG00000133639.3] [188/290]
+  * #variants in cis = 17
+  * Best hit: [id=12_internal_8576, d=28513, pv=0.0341312, s=0.1638]
+  * Beta parameters: [s1=1.02984, s2=14.4391]
+  * Adjusted p-values: [emp=0.412935, beta=0.407093]
+
+Processing phenotype [ENSG00000187510.3] [189/290]
+  * #variants in cis = 19
+  * Best hit: [id=12_internal_9523, d=-655038, pv=0.0873499, s=-0.1337]
+  * Beta parameters: [s1=0.970919, s2=21.4737]
+  * Adjusted p-values: [emp=0.81592, beta=0.820064]
+
+Processing phenotype [ENSG00000258012.1] [190/290]
+  * #variants in cis = 18
+  * Best hit: [id=12_internal_9400, d=40015, pv=0.034555, s=0.1636]
+  * Beta parameters: [s1=0.962536, s2=15.4053]
+  * Adjusted p-values: [emp=0.437811, beta=0.421777]
+
+Processing phenotype [ENSG00000102189.12] [191/290]
+  * #variants in cis = 19
+  * Best hit: [id=12_internal_9857, d=843737, pv=0.0747701, s=-0.1422]
+  * Beta parameters: [s1=1.11296, s2=18.2512]
+  * Adjusted p-values: [emp=0.746269, beta=0.75235]
+
+Processing phenotype [ENSG00000257345.1] [192/290]
+  * #variants in cis = 18
+  * Best hit: [id=12_internal_8932, d=437430, pv=0.0727013, s=-0.1423]
+  * Beta parameters: [s1=0.951879, s2=18.6648]
+  * Adjusted p-values: [emp=0.741294, beta=0.736981]
+
+Processing phenotype [ENSG00000257746.1] [193/290]
+  * #variants in cis = 15
+  * Best hit: [id=12_internal_8576, d=-973138, pv=0.0634119, s=0.1456]
+  * Beta parameters: [s1=1.0735, s2=11.7684]
+  * Adjusted p-values: [emp=0.587065, beta=0.588299]
+
+Processing phenotype [ENSG00000257210.1] [194/290]
+  * #variants in cis = 12
+  * Best hit: [id=12_internal_8941, d=717815, pv=0.0451696, s=-0.1542]
+  * Beta parameters: [s1=1.08686, s2=11.7823]
+  * Adjusted p-values: [emp=0.427861, beta=0.449144]
+
+Processing phenotype [ENSG00000257322.1] [195/290]
+  * #variants in cis = 12
+  * Best hit: [id=12_internal_9475, d=619878, pv=0.00810735, s=-0.2034]
+  * Beta parameters: [s1=0.883751, s2=10.7759]
+  * Adjusted p-values: [emp=0.119403, beta=0.100487]
+
+Processing phenotype [ENSG00000173598.9] [196/290]
+  * #variants in cis = 11
+  * Best hit: [id=12_internal_10855, d=-781250, pv=0.198488, s=0.0980]
+  * Beta parameters: [s1=0.99098, s2=9.83339]
+  * Adjusted p-values: [emp=0.905473, beta=0.899567]
+
+Processing phenotype [ENSG00000177889.5] [197/290]
+  * #variants in cis = 9
+  * Best hit: [id=12_internal_9081, d=995832, pv=0.00151064, s=-0.2464]
+  * Beta parameters: [s1=0.979385, s2=10.0174]
+  * Adjusted p-values: [emp=0.00995025, beta=0.0107874]
+
+Processing phenotype [ENSG00000198015.7] [198/290]
+  * #variants in cis = 8
+  * Best hit: [id=12_internal_10311, d=68723, pv=0.0493301, s=0.1527]
+  * Beta parameters: [s1=1.0205, s2=8.10825]
+  * Adjusted p-values: [emp=0.283582, beta=0.27964]
+
+Processing phenotype [ENSG00000169372.7] [199/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_10311, d=0, pv=0.153609, s=0.1085]
+  * Beta parameters: [s1=1.01903, s2=6.54148]
+  * Adjusted p-values: [emp=0.641791, beta=0.632758]
+
+Processing phenotype [ENSG00000258274.1] [200/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_9400, d=822071, pv=0.0938777, s=-0.1321]
+  * Beta parameters: [s1=0.927907, s2=5.85032]
+  * Adjusted p-values: [emp=0.457711, beta=0.448878]
+
+Processing phenotype [ENSG00000257196.1] [201/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_10311, d=0, pv=0.182101, s=-0.1061]
+  * Beta parameters: [s1=0.968425, s2=6.00552]
+  * Adjusted p-values: [emp=0.711443, beta=0.704203]
+
+Processing phenotype [ENSG00000264978.1] [202/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_12183, d=67457, pv=0.140063, s=0.1144]
+  * Beta parameters: [s1=0.988389, s2=5.70189]
+  * Adjusted p-values: [emp=0.552239, beta=0.556935]
+
+Processing phenotype [ENSG00000258303.1] [203/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_10311, d=0, pv=0.0114213, s=-0.1919]
+  * Beta parameters: [s1=0.972809, s2=6.16109]
+  * Adjusted p-values: [emp=0.0895522, beta=0.0646326]
+
+Processing phenotype [ENSG00000257283.1] [204/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10311, d=43822, pv=0.403941, s=-0.0644]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999958, s2=5.24763]
+  * Adjusted p-values: [emp=0.950249, beta=0.932169]
+
+Processing phenotype [ENSG00000257360.1] [205/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_12183, d=-106014, pv=0.312411, s=-0.0799]
+  * Beta parameters: [s1=1.0089, s2=6.55773]
+  * Adjusted p-values: [emp=0.920398, beta=0.915261]
+
+Processing phenotype [ENSG00000136040.4] [206/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_10569, d=831379, pv=0.00347992, s=0.2200]
+  * Beta parameters: [s1=1.01705, s2=7.00744]
+  * Adjusted p-values: [emp=0.00995025, beta=0.0137491]
+
+Processing phenotype [ENSG00000258035.1] [207/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_12183, d=151981, pv=0.132224, s=0.1178]
+  * Beta parameters: [s1=1.15513, s2=7.82156]
+  * Adjusted p-values: [emp=0.646766, beta=0.623636]
+
+Processing phenotype [ENSG00000258172.1] [208/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8932, d=827002, pv=0.00558153, s=0.2243]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=5.0575]
+  * Adjusted p-values: [emp=0.0298507, beta=0.0232251]
+
+Processing phenotype [ENSG00000258365.1] [209/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_8932, d=832651, pv=0.0977467, s=0.1286]
+  * Beta parameters: [s1=0.990821, s2=6.09134]
+  * Adjusted p-values: [emp=0.338308, beta=0.325583]
+
+Processing phenotype [ENSG00000244391.2] [210/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10311, d=-461439, pv=0.00223046, s=-0.2344]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=5.85475]
+  * Adjusted p-values: [emp=0.0149254, beta=0.00517002]
+
+Processing phenotype [ENSG00000173588.9] [211/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_10569, d=-520114, pv=0.0514733, s=0.1507]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=3.92322]
+  * Adjusted p-values: [emp=0.139303, beta=0.162219]
+
+Processing phenotype [ENSG00000257400.1] [212/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_10569, d=-483660, pv=0.129511, s=0.1196]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=4.36684]
+  * Adjusted p-values: [emp=0.427861, beta=0.419921]
+
+Processing phenotype [ENSG00000244091.1] [213/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_10311, d=-615695, pv=0.266457, s=-0.0864]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=4.51724]
+  * Adjusted p-values: [emp=0.736318, beta=0.743872]
+
+Processing phenotype [ENSG00000258357.1] [214/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_10569, d=-458233, pv=0.1414, s=0.1106]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.61365]
+  * Adjusted p-values: [emp=0.477612, beta=0.471436]
+
+Processing phenotype [ENSG00000236349.1] [215/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10311, d=-648460, pv=0.120199, s=-0.1214]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999945, s2=5.08049]
+  * Adjusted p-values: [emp=0.467662, beta=0.466802]
+
+Processing phenotype [ENSG00000266099.1] [216/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10569, d=418313, pv=0.0935155, s=-0.1330]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=6.21569]
+  * Adjusted p-values: [emp=0.383085, beta=0.380098]
+
+Processing phenotype [ENSG00000257847.1] [217/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_12183, d=-556758, pv=0.0634147, s=0.1465]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999988, s2=4.49958]
+  * Adjusted p-values: [emp=0.298507, beta=0.290048]
+
+Processing phenotype [ENSG00000057704.6] [218/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_12183, d=616499, pv=0.188875, s=0.0996]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.20109]
+  * Adjusted p-values: [emp=0.661692, beta=0.651773]
+
+Processing phenotype [ENSG00000184752.8] [219/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_12183, d=969707, pv=0.053924, s=-0.1438]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=4.15883]
+  * Adjusted p-values: [emp=0.164179, beta=0.16376]
+
+Processing phenotype [ENSG00000120798.11] [220/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_9356, d=-473883, pv=0.35334, s=-0.0747]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999991, s2=3.85997]
+  * Adjusted p-values: [emp=0.825871, beta=0.828588]
+
+Processing phenotype [ENSG00000180263.9] [221/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10157, d=538837, pv=0.221078, s=-0.0990]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999984, s2=4.5001]
+  * Adjusted p-values: [emp=0.636816, beta=0.638993]
+
+Processing phenotype [ENSG00000028203.13] [222/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10569, d=-211151, pv=0.128919, s=0.1181]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.4997]
+  * Adjusted p-values: [emp=0.452736, beta=0.460787]
+
+Processing phenotype [ENSG00000111142.9] [223/290]
+  * #variants in cis = 9
+  * Best hit: [id=12_internal_10637, d=840326, pv=0.0648941, s=0.1426]
+  * Beta parameters: [s1=0.964018, s2=10.16]
+  * Adjusted p-values: [emp=0.447761, beta=0.445064]
+
+Processing phenotype [ENSG00000139343.6] [224/290]
+  * #variants in cis = 8
+  * Best hit: [id=12_internal_9356, d=-287028, pv=0.0134923, s=0.1960]
+  * Beta parameters: [s1=1.01514, s2=6.82112]
+  * Adjusted p-values: [emp=0.0945274, beta=0.107811]
+
+Processing phenotype [ENSG00000139344.3] [225/290]
+  * #variants in cis = 8
+  * Best hit: [id=12_internal_8918, d=249882, pv=0.00876664, s=-0.2054]
+  * Beta parameters: [s1=0.929969, s2=8.48829]
+  * Adjusted p-values: [emp=0.109453, beta=0.0921594]
+
+Processing phenotype [ENSG00000084110.6] [226/290]
+  * #variants in cis = 8
+  * Best hit: [id=12_internal_9036, d=-424266, pv=0.184859, s=-0.1069]
+  * Beta parameters: [s1=1.05465, s2=6.99761]
+  * Adjusted p-values: [emp=0.80597, beta=0.795889]
+
+Processing phenotype [ENSG00000257878.1] [227/290]
+  * #variants in cis = 8
+  * Best hit: [id=12_internal_8918, d=196654, pv=0.0834416, s=-0.1367]
+  * Beta parameters: [s1=1.06394, s2=7.20253]
+  * Adjusted p-values: [emp=0.522388, beta=0.507844]
+
+Processing phenotype [ENSG00000257715.1] [228/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9036, d=395308, pv=0.343126, s=0.0749]
+  * Beta parameters: [s1=0.969161, s2=7.9287]
+  * Adjusted p-values: [emp=0.960199, beta=0.961281]
+
+Processing phenotype [ENSG00000111144.5] [229/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9036, d=-377111, pv=0.657068, s=0.0352]
+  * Beta parameters: [s1=1.13358, s2=8.02618]
+  * Adjusted p-values: [emp=0.995025, beta=0.999794]
+
+Processing phenotype [ENSG00000111145.3] [230/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9975, d=261790, pv=0.0482268, s=0.1564]
+  * Beta parameters: [s1=1.08563, s2=8.43636]
+  * Adjusted p-values: [emp=0.308458, beta=0.307215]
+
+Processing phenotype [ENSG00000258177.1] [231/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_10637, d=-89871, pv=0.0842818, s=0.1336]
+  * Beta parameters: [s1=1.06975, s2=7.25461]
+  * Adjusted p-values: [emp=0.447761, beta=0.452237]
+
+Processing phenotype [ENSG00000201435.1] [232/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_8918, d=87064, pv=0.0279226, s=0.1655]
+  * Beta parameters: [s1=0.947271, s2=6.31207]
+  * Adjusted p-values: [emp=0.18408, beta=0.174707]
+
+Processing phenotype [ENSG00000257169.1] [233/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9036, d=-33437, pv=0.301778, s=0.0827]
+  * Beta parameters: [s1=1.17608, s2=6.39543]
+  * Adjusted p-values: [emp=0.910448, beta=0.902322]
+
+Processing phenotype [ENSG00000059758.3] [234/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9975, d=-55612, pv=0.0085987, s=0.2056]
+  * Beta parameters: [s1=1.12075, s2=6.15233]
+  * Adjusted p-values: [emp=0.0597015, beta=0.0716386]
+
+Processing phenotype [ENSG00000188596.3] [235/290]
+  * #variants in cis = 7
+  * Best hit: [id=12_internal_9036, d=-42101, pv=0.0808293, s=-0.1388]
+  * Beta parameters: [s1=1.10984, s2=7.35256]
+  * Adjusted p-values: [emp=0.477612, beta=0.461117]
+
+Processing phenotype [ENSG00000139350.7] [236/290]
+  * #variants in cis = 6
+  * Best hit: [id=12_internal_11968, d=-559014, pv=0.349806, s=0.0744]
+  * Beta parameters: [s1=0.962921, s2=6.61734]
+  * Adjusted p-values: [emp=0.925373, beta=0.928935]
+
+Processing phenotype [ENSG00000206899.1] [237/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000120802.8] [238/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257167.2] [239/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000075415.8] [240/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000212443.1] [241/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000221625.1] [242/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000166130.10] [243/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000120868.9] [244/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000185046.12] [245/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000214203.4] [246/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000111647.8] [247/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257696.1] [248/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000238105.3] [249/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000075089.5] [250/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000257489.1] [251/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000166153.12] [252/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000136021.13] [253/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000139354.6] [254/290]
+  * #variants in cis = 0
+
+Processing phenotype [ENSG00000120800.4] [255/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=519204, pv=0.2166, s=-0.0982]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.62036]
+  * Adjusted p-values: [emp=0.353234, beta=0.370138]
+
+Processing phenotype [ENSG00000120805.9] [256/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=-206106, pv=0.00539477, s=0.2170]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999967, s2=1.84422]
+  * Adjusted p-values: [emp=0.0199005, beta=0.0172654]
+
+Processing phenotype [ENSG00000111666.6] [257/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=0, pv=1.51858e-17, s=0.6054]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=2.23289]
+  * Adjusted p-values: [emp=0.00497512, beta=2.60135e-18]
+
+Processing phenotype [ENSG00000199933.1] [258/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=-3417, pv=8.84145e-05, s=0.3000]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99999, s2=1.55896]
+  * Adjusted p-values: [emp=0.00497512, beta=0.000236242]
+
+Processing phenotype [ENSG00000139351.10] [259/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=23081, pv=6.27972e-16, s=0.5881]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99998, s2=1.91035]
+  * Adjusted p-values: [emp=0.00497512, beta=1.51794e-16]
+
+Processing phenotype [ENSG00000222255.1] [260/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=-33804, pv=0.148399, s=0.1147]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=2.03053]
+  * Adjusted p-values: [emp=0.293532, beta=0.29038]
+
+Processing phenotype [ENSG00000258230.2] [261/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=57364, pv=0.00461371, s=0.2257]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=2.29268]
+  * Adjusted p-values: [emp=0.00995025, beta=0.00828744]
+
+Processing phenotype [ENSG00000238940.1] [262/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=9498, pv=0.361655, s=-0.0729]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1, s2=1.77176]
+  * Adjusted p-values: [emp=0.577114, beta=0.598018]
+
+Processing phenotype [ENSG00000222932.1] [263/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=-2811, pv=0.234529, s=0.0942]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.94278]
+  * Adjusted p-values: [emp=0.41791, beta=0.409746]
+
+Processing phenotype [ENSG00000111670.9] [264/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=114547, pv=0.00414674, s=0.2145]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=1.83263]
+  * Adjusted p-values: [emp=0.00995025, beta=0.010434]
+
+Processing phenotype [ENSG00000136048.9] [265/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=-45309, pv=0.0628395, s=0.1481]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00005, s2=1.71948]
+  * Adjusted p-values: [emp=0.109453, beta=0.113077]
+
+Processing phenotype [ENSG00000257202.1] [266/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=92677, pv=0.0520192, s=0.1573]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00003, s2=1.8594]
+  * Adjusted p-values: [emp=0.0746269, beta=0.0664866]
+
+Processing phenotype [ENSG00000258308.1] [267/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=245999, pv=0.792325, s=0.0210]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999966, s2=2.55441]
+  * Adjusted p-values: [emp=0.970149, beta=0.978992]
+
+Processing phenotype [ENSG00000120860.6] [268/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_13666, d=345758, pv=0.250951, s=-0.0906]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999974, s2=1.71742]
+  * Adjusted p-values: [emp=0.41791, beta=0.408389]
+
+Processing phenotype [ENSG00000257222.1] [269/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=-231313, pv=0.0416568, s=-0.1599]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999965, s2=1.92358]
+  * Adjusted p-values: [emp=0.079602, beta=0.105365]
+
+Processing phenotype [ENSG00000075188.3] [270/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=288082, pv=0.29807, s=-0.0836]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999976, s2=2.00364]
+  * Adjusted p-values: [emp=0.522388, beta=0.524122]
+
+Processing phenotype [ENSG00000185480.7] [271/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=-288136, pv=0.743019, s=-0.0262]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00002, s2=2.12947]
+  * Adjusted p-values: [emp=0.935323, beta=0.937412]
+
+Processing phenotype [ENSG00000183395.4] [272/290]
+  * #variants in cis = 2
+  * Best hit: [id=12_internal_10090, d=365803, pv=0.415488, s=-0.0645]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=2.02293]
+  * Adjusted p-values: [emp=0.661692, beta=0.649816]
+
+Processing phenotype [ENSG00000136011.10] [273/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_9871, d=-90952, pv=0.0157338, s=0.1921]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999984, s2=3.65812]
+  * Adjusted p-values: [emp=0.0497512, beta=0.0540326]
+
+Processing phenotype [ENSG00000257681.1] [274/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9835, d=-687220, pv=0.372555, s=-0.0716]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999952, s2=4.47257]
+  * Adjusted p-values: [emp=0.930348, beta=0.901112]
+
+Processing phenotype [ENSG00000257754.1] [275/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=639036, pv=0.558013, s=0.0467]
+  * Beta parameters: [s1=0.943432, s2=5.7293]
+  * Adjusted p-values: [emp=0.99005, beta=0.989666]
+
+Processing phenotype [ENSG00000111696.7] [276/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_11590, d=-59068, pv=0.0359031, s=0.1618]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=5.01877]
+  * Adjusted p-values: [emp=0.18408, beta=0.168357]
+
+Processing phenotype [ENSG00000166598.8] [277/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=528539, pv=0.256348, s=0.0890]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.77494]
+  * Adjusted p-values: [emp=0.741294, beta=0.744764]
+
+Processing phenotype [ENSG00000214198.3] [278/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9871, d=433890, pv=0.350281, s=0.0747]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999949, s2=4.28392]
+  * Adjusted p-values: [emp=0.855721, beta=0.85399]
+
+Processing phenotype [ENSG00000265072.1] [279/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9835, d=525653, pv=0.237964, s=0.0933]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.99996, s2=4.78662]
+  * Adjusted p-values: [emp=0.706468, beta=0.732778]
+
+Processing phenotype [ENSG00000204954.5] [280/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9835, d=-490370, pv=0.22299, s=0.0911]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.97741]
+  * Adjusted p-values: [emp=0.676617, beta=0.686445]
+
+Processing phenotype [ENSG00000139372.10] [281/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_10890, d=632464, pv=0.292928, s=-0.0824]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=5.33687]
+  * Adjusted p-values: [emp=0.80597, beta=0.815542]
+
+Processing phenotype [ENSG00000120820.8] [282/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=-394463, pv=0.327098, s=0.0771]
+  * Beta parameters: [s1=0.978414, s2=6.14641]
+  * Adjusted p-values: [emp=0.850746, beta=0.868441]
+
+Processing phenotype [ENSG00000111727.7] [283/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9871, d=-568136, pv=0.195035, s=0.0996]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=4.56654]
+  * Adjusted p-values: [emp=0.626866, beta=0.63146]
+
+Processing phenotype [ENSG00000120837.3] [284/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_9835, d=-317789, pv=0.130425, s=-0.1196]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999957, s2=5.25608]
+  * Adjusted p-values: [emp=0.447761, beta=0.448503]
+
+Processing phenotype [ENSG00000198431.10] [285/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=242867, pv=0.0314342, s=0.1710]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00004, s2=4.60351]
+  * Adjusted p-values: [emp=0.154229, beta=0.133653]
+
+Processing phenotype [ENSG00000255150.1] [286/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=154907, pv=0.130286, s=0.1206]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999981, s2=5.16743]
+  * Adjusted p-values: [emp=0.507463, beta=0.517168]
+
+Processing phenotype [ENSG00000171310.6] [287/290]
+  * #variants in cis = 5
+  * Best hit: [id=12_internal_13149, d=3351, pv=0.000328805, s=0.2737]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=4.9672]
+  * Adjusted p-values: [emp=0.00995025, beta=0.00112145]
+
+Processing phenotype [ENSG00000258111.1] [288/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_13149, d=0, pv=0.0452915, s=0.1543]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999979, s2=3.83837]
+  * Adjusted p-values: [emp=0.129353, beta=0.16196]
+
+Processing phenotype [ENSG00000264295.1] [289/290]
+  * #variants in cis = 4
+  * Best hit: [id=12_internal_13149, d=0, pv=0.019208, s=0.1813]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=0.999964, s2=5.07039]
+  * Adjusted p-values: [emp=0.0746269, beta=0.0581941]
+
+Processing phenotype [ENSG00000136052.5] [290/290]
+  * #variants in cis = 3
+  * Best hit: [id=12_internal_13149, d=204830, pv=0.249575, s=0.0928]
+  * Maximum Likelihood estimation failed, use Moment Matching instead!
+  * Beta parameters: [s1=1.00001, s2=3.05803]
+  * Adjusted p-values: [emp=0.562189, beta=0.567488]
+
+Running time: 2 seconds

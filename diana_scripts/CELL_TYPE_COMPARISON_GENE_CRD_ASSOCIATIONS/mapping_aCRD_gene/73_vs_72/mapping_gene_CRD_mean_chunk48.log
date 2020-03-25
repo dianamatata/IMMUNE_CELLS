@@ -1,0 +1,914 @@
+Sender: LSF System <lsfadmin@cpt16>
+Subject: Job 974569: </data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/73_vs_72_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz --nominal /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/gene_CRD_mean_permutations.thresholds.txt --chunk 48 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/mapping_gene_CRD_mean_chunk48\.txt> in cluster <ug> Done
+
+Job </data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/73_vs_72_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz --nominal /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/gene_CRD_mean_permutations.thresholds.txt --chunk 48 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/mapping_gene_CRD_mean_chunk48\.txt> was submitted from host <cpt01> by user <grey2> in cluster <ug>.
+Job was executed on host(s) <cpt16>, in queue <normal>, as user <grey2> in cluster <ug>.
+</home/grey2> was used as the home directory.
+</data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS> was used as the working directory.
+Started at Thu Mar 21 13:45:49 2019
+Results reported at Thu Mar 21 13:45:53 2019
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/data/unige/funpopgen/odelanea/SGX/V2/binaries/qtltools/bin/QTLtools cis --vcf /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/73_vs_72_ALL.ALLchr.mean.txt.gz --bed /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz --nominal /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/gene_CRD_mean_permutations.thresholds.txt --chunk 48 100 --out /data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/mapping_gene_CRD_mean_chunk48\.txt
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               1.36 sec.
+    Max Memory :             11.77 MB
+    Average Memory :         11.77 MB
+    Total Requested Memory : -
+    Delta Memory :           -
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               344 MB
+
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) follows:
+
+
+[32mQTLtools[0m
+  * Authors : Olivier DELANEAU / Halit ONGEN / Emmanouil DERMITZAKIS
+  * Contact : olivier.delaneau@gmail.com / halit.ongen@unige.ch / Emmanouil.Dermitzakis@unige.ch
+  * Webpage : https://qtltools.github.io/qtltools/
+  * Version : 1.1
+  * Date    : 21/03/2019 - 13:45:52
+  * Citation: A complete tool set for molecular QTL discovery and analysis, https://doi.org/10.1101/068635
+
+[32mMAPPING QTL IN CIS[0m
+  * TASK: Report all nominal associations with p below thresholds in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/gene_CRD_mean_permutations.thresholds.txt]
+  * Linear model: Phe ~ Var
+  * Cis-window size is 1000000 bp
+  * Chunk = [48/100]
+
+Scanning phenotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz]
+  * 24372 phenotypes included
+  * 12152 phenotypes are on the negative strand
+
+Initialize random number generator
+  * Built-in seed is 15112011
+  * First Integer = 30554
+  * First Double = 0.0126695
+
+Reading sample list from [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz]
+  * #samples = 169
+
+Reading sample list from [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/73_vs_72_ALL.ALLchr.mean.txt.gz]
+  * #samples = 94
+
+Merging sample sets from all input files
+  * #files = 2
+  * #samples in all files = 91
+  * #samples NOT in all files (i.e. ignored) = 81
+
+Reading phenotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/QTL_TOOLS/EGAD00001002671_v3.0/EGAD00001002671_RNA.PC10.bed.gz]
+  * target region [17:17913957-29119390]
+  * 207 phenotypes included
+  * 97 phenotypes are on the negative strand
+
+Reading genotype data in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/quantify/73_vs_72_ALL.ALLchr.mean.txt.gz]
+  * File format detected: BED
+  * 91 samples included
+  * 5 samples without phenotype data
+  * target region [17:16913957-30119390]
+  * 62 variants included
+
+Reading nominal thresholds in [/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72/gene_CRD_mean_permutations.thresholds.txt]
+  * #phenotypes set = 207
+
+Processing phenotype [ENSG00000232344.2] [1/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_10069, d=-157824, pv=0.0783394, s=-0.1757]
+
+Processing phenotype [ENSG00000171953.10] [2/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_9073, d=850144, pv=0.039173, s=-0.2093]
+
+Processing phenotype [ENSG00000141034.5] [3/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8279, d=136748, pv=0.0441595, s=0.2128]
+
+Processing phenotype [ENSG00000108591.5] [4/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_9073, d=-898821, pv=0.000142295, s=-0.3737]
+
+Processing phenotype [ENSG00000091536.12] [5/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_9073, d=-919641, pv=0.000104897, s=0.3982]
+
+Processing phenotype [ENSG00000091542.8] [6/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8767, d=-424203, pv=0.00662524, s=-0.3218]
+
+Processing phenotype [ENSG00000266677.1] [7/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8279, d=0, pv=0.115511, s=0.1740]
+
+Processing phenotype [ENSG00000131899.6] [8/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_7640, d=-264059, pv=0.0352094, s=-0.2347]
+
+Processing phenotype [ENSG00000177731.10] [9/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_12513, d=-45591, pv=0.00473509, s=-0.3228]
+
+Processing phenotype [ENSG00000177427.8] [10/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_8237, d=595078, pv=0.0300599, s=-0.2317]
+
+Processing phenotype [ENSG00000260647.1] [11/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_10069, d=-415261, pv=0.0390483, s=-0.2096]
+
+Processing phenotype [ENSG00000228000.1] [12/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9553, d=-277645, pv=0.0131209, s=0.2550]
+
+Processing phenotype [ENSG00000237382.2] [13/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_11791, d=-814906, pv=0.151774, s=0.1485]
+
+Processing phenotype [ENSG00000177302.9] [14/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_12513, d=0, pv=0.0200935, s=-0.2491]
+
+Processing phenotype [ENSG00000176994.9] [15/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_12513, d=0, pv=0.00287739, s=0.3327]
+
+Processing phenotype [ENSG00000267350.1] [16/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_12513, d=0, pv=0.000171049, s=0.4305]
+
+Processing phenotype [ENSG00000176974.12] [17/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_12513, d=0, pv=6.89921e-08, s=0.5443]
+
+Processing phenotype [ENSG00000213077.5] [18/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8065, d=0, pv=7.30986e-12, s=0.6476]
+
+Processing phenotype [ENSG00000233327.5] [19/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8065, d=0, pv=3.97088e-13, s=0.6804]
+
+Processing phenotype [ENSG00000227077.2] [20/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_10346, d=840, pv=0.00254382, s=0.3102]
+
+Processing phenotype [ENSG00000154874.9] [21/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_10346, d=0, pv=2.05317e-15, s=0.7226]
+
+Processing phenotype [ENSG00000174977.7] [22/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_7640, d=-688666, pv=0.021852, s=-0.2435]
+
+Processing phenotype [ENSG00000189375.6] [23/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8767, d=903074, pv=0.00287452, s=-0.3393]
+
+Processing phenotype [ENSG00000264885.1] [24/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8065, d=104782, pv=0.0018901, s=-0.2737]
+
+Processing phenotype [ENSG00000240445.3] [25/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9410, d=711513, pv=0.0186589, s=0.2441]
+
+Processing phenotype [ENSG00000224126.2] [26/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9553, d=-643001, pv=0.0608591, s=-0.1926]
+
+Processing phenotype [ENSG00000249459.4] [27/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9410, d=720902, pv=0.00774004, s=0.2801]
+
+Processing phenotype [ENSG00000108448.15] [28/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9410, d=-736638, pv=0.0554692, s=0.2156]
+
+Processing phenotype [ENSG00000265693.1] [29/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_12513, d=-325705, pv=0.00146556, s=-0.3094]
+
+Processing phenotype [ENSG00000171928.9] [30/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_10346, d=-154409, pv=0.201757, s=-0.1412]
+
+Processing phenotype [ENSG00000265478.1] [31/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_8503, d=-557094, pv=0.0175248, s=-0.2477]
+
+Processing phenotype [ENSG00000141127.9] [32/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_8237, d=15528, pv=0.000505523, s=0.3773]
+
+Processing phenotype [ENSG00000264273.1] [33/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9055, d=-840704, pv=0.0594155, s=0.1984]
+
+Processing phenotype [ENSG00000235672.1] [34/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8065, d=-343600, pv=0.0236196, s=0.2214]
+
+Processing phenotype [ENSG00000154025.11] [35/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8237, d=-46388, pv=0.0628532, s=0.1978]
+
+Processing phenotype [ENSG00000188522.10] [36/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8600, d=-959369, pv=0.00287859, s=-0.3216]
+
+Processing phenotype [ENSG00000154016.9] [37/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8237, d=143680, pv=0.118375, s=0.1751]
+
+Processing phenotype [ENSG00000200229.1] [38/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8279, d=-869644, pv=0.0693633, s=0.1946]
+
+Processing phenotype [ENSG00000265185.1] [39/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8279, d=-869644, pv=0.133397, s=0.1513]
+
+Processing phenotype [ENSG00000262074.2] [40/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_12513, d=685201, pv=0.00108428, s=0.3391]
+
+Processing phenotype [ENSG00000201750.1] [41/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_10346, d=437550, pv=0.124096, s=0.1497]
+
+Processing phenotype [ENSG00000262202.2] [42/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8556, d=809411, pv=0.123984, s=0.1787]
+
+Processing phenotype [ENSG00000199663.1] [43/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8556, d=809411, pv=0.195265, s=0.1477]
+
+Processing phenotype [ENSG00000189152.6] [44/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_12513, d=-748534, pv=0.0562988, s=0.1953]
+
+Processing phenotype [ENSG00000262319.1] [45/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8279, d=951421, pv=0.0498509, s=0.2147]
+
+Processing phenotype [ENSG00000202364.1] [46/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8237, d=-284059, pv=0.0214931, s=0.2491]
+
+Processing phenotype [ENSG00000263934.1] [47/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8237, d=-284059, pv=0.0216547, s=0.2488]
+
+Processing phenotype [ENSG00000264940.1] [48/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8065, d=625566, pv=0.103395, s=-0.1710]
+
+Processing phenotype [ENSG00000199298.1] [49/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8065, d=625566, pv=0.104117, s=-0.1706]
+
+Processing phenotype [ENSG00000072134.11] [50/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11674, d=52327, pv=0.0200017, s=0.2360]
+
+Processing phenotype [ENSG00000235397.1] [51/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8237, d=402304, pv=0.0961, s=0.1709]
+
+Processing phenotype [ENSG00000265263.1] [52/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_11674, d=21986, pv=0.0164471, s=0.2519]
+
+Processing phenotype [ENSG00000166484.14] [53/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8600, d=586452, pv=0.0916796, s=-0.1846]
+
+Processing phenotype [ENSG00000108641.10] [54/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_9055, d=-323988, pv=0.0350428, s=0.2076]
+
+Processing phenotype [ENSG00000166482.7] [55/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_8600, d=-576933, pv=0.0180394, s=-0.2641]
+
+Processing phenotype [ENSG00000128482.10] [56/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_12367, d=107959, pv=0.105184, s=-0.1625]
+
+Processing phenotype [ENSG00000189343.6] [57/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_9315, d=46160, pv=0.0264401, s=-0.2255]
+
+Processing phenotype [ENSG00000228331.2] [58/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_12367, d=22141, pv=0.048329, s=-0.1976]
+
+Processing phenotype [ENSG00000072210.14] [59/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_9055, d=54034, pv=0.0188804, s=0.2550]
+
+Processing phenotype [ENSG00000251786.1] [60/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_8237, d=745630, pv=0.0535152, s=-0.1977]
+
+Processing phenotype [ENSG00000264932.1] [61/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_9315, d=249239, pv=0.100277, s=0.1709]
+
+Processing phenotype [ENSG00000180638.13] [62/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_9055, d=0, pv=0.0959581, s=0.1965]
+
+Processing phenotype [ENSG00000083290.15] [63/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_9055, d=113664, pv=0.0169861, s=0.2611]
+
+Processing phenotype [ENSG00000266126.1] [64/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_8810, d=-719323, pv=0.139956, s=0.1619]
+
+Processing phenotype [ENSG00000108599.9] [65/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11674, d=664202, pv=0.0656456, s=-0.2017]
+
+Processing phenotype [ENSG00000128487.12] [66/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11674, d=-695203, pv=0.0294683, s=-0.2607]
+
+Processing phenotype [ENSG00000154898.11] [67/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_12367, d=-664382, pv=0.0311548, s=-0.2348]
+
+Processing phenotype [ENSG00000214832.4] [68/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_11297, d=-944164, pv=0.365561, s=0.0855]
+
+Processing phenotype [ENSG00000189423.6] [69/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_11959, d=928188, pv=0.159162, s=0.1549]
+
+Processing phenotype [ENSG00000226981.2] [70/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_11297, d=506384, pv=0.0418509, s=0.2066]
+
+Processing phenotype [ENSG00000233098.3] [71/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_12413, d=639674, pv=0.160134, s=0.1643]
+
+Processing phenotype [ENSG00000263986.1] [72/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_12346, d=-921032, pv=0.00142087, s=0.3645]
+
+Processing phenotype [ENSG00000124422.7] [73/207]
+  * #variants in cis = 9
+  * Best hit: [id=17_internal_8802, d=-164634, pv=0.122954, s=0.1783]
+
+Processing phenotype [ENSG00000109016.13] [74/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_8802, d=85030, pv=0.0953659, s=-0.1761]
+
+Processing phenotype [ENSG00000235530.2] [75/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11297, d=106673, pv=0.12961, s=-0.1367]
+
+Processing phenotype [ENSG00000178307.5] [76/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_8802, d=0, pv=0.181172, s=0.1424]
+
+Processing phenotype [ENSG00000154035.6] [77/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11959, d=-99368, pv=0.194026, s=-0.1402]
+
+Processing phenotype [ENSG00000034152.14] [78/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_12413, d=223436, pv=0.195581, s=0.1430]
+
+Processing phenotype [ENSG00000184185.5] [79/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_8810, d=-676386, pv=0.0495728, s=-0.2010]
+
+Processing phenotype [ENSG00000244582.2] [80/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11959, d=0, pv=0.137313, s=0.1595]
+
+Processing phenotype [ENSG00000266466.1] [81/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_12413, d=0, pv=0.0676909, s=-0.2017]
+
+Processing phenotype [ENSG00000212719.5] [82/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11959, d=22080, pv=0.0338857, s=0.2232]
+
+Processing phenotype [ENSG00000266050.1] [83/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11959, d=22080, pv=0.150639, s=0.1623]
+
+Processing phenotype [ENSG00000263563.1] [84/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_11959, d=-273900, pv=0.123675, s=-0.1655]
+
+Processing phenotype [ENSG00000256618.1] [85/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_11959, d=-566736, pv=0.0831336, s=0.1823]
+
+Processing phenotype [ENSG00000239223.2] [86/207]
+  * #variants in cis = 5
+  * Best hit: [id=17_internal_11962, d=181458, pv=0.0930112, s=-0.1732]
+
+Processing phenotype [ENSG00000109046.10] [87/207]
+  * #variants in cis = 5
+  * Best hit: [id=17_internal_8866, d=898447, pv=0.517401, s=-0.0688]
+
+Processing phenotype [ENSG00000264469.1] [88/207]
+  * #variants in cis = 5
+  * Best hit: [id=17_internal_8866, d=877880, pv=0.0573261, s=-0.2040]
+
+Processing phenotype [ENSG00000141068.9] [89/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_11962, d=0, pv=0.0212713, s=0.2548]
+
+Processing phenotype [ENSG00000266853.1] [90/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_10203, d=-756459, pv=0.0337006, s=-0.2208]
+
+Processing phenotype [ENSG00000266728.1] [91/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_12261, d=-652902, pv=0.057264, s=-0.1926]
+
+Processing phenotype [ENSG00000266872.1] [92/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_11082, d=-821921, pv=0.515056, s=0.0691]
+
+Processing phenotype [ENSG00000168961.12] [93/207]
+  * #variants in cis = 7
+  * Best hit: [id=17_internal_12261, d=-659336, pv=0.105199, s=-0.1737]
+
+Processing phenotype [ENSG00000007171.12] [94/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11962, d=239175, pv=0.0133193, s=0.2731]
+
+Processing phenotype [ENSG00000266527.1] [95/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_10203, d=495065, pv=0.023703, s=-0.2265]
+
+Processing phenotype [ENSG00000266202.1] [96/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_8726, d=-883094, pv=0.173313, s=0.1493]
+
+Processing phenotype [ENSG00000232859.4] [97/207]
+  * #variants in cis = 8
+  * Best hit: [id=17_internal_11962, d=333428, pv=0.0372226, s=-0.2174]
+
+Processing phenotype [ENSG00000087095.8] [98/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_10020, d=-294170, pv=0.0665126, s=0.1897]
+
+Processing phenotype [ENSG00000240873.1] [99/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_10436, d=-924883, pv=0.109135, s=0.1669]
+
+Processing phenotype [ENSG00000237575.4] [100/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10436, d=814726, pv=0.00532644, s=0.2523]
+
+Processing phenotype [ENSG00000109084.9] [101/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11082, d=129264, pv=0.0534962, s=0.2003]
+
+Processing phenotype [ENSG00000109083.9] [102/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11082, d=-112870, pv=0.186465, s=0.1285]
+
+Processing phenotype [ENSG00000109079.5] [103/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_8866, d=-138375, pv=0.0797218, s=0.1904]
+
+Processing phenotype [ENSG00000004142.6] [104/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8726, d=-418940, pv=0.015881, s=-0.2469]
+
+Processing phenotype [ENSG00000244045.5] [105/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10020, d=-610011, pv=0.0408525, s=-0.2156]
+
+Processing phenotype [ENSG00000258924.3] [106/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8665, d=609078, pv=0.0553498, s=-0.1963]
+
+Processing phenotype [ENSG00000264302.1] [107/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_11273, d=604915, pv=0.0694857, s=0.1654]
+
+Processing phenotype [ENSG00000265618.1] [108/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10020, d=615288, pv=0.0164371, s=-0.2548]
+
+Processing phenotype [ENSG00000004139.9] [109/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10436, d=676937, pv=0.0217329, s=0.2299]
+
+Processing phenotype [ENSG00000258852.2] [110/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8665, d=-598715, pv=0.030021, s=-0.2120]
+
+Processing phenotype [ENSG00000109072.6] [111/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_10203, d=0, pv=0.0336266, s=-0.2212]
+
+Processing phenotype [ENSG00000255604.2] [112/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_10203, d=0, pv=0.176847, s=-0.1385]
+
+Processing phenotype [ENSG00000264098.1] [113/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_10020, d=-654535, pv=0.0995385, s=-0.1679]
+
+Processing phenotype [ENSG00000265254.1] [114/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_10020, d=-657665, pv=0.0881224, s=0.1764]
+
+Processing phenotype [ENSG00000076351.8] [115/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_10436, d=-634100, pv=0.0153045, s=0.2441]
+
+Processing phenotype [ENSG00000183405.5] [116/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_8455, d=901666, pv=0.0431451, s=0.2093]
+
+Processing phenotype [ENSG00000109103.7] [117/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11962, d=991336, pv=0.0493323, s=-0.2201]
+
+Processing phenotype [ENSG00000087111.16] [118/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8726, d=-204595, pv=0.0171655, s=0.2598]
+
+Processing phenotype [ENSG00000265168.1] [119/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8726, d=203350, pv=0.386443, s=-0.0868]
+
+Processing phenotype [ENSG00000109107.9] [120/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8455, d=-792198, pv=0.292808, s=-0.1131]
+
+Processing phenotype [ENSG00000227543.3] [121/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10203, d=-216612, pv=0.0748389, s=0.1938]
+
+Processing phenotype [ENSG00000076382.10] [122/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8866, d=402044, pv=0.0994966, s=-0.1782]
+
+Processing phenotype [ENSG00000264608.1] [123/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10887, d=-521844, pv=0.0956065, s=0.1711]
+
+Processing phenotype [ENSG00000265287.2] [124/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8866, d=-410728, pv=0.00989175, s=-0.2814]
+
+Processing phenotype [ENSG00000258472.3] [125/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_10203, d=232019, pv=0.159636, s=0.1412]
+
+Processing phenotype [ENSG00000167524.10] [126/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_11082, d=134466, pv=0.300742, s=0.1106]
+
+Processing phenotype [ENSG00000264044.1] [127/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8665, d=333524, pv=0.189284, s=-0.1356]
+
+Processing phenotype [ENSG00000007202.9] [128/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8665, d=-321276, pv=0.163445, s=-0.1524]
+
+Processing phenotype [ENSG00000240494.2] [129/207]
+  * #variants in cis = 11
+  * Best hit: [id=17_internal_8726, d=120910, pv=0.0651603, s=0.1930]
+
+Processing phenotype [ENSG00000109111.10] [130/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_8351, d=994711, pv=0.0352036, s=0.2241]
+
+Processing phenotype [ENSG00000132581.4] [131/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11082, d=182455, pv=0.0871635, s=0.1797]
+
+Processing phenotype [ENSG00000265205.1] [132/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_11273, d=-292770, pv=0.0718753, s=0.1782]
+
+Processing phenotype [ENSG00000167525.9] [133/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8351, d=-944948, pv=0.0256673, s=-0.2372]
+
+Processing phenotype [ENSG00000109113.13] [134/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_9293, d=-955500, pv=0.00106225, s=-0.3712]
+
+Processing phenotype [ENSG00000198242.8] [135/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8607, d=957476, pv=0.030554, s=0.2237]
+
+Processing phenotype [ENSG00000238423.1] [136/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_11273, d=245024, pv=0.0490924, s=-0.1941]
+
+Processing phenotype [ENSG00000238578.1] [137/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8455, d=646880, pv=0.128586, s=0.1688]
+
+Processing phenotype [ENSG00000264577.1] [138/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8607, d=-953992, pv=0.077233, s=0.1905]
+
+Processing phenotype [ENSG00000238649.1] [139/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_10887, d=400699, pv=0.122787, s=0.1591]
+
+Processing phenotype [ENSG00000238597.1] [140/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8351, d=933120, pv=0.0560766, s=-0.2062]
+
+Processing phenotype [ENSG00000160602.9] [141/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8455, d=643565, pv=0.0523275, s=0.1950]
+
+Processing phenotype [ENSG00000160606.6] [142/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8665, d=-238795, pv=0.00518313, s=-0.3023]
+
+Processing phenotype [ENSG00000265073.1] [143/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8351, d=-913700, pv=0.0883779, s=-0.1865]
+
+Processing phenotype [ENSG00000076604.10] [144/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_11273, d=221590, pv=0.16438, s=-0.1525]
+
+Processing phenotype [ENSG00000265474.1] [145/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10436, d=-293645, pv=0.0985026, s=-0.1707]
+
+Processing phenotype [ENSG00000265840.1] [146/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10203, d=367901, pv=0.0354813, s=-0.2391]
+
+Processing phenotype [ENSG00000243053.2] [147/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10887, d=321684, pv=0.0434578, s=0.1720]
+
+Processing phenotype [ENSG00000238516.1] [148/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8455, d=534740, pv=0.0227264, s=0.2201]
+
+Processing phenotype [ENSG00000132591.7] [149/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10203, d=-472760, pv=0.0375757, s=-0.2221]
+
+Processing phenotype [ENSG00000173065.9] [150/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10436, d=-186065, pv=0.0543984, s=0.1967]
+
+Processing phenotype [ENSG00000264304.1] [151/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8351, d=764333, pv=0.0218676, s=0.2365]
+
+Processing phenotype [ENSG00000132589.10] [152/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8866, d=700444, pv=0.0586512, s=-0.2187]
+
+Processing phenotype [ENSG00000266642.1] [153/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9293, d=776191, pv=0.0534044, s=-0.2063]
+
+Processing phenotype [ENSG00000167536.9] [154/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9293, d=-770858, pv=0.147652, s=-0.1585]
+
+Processing phenotype [ENSG00000265845.2] [155/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10887, d=197853, pv=0.0558952, s=0.1969]
+
+Processing phenotype [ENSG00000265908.1] [156/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10887, d=179332, pv=0.022455, s=0.2317]
+
+Processing phenotype [ENSG00000179761.6] [157/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_7995, d=729519, pv=0.100509, s=0.1650]
+
+Processing phenotype [ENSG00000109118.9] [158/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_7995, d=-728261, pv=0.0249127, s=0.2377]
+
+Processing phenotype [ENSG00000063015.14] [159/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_11273, d=0, pv=0.0653833, s=-0.2053]
+
+Processing phenotype [ENSG00000221995.4] [160/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_10887, d=-32609, pv=0.0213004, s=0.2425]
+
+Processing phenotype [ENSG00000263709.1] [161/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_11273, d=0, pv=0.107492, s=0.1694]
+
+Processing phenotype [ENSG00000196535.9] [162/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_10436, d=61851, pv=0.0731706, s=0.1926]
+
+Processing phenotype [ENSG00000178082.5] [163/207]
+  * #variants in cis = 15
+  * Best hit: [id=17_internal_8455, d=-164988, pv=0.0596217, s=0.1903]
+
+Processing phenotype [ENSG00000108255.3] [164/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_8351, d=409939, pv=0.0569552, s=0.2041]
+
+Processing phenotype [ENSG00000108256.3] [165/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_8726, d=427743, pv=0.04697, s=-0.2220]
+
+Processing phenotype [ENSG00000266111.1] [166/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8455, d=17393, pv=0.0162226, s=0.2457]
+
+Processing phenotype [ENSG00000160551.5] [167/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8363, d=959864, pv=0.0259387, s=-0.2506]
+
+Processing phenotype [ENSG00000263719.1] [168/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8351, d=266140, pv=0.138839, s=-0.1598]
+
+Processing phenotype [ENSG00000264808.1] [169/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8157, d=-713156, pv=0.0799173, s=-0.1895]
+
+Processing phenotype [ENSG00000264031.1] [170/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9580, d=755830, pv=0.0671623, s=-0.1993]
+
+Processing phenotype [ENSG00000167543.11] [171/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8351, d=90750, pv=0.0642906, s=-0.1908]
+
+Processing phenotype [ENSG00000168792.4] [172/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8351, d=-89665, pv=0.0178769, s=-0.2271]
+
+Processing phenotype [ENSG00000264290.1] [173/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8665, d=-585006, pv=0.0353013, s=-0.2113]
+
+Processing phenotype [ENSG00000198720.8] [174/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_10887, d=-433079, pv=0.0332795, s=-0.2310]
+
+Processing phenotype [ENSG00000108262.11] [175/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8726, d=727679, pv=0.0987523, s=0.1869]
+
+Processing phenotype [ENSG00000264007.1] [176/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_10436, d=503693, pv=0.017912, s=0.2230]
+
+Processing phenotype [ENSG00000167549.14] [177/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9293, d=-51022, pv=0.0303455, s=0.2226]
+
+Processing phenotype [ENSG00000263370.1] [178/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8665, d=-655053, pv=0.0161467, s=-0.2466]
+
+Processing phenotype [ENSG00000222858.1] [179/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_10436, d=523141, pv=0.0575676, s=-0.1738]
+
+Processing phenotype [ENSG00000265625.1] [180/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9540, d=-457705, pv=0.00225876, s=0.3259]
+
+Processing phenotype [ENSG00000240531.1] [181/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8351, d=28765, pv=0.0505334, s=0.2029]
+
+Processing phenotype [ENSG00000263657.1] [182/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_9580, d=555274, pv=0.0117626, s=0.2682]
+
+Processing phenotype [ENSG00000265713.1] [183/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8665, d=792127, pv=0.0778345, s=0.1832]
+
+Processing phenotype [ENSG00000240074.1] [184/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8921, d=482997, pv=0.00352232, s=-0.3021]
+
+Processing phenotype [ENSG00000263477.1] [185/207]
+  * #variants in cis = 19
+  * Best hit: [id=17_internal_8726, d=-997027, pv=0.148711, s=-0.1592]
+
+Processing phenotype [ENSG00000239129.1] [186/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_8405, d=347211, pv=0.180491, s=0.1461]
+
+Processing phenotype [ENSG00000176927.10] [187/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_9293, d=-168794, pv=0.0972372, s=0.1782]
+
+Processing phenotype [ENSG00000141298.12] [188/207]
+  * #variants in cis = 18
+  * Best hit: [id=17_internal_7995, d=193577, pv=7.31256e-06, s=0.4352]
+
+Processing phenotype [ENSG00000126653.11] [189/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8455, d=-735522, pv=0.0863915, s=0.1854]
+
+Processing phenotype [ENSG00000199071.2] [190/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9540, d=0, pv=0.15537, s=0.1608]
+
+Processing phenotype [ENSG00000266919.1] [191/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_9540, d=0, pv=0.15537, s=0.1608]
+
+Processing phenotype [ENSG00000265394.1] [192/207]
+  * #variants in cis = 17
+  * Best hit: [id=17_internal_8405, d=-112720, pv=0.0017699, s=0.3345]
+
+Processing phenotype [ENSG00000265739.1] [193/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_9554, d=-713775, pv=0.0558887, s=0.1958]
+
+Processing phenotype [ENSG00000266987.1] [194/207]
+  * #variants in cis = 16
+  * Best hit: [id=17_internal_11273, d=993402, pv=0.039255, s=-0.1912]
+
+Processing phenotype [ENSG00000108576.5] [195/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_8607, d=539713, pv=0.00380921, s=0.2715]
+
+Processing phenotype [ENSG00000222679.1] [196/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_9580, d=-28200, pv=9.79285e-05, s=0.4231]
+
+Processing phenotype [ENSG00000108578.10] [197/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_9580, d=-24321, pv=8.80486e-11, s=0.6147]
+
+Processing phenotype [ENSG00000108582.7] [198/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_9580, d=-53672, pv=0.0025076, s=0.3364]
+
+Processing phenotype [ENSG00000108587.10] [199/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_9580, d=-152129, pv=0.000729564, s=-0.3802]
+
+Processing phenotype [ENSG00000266733.1] [200/207]
+  * #variants in cis = 13
+  * Best hit: [id=17_internal_8363, d=-191463, pv=0.222552, s=-0.1356]
+
+Processing phenotype [ENSG00000214719.5] [201/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9580, d=-251231, pv=0.130411, s=-0.1670]
+
+Processing phenotype [ENSG00000248121.2] [202/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9580, d=-275563, pv=0.11819, s=-0.1818]
+
+Processing phenotype [ENSG00000264943.1] [203/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9580, d=-299180, pv=0.00808456, s=-0.2547]
+
+Processing phenotype [ENSG00000250462.3] [204/207]
+  * #variants in cis = 14
+  * Best hit: [id=17_internal_9540, d=-503385, pv=0.0731671, s=0.1867]
+
+Processing phenotype [ENSG00000264538.2] [205/207]
+  * #variants in cis = 12
+  * Best hit: [id=17_internal_8405, d=-470383, pv=0.0198673, s=0.2452]
+
+Processing phenotype [ENSG00000265791.1] [206/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_8363, d=416572, pv=0.0466461, s=0.2118]
+
+Processing phenotype [ENSG00000266490.1] [207/207]
+  * #variants in cis = 10
+  * Best hit: [id=17_internal_8921, d=-400509, pv=0.0714842, s=0.2011]
+
+Running time: 1 seconds
