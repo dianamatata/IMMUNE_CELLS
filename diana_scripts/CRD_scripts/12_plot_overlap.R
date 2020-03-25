@@ -13,7 +13,7 @@ library(corrplot) # graphical display of a correlation matrix, confidence interv
 # plot
 # plot(rnorm(50), rnorm(50))
 
-pdf("CRD_pairwise_comparisons_between_cell_types.pdf Method 1")
+pdf("CRD_pairwise_comparisons_between_cell_types Method_1.pdf ")
 M0 = matrix(c(1,0.5559791012801089, 0.29371452801106906,
               0.517517715921954, 1, 0.2821886091864699,
               0.4647242130510857, 0.4796700438785532, 1),ncol=3,byrow=T)
@@ -43,7 +43,7 @@ expressionInput2 <- c(neutrophil = (neut-all-(neut_and_mono-all)-(neut_and_tcel-
                      `neutrophil&tcell` = neut_and_tcel-all,`monocyte&tcell` = tcel_and_mono-all, `neutrophil&monocyte&tcell` = all)
 
 # plot
-pdf("CRD_pairwise_comparisons_between_cell_types.pdf")
+pdf("CRD_pairwise_comparisons_between_cell_types_Method_2.pdf")
 M2 = matrix(c(1,neut_and_mono/neut,neut_and_tcel/neut,
               neut_and_mono/mono,1,tcel_and_mono/mono,
               neut_and_tcel/tcel,tcel_and_mono/tcel,1),ncol=3,byrow=T)
@@ -101,7 +101,7 @@ tcel_vs_mono = compare_CRD(peakset_tcel,peakset_mono)
 tcel_vs_neut = compare_CRD(peakset_tcel,peakset_neut)
 
 
-pdf("CRD_pairwise_comparisons_between_cell_types.pdf")
+pdf("CRD_pairwise_comparisons_between_cell_types_Method_3.pdf")
 M = matrix(c(1,neut_vs_mono$fraction,M$fraction,mono_vs_neut$fraction,1,mono_vs_tcel$fraction,
              tcel_vs_neut$fraction,tcel_vs_mono$fraction,1),ncol=3,byrow=T)
 colnames(M) = c("Neutrophils","Monocytes","T cells")
