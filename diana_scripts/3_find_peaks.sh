@@ -21,6 +21,8 @@ for histone in 'H3K4me1' 'H3K27ac' ; do
 
     # Meta-sample peak calling for histone marks:
     # If "-o auto" is specified, the peaks will be written to: "<tag directory>/regions.txt" (-style histone)
+    # The basic idea is to identify regions in the genome where we find more sequencing reads than we would expect to see by chance.  
+    #http://homer.ucsd.edu/homer/ngs/peaks.html
     cmd2="$HOMERPATH/findPeaks $OUTPUT_FOLDER/$histone/META -style histone -o auto"
     echo "$cmd2"
     #eval $cmd2
