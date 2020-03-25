@@ -27,9 +27,10 @@ dev.off()
 # very small results, up to 3% of shared peaks
 # these are the values for the bar plot
 
-peakset_neut = as.data.frame(fread('../peaks/EGAD00001002670.ALLchr.peaksID',header=F))
-peakset_mono = as.data.frame(fread('../peaks/EGAD00001002672.ALLchr.peaksID',header=F))
-peakset_tcel = as.data.frame(fread('../peaks/EGAD00001002673.ALLchr.peaksID',header=F))
+peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
+peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
+peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
+
 
 neut = length(peakset_neut$V1)
 mono = length(peakset_mono$V1)
@@ -62,9 +63,9 @@ dev.off()
 #### Method 3: Look at the shared peaks belonging to CRDs among cell types
 # take the peaks of 1 CRD, what is the % of shared in the other cell type? if more than 50% shared, the CRD is shared amon the 2 cell types
 
-peakset_neut = as.data.frame(fread('../peaks/EGAD00001002670.ALLchr.peaksID',header=F))
-peakset_mono = as.data.frame(fread('../peaks/EGAD00001002672.ALLchr.peaksID',header=F))
-peakset_tcel = as.data.frame(fread('../peaks/EGAD00001002673.ALLchr.peaksID',header=F))
+peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
+peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
+peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
 
 query=peakset_neut
 reference=peakset_mono
