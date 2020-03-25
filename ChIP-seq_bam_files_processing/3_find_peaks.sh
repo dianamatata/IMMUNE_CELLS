@@ -1,6 +1,15 @@
 #!/bin/bash
 
-# add homer to path in .zshrc after downloading in bin so you only need to call makeTagDirectory
+### Now that we have the metabamfiles per histone mark type, we create the tag directory, then we look for peaks and convert the results to bed format
+
+# tip: if you add homer to path in .zshrc after downloading in bin so you only need to call makeTagDirectory
+
+# makeTagDirectory: To facilitate the analysis of ChIP-Seq, it is useful to first transform the sequence alignment into platform independent data structure representing the experiment, analogous to loading the data into a database.  HOMER does this by placing all relevant information about the experiment into a "Tag Directory", which is essentially a directory on your computer that contains several files describing your experiment. During the creation of tag directories, several quality control routines are run to help provide information and feedback about the quality of the experiment.  During this phase several important parameters are estimated that are later used for downstream analysis, such as the estimated length of ChIP-Seq fragments.
+
+# findPeaks: The basic idea is to identify regions in the genome where we find more sequencing reads than we would expect to see by chance.
+
+
+During the creation of tag directories, several quality control routines are run to help provide information and feedback about the quality of the experiment.  During this phase several important parameters are estimated that are later used for downstream analysis, such as the estimated length of ChIP-Seq fragments.
 
 METABAMFOLDER=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/step1_metabam
 OUTPUT_FOLDER=/data/unige/funpopgen/davalos/project/IMMUNE_CELLS/step2_peaks
@@ -21,11 +30,9 @@ for histone in 'H3K4me1' 'H3K27ac' ; do
 
     # Meta-sample peak calling for histone marks:
     # If "-o auto" is specified, the peaks will be written to: "<tag directory>/regions.txt" (-style histone)
-    # The basic idea is to identify regions in the genome where we find more sequencing reads than we would expect to see by chance.  
-    #http://homer.ucsd.edu/homer/ngs/peaks.html
     cmd2="$HOMERPATH/findPeaks $OUTPUT_FOLDER/$histone/META -style histone -o auto"
     echo "$cmd2"
-    #eval $cmd2
+    eval $cmd2
 
     # Convert peaks from homer-format to BED format
     for tag in $metabamtag; do    

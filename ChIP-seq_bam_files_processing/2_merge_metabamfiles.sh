@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### Step 2: Once that we have the subsample of histone marks / cell type
+# We merge the results of all the cell types, to have a common database of histone marks per histone mark type
+# Itr is essential to sort the results in order to call Homer afterwards  
+
 FOLDER1="/home/users/a/avalosma/scratch/step1_metabam"
 mkdir -o $FOLDER1
 
