@@ -15,7 +15,7 @@ for cell_type_data in 'EGAD00001002670'  'EGAD00001002672' 'EGAD00001002673' ; d
 			LI=$DATADIR/${cell_type_data}_merged_residuals.bed.gz	
 			LM=$DATADIR1/${cell_type_crd}_ALL.modules.MOD1.NRE2.txt.gz
 	
-			for c in $(seq 1 2); do
+			for c in $(seq 1 22); do
 				LO=$OUTFOLDER/${name}.chr${c}
 				LT=$DATADIR1/${cell_type_crd}.chr${c}.module.txt.gz
 			
