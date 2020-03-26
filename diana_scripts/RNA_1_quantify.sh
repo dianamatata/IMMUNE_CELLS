@@ -11,5 +11,6 @@ mkdir -p $OUT_FOLDER
 for cell_type in 'EGAD00001002671'  'EGAD00001002674' 'EGAD00001002675' ; do
 	cmd="QTLtools quan --gtf $REF_FOLDER/gencode.v15.annotation.gtf.gz --bam $DATA_FOLDER/$cell_type/*.bam --out $OUT_FOLDER/qltools_quantification --filter-mapping-quality 255 --rpkm"
 	echo $cmd
-	eval $cmd
+	sbatch -J ${cell_type}_RNAquan.job --partition=mono-EL7 --time=10:00:00 --wrap="$cmd"
+	# eval $cmd
 done
