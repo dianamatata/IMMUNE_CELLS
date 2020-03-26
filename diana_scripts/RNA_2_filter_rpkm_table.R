@@ -1,8 +1,9 @@
 library(tidyverse)
 library(data.table)
 
-files <- Sys.glob(file.path("for_RNA2", "*gene.rpkm.bed.gz"))
+files <- Sys.glob(file.path("/home/users/a/avalosma/scratch/RNA_quantify", "*gene.rpkm.bed"))
 for (filename in files){
+  print(filename)
   mydat = fread(filename)
   mydat.quant = mydat[,-c(1:6)]
   goodlines = rowSums(mydat.quant == 0) <= 20 # remove genes with low coverage. length(goodlines[goodlines == TRUE])
@@ -11,7 +12,7 @@ for (filename in files){
   colnames(mydat)[-c(1:6)] = unlist(lapply(colnames(mydat)[-c(1:6)],substring,3,10))
   mydat.filtered = mydat[goodlines ,!colnames(mydat) %in% samples_to_remove, with=FALSE]
   colnames(mydat.filtered)[-c(1:6)] = unlist(lapply(colnames(mydat.filtered)[-c(1:6)],substring,1,6))
-  output_file=str_replace(filename, 'quantification_', 'quantification_filtered_')
-  write.table(file='qtltools_quantification_filtered75.gene.rpkm.bed',mydat.filtered,quote=F,row.names=F,sep='\t')
+  output_file=str_replace(filename, 'quantification', 'quantification_filtered')
+  write.table(file=output_file,mydat.filtered,quote=F,row.names=F,sep='\t')
 }
 
