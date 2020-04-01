@@ -30,45 +30,47 @@ plot_fractions <-function(fractions,discovered,replicated) {
     dev.off()
 }
 
-map70_vs_70 = read.table('70_vs_70/mapping_gene_CRD_mean_ALL.txt')
+map70_vs_70 = read.table('mapping_aCRD_gene/70_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map70_vs_72 = read.table('70_vs_72/mapping_gene_CRD_mean_ALL.txt')
+map70_vs_72 = read.table('mapping_aCRD_gene/70_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map70_vs_73 = read.table('70_vs_73/mapping_gene_CRD_mean_ALL.txt')
+map70_vs_73 = read.table('mapping_aCRD_gene/70_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_70 = read.table('72_vs_70/mapping_gene_CRD_mean_ALL.txt')
+map72_vs_70 = read.table('mapping_aCRD_gene/72_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_72 = read.table('72_vs_72/mapping_gene_CRD_mean_ALL.txt')
+map72_vs_72 = read.table('mapping_aCRD_gene/72_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_73 = read.table('72_vs_73/mapping_gene_CRD_mean_ALL.txt')
+map72_vs_73 = read.table('mapping_aCRD_gene/72_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_70 = read.table('73_vs_70/mapping_gene_CRD_mean_ALL.txt')
+map73_vs_70 = read.table('mapping_aCRD_gene/73_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_72 = read.table('73_vs_72/mapping_gene_CRD_mean_ALL.txt')
+map73_vs_72 = read.table('mapping_aCRD_gene/73_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_73 = read.table('73_vs_73/mapping_gene_CRD_mean_ALL.txt')
+map73_vs_73 = read.table('mapping_aCRD_gene/73_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
 
-
-
+# set = map72_vs_70
+# refset = map70_vs_70
+# mindist = -1
+# maxdist = 1
 fraction_neut_replicated_in_mono = get_common_fraction(map72_vs_70,map70_vs_70,-1,-1)
 fraction_neut_replicated_in_mono_bin1 = get_common_fraction(map72_vs_70,map70_vs_70,0,0)
 fraction_neut_replicated_in_mono_bin2 = get_common_fraction(map72_vs_70,map70_vs_70,1,1e03)
@@ -78,7 +80,11 @@ fraction_neut_replicated_in_mono_bin5 = get_common_fraction(map72_vs_70,map70_vs
 fraction_neut_replicated_in_mono_all = c(fraction_neut_replicated_in_mono_bin1,fraction_neut_replicated_in_mono_bin2,fraction_neut_replicated_in_mono_bin3,
     fraction_neut_replicated_in_mono_bin4,fraction_neut_replicated_in_mono_bin5)
 
+# bar plot of the distance between genes and CRDs associations
 plot_fractions(fraction_neut_replicated_in_mono_all,"neutrophils","monocytes")
+# fractions = fraction_neut_replicated_in_mono_all
+# discovered ="neutrophils"
+# replicated ="monocytes"
 
 fraction_neut_replicated_in_tcel = get_common_fraction(map73_vs_70,map70_vs_70,-1,-1)
 fraction_neut_replicated_in_tcel_bin1 = get_common_fraction(map73_vs_70,map70_vs_70,0,0)
