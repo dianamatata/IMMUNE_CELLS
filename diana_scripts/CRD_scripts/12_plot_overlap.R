@@ -57,8 +57,21 @@ dev.off()
 pdf("Overlap_CRD_beds2.pdf",paper='a4r')
 upset(fromExpression(expressionInput2), order.by = "degree",text.scale=1.8)
 upset(fromExpression(expressionInput2), order.by = "freq",text.scale=1.8,main.bar.color="orange",matrix.color="blue")
-
 dev.off()
+
+#including  LCLs
+expressionInput3 <- c(LCLs = 36011, monocytes = 9080, neutrophils = 8445, tcells = 6549, 
+                      `LCLs&monocytes` = 11438, `LCLs&neutrophils` = 9130, `LCLs&tcells` = 11820,
+                      `monocytes&neutrophils` = 9552, `monocytes&tcells` = 2236, `neutrophils&tcells` = 2252, 
+                      `LCLs&monocytes&neutrophils` = 10032, `LCLs&monocytes&tcells` = 5274, `LCLs&neutrophils&tcells` = 4065, `monocytes&neutrophils&tcells` = 2733,
+                      `LCLs&monocytes&neutrophils&tcells` = 7780)
+
+pdf(file = "Overlap_CRD_beds3.pdf", width=8, height=5)
+upset(fromExpression(expressionInput3), order.by = "degree",text.scale=1.8)
+upset(fromExpression(expressionInput3), order.by = "freq",text.scale=1.8,main.bar.color="orange",matrix.color="blue")
+dev.off()
+
+
 
 #### Method 3: Look at the shared peaks belonging to CRDs among cell types
 # take the peaks of 1 CRD, what is the % of shared in the other cell type? if more than 50% shared, the CRD is shared amon the 2 cell types
