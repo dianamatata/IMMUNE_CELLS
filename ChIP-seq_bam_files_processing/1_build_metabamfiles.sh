@@ -2,7 +2,7 @@
  
 ### step 1 build metabamfiles
 # we have 3 cell types and 2 histone marks.
-# We take a subsample of the histone marks, 1000 of them in 50 bam files chosen at random
+# We take a subsample of the histone marks/peaks, 1000000 of them in 50 bam files chosen at random
 
 # folders
  
