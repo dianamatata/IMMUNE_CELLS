@@ -1,3 +1,7 @@
+# Goal: from independent gene.rpkm.bed files per sample, merge them for each cell type, filter genes with low coverage and paired-end samples
+
+# weird: works when opening R but cannot source file without error: RNA_2_filter_rpkm_table.R:1: unknown file attribute
+
 library(tidyverse)
 library(data.table)
 
@@ -17,7 +21,7 @@ for (cell_type in list('EGAD00001002671', 'EGAD00001002674' , 'EGAD00001002675')
 	goodlines = rowSums(common_data.quant == 0) <= 20 # remove genes with low coverage. length(goodlines[goodlines == TRUE])
 	# remove paired-end samples. to find them: cd ~/scratch/Blueprint/RNA_seq/EGAD00001002675% ls | grep 'paired' | cut -c1-8 | uniq
 	samples_to_remove = c("S001C2B4","S001T511","S001YW11","S0020M11","S003JHB5","S006UKB2","S00DKCB3","S00JV3B4","S00JYYB2")
-	common_data.filtered = mydat[goodlines ,!colnames(common_data) %in% samples_to_remove, with=FALSE]
+	common_data.filtered = common_data[goodlines ,!colnames(common_data) %in% samples_to_remove, with=FALSE]
 	output_file = paste0("/home/users/a/avalosma/scratch/RNA_rpkm/", cell_type, "_quantification_filtered.gene.rpkm.bed") 
 	write.table(file=output_file,common_data.filtered,quote=F,row.names=F,sep='\t')
 }
