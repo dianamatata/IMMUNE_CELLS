@@ -2,20 +2,28 @@
 
 # goal: compute PCs
 
-BED=/data/unige/funpopgen/davalos/project/GEUVADIS/step1_preparing_VCF_BED/bed_10percent.bed.gz
-PCA_FOLDER=/data/unige/funpopgen/davalos/project/GEUVADIS/step2_PCA
-PCA_FILE=$PCA_FOLDER/bed_10percent.pca
+BED_FOLDER=/home/users/a/avalosma/scratch/RNA_rpkm
+OUT_FOLDER=/home/users/a/avalosma/scratch/RNA_PC
+mkdir -p $OUT_FOLDER
 
-# apply PCA
-echo "performing QTLtools PCA"
-QTLtools pca --bed $BED --scale --center --out $PCA_FOLDER/bed_10percent
+# 75 neut, 71 tcell, 74 mono
+for cell_type in 'EGAD00001002671'  'EGAD00001002674' 'EGAD00001002675' ; do
+	
+	BED=${cell_type}_quantification_filtered.gene.rpkm.bed
+        BEDsorted=${cell_type}_quantification_filtered.sorted.gene.rpkm.bed
+	# create index file first
+	cat $BED_FOLDER/$BED | bedtools sort -header -i > $BED_FOLDER/$BEDsorted
+	bgzip $BED_FOLDER/$BEDsorted
+	tabix -p bed $BED_FOLDER/${BEDsorted}.gz
+	
+	# apply PCA
+	echo "performing QTLtools PCA"
+	QTLtools pca --bed $BED_FOLDER/${BEDsorted}.gz --scale --center --out $OUT_FOLDER/${cell_type}_PCA
 
-# create PC covariate files
-echo "create PC covariate files"
+	# create PC covariate files
+	echo "create PC covariate files"
 
-for PC in 1 2 5 10 20 30 40 50; do
-    echo create PCA file $PC
-    echo "head -$((PC +1)) $PCA_FILE > $PCA_FOLDER/PCs/PC_$PC.txt"
-    head -$((PC +1)) $PCA_FILE > $PCA_FOLDER/PCs/PC_$PC.txt
+	for PC in 1 2 5 10 20 30 40 50; do
+	     head -$((PC +1)) $OUT_FOLDER/${cell_type}_PCA.pca > $OUT_FOLDER/${cell_type}_PC_$PC.txt
+	done
 done
-
