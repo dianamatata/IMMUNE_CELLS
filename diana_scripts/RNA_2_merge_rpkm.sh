@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# not in use, the 2 .R is better
 # Goal: extract the 7th column of each file and stack them together
 # to obtain https://qtltools.github.io/qtltools/pages/mode_quant.html , the last table they display in this page
 
