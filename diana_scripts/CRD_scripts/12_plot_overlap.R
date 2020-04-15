@@ -27,9 +27,9 @@ dev.off()
 # very small results, up to 3% of shared peaks
 # these are the values for the bar plot
 
-peakset_neut = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
-peakset_mono = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
-peakset_tcel = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
+peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
+peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
+peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
 
 
 neut = length(peakset_neut$V1)
@@ -116,12 +116,14 @@ tcel_vs_neut = compare_CRD(peakset_tcel,peakset_neut)
 
 
 pdf("CRD_pairwise_comparisons_between_cell_types_Method_3.pdf")
-M = matrix(c(1,neut_vs_mono$fraction,M$fraction,mono_vs_neut$fraction,1,mono_vs_tcel$fraction,
-             tcel_vs_neut$fraction,tcel_vs_mono$fraction,1),ncol=3,byrow=T)
+M = matrix(c(1,neut_vs_mono$fraction,neut_vs_tcel$fraction,
+             mono_vs_neut$fraction,1,mono_vs_tcel$fraction,
+             tcel_vs_neut$fraction,tcel_vs_mono$fraction,1),
+             ncol=3,byrow=T)
 colnames(M) = c("Neutrophils","Monocytes","T cells")
 rownames(M) = c("Neutrophils","Monocytes","T cells")
 corrplot(M, method = "number",is.corr=F,col = "black",number.cex=1.5,cl.lim = c(0, 1))
 corrplot(M,is.corr=F,cl.lim = c(0, 1),p.mat = M,sig.level=-1,insig = "p-value",number.cex=1.5)
 dev.off()
 
-
+###### plot overlap
