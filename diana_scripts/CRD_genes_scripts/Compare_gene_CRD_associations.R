@@ -1,0 +1,161 @@
+library(ggplot2)
+library(corrplot)
+
+
+# Plot 3.5 and 3.4 from paper
+
+
+get_common_fraction <- function(set,refset,mindist,maxdist){
+    if(mindist == 0 & maxdist == 0){
+        set.filtered = set[which(set$distance==0),c(1,8)]
+        refset.filtered = refset[which(refset$distance==0),c(1,8)]
+    } else if(maxdist > 0) {
+        set.filtered = set[which(set$distance>mindist & set$distance<=maxdist),c(1,8)]
+        refset.filtered = refset[which(refset$distance>mindist & refset$distance<=maxdist),c(1,8)]
+    } else {
+        set.filtered = set[,c(1,8)]
+        refset.filtered = refset[,c(1,8)]
+    }
+    myfraction = sum(duplicated(rbind(set.filtered,refset.filtered)))/nrow(refset.filtered)
+    myfraction
+}
+
+plot_fractions <-function(fractions,discovered,replicated) {
+    filename = paste0("CRD_gene_association_discovered_in_",discovered,"_replicated_in_",replicated,".pdf")
+    pdf(filename,paper="a4r")
+    dat_assos = data.frame(Distance = c("0","1-\n1e03","1e03-\n1e04","1e04-\n1e05","1e05-\n1e06"),fraction = fractions)
+    dat_assos$Distance <- factor(dat_assos$Distance,levels = c("0","1-\n1e03","1e03-\n1e04","1e04-\n1e05","1e05-\n1e06"))
+
+    p <- ggplot(dat_assos, aes(x = Distance, y = fraction))+ ggtitle(paste0("Gene-CRD associations in ",discovered)) +
+      geom_bar(stat = "identity",fill="steelblue") + ylim(0,0.5) +
+      labs(x = "Distance between genes and CRDs (bp)",y = paste0("Fraction of significant associations in ",replicated)) +
+      theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) + theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text = element_text(size = 20))
+    print(p)
+    dev.off()
+}
+
+map70_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_70_mapping_gene_CRD_mean_ALL.txt')
+colnames(map70_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map70_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_72_mapping_gene_CRD_mean_ALL.txt')
+colnames(map70_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map70_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_73_mapping_gene_CRD_mean_ALL.txt')
+colnames(map70_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map72_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_70_mapping_gene_CRD_mean_ALL.txt')
+colnames(map72_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map72_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_72_mapping_gene_CRD_mean_ALL.txt')
+colnames(map72_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map72_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_73_mapping_gene_CRD_mean_ALL.txt')
+colnames(map72_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map73_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_70_mapping_gene_CRD_mean_ALL.txt')
+colnames(map73_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map73_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72_mapping_gene_CRD_mean_ALL.txt')
+colnames(map73_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+map73_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_73_mapping_gene_CRD_mean_ALL.txt')
+colnames(map73_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
+"CRD_chr","CRD_start","CRD_end","pval","slope","rank")
+
+
+# set = map72_vs_70
+# refset = map70_vs_70
+# mindist = -1
+# maxdist = 1
+fraction_neut_replicated_in_mono = get_common_fraction(map72_vs_70,map70_vs_70,-1,-1)
+fraction_neut_replicated_in_mono_bin1 = get_common_fraction(map72_vs_70,map70_vs_70,0,0)
+fraction_neut_replicated_in_mono_bin2 = get_common_fraction(map72_vs_70,map70_vs_70,1,1e03)
+fraction_neut_replicated_in_mono_bin3 = get_common_fraction(map72_vs_70,map70_vs_70,1e03,1e04)
+fraction_neut_replicated_in_mono_bin4 = get_common_fraction(map72_vs_70,map70_vs_70,1e04,1e05)
+fraction_neut_replicated_in_mono_bin5 = get_common_fraction(map72_vs_70,map70_vs_70,1e05,1e06)
+fraction_neut_replicated_in_mono_all = c(fraction_neut_replicated_in_mono_bin1,fraction_neut_replicated_in_mono_bin2,fraction_neut_replicated_in_mono_bin3,
+    fraction_neut_replicated_in_mono_bin4,fraction_neut_replicated_in_mono_bin5)
+
+# bar plot of the distance between genes and CRDs associations
+plot_fractions(fraction_neut_replicated_in_mono_all,"neutrophils","monocytes")
+# fractions = fraction_neut_replicated_in_mono_all
+# discovered ="neutrophils"
+# replicated ="monocytes"
+
+fraction_neut_replicated_in_tcel = get_common_fraction(map73_vs_70,map70_vs_70,-1,-1)
+fraction_neut_replicated_in_tcel_bin1 = get_common_fraction(map73_vs_70,map70_vs_70,0,0)
+fraction_neut_replicated_in_tcel_bin2 = get_common_fraction(map73_vs_70,map70_vs_70,1,1e03)
+fraction_neut_replicated_in_tcel_bin3 = get_common_fraction(map73_vs_70,map70_vs_70,1e03,1e04)
+fraction_neut_replicated_in_tcel_bin4 = get_common_fraction(map73_vs_70,map70_vs_70,1e04,1e05)
+fraction_neut_replicated_in_tcel_bin5 = get_common_fraction(map73_vs_70,map70_vs_70,1e05,1e06)
+fraction_neut_replicated_in_tcel_all = c(fraction_neut_replicated_in_tcel_bin1,fraction_neut_replicated_in_tcel_bin2,fraction_neut_replicated_in_tcel_bin3,
+    fraction_neut_replicated_in_tcel_bin4,fraction_neut_replicated_in_tcel_bin5)
+
+plot_fractions(fraction_neut_replicated_in_tcel_all,"neutrophils","T cells")
+
+fraction_mono_replicated_in_neut = get_common_fraction(map70_vs_72,map72_vs_72,-1,-1)
+fraction_mono_replicated_in_neut_bin1 = get_common_fraction(map70_vs_72,map72_vs_72,0,0)
+fraction_mono_replicated_in_neut_bin2 = get_common_fraction(map70_vs_72,map72_vs_72,1,1e03)
+fraction_mono_replicated_in_neut_bin3 = get_common_fraction(map70_vs_72,map72_vs_72,1e03,1e04)
+fraction_mono_replicated_in_neut_bin4 = get_common_fraction(map70_vs_72,map72_vs_72,1e04,1e05)
+fraction_mono_replicated_in_neut_bin5 = get_common_fraction(map70_vs_72,map72_vs_72,1e05,1e06)
+fraction_mono_replicated_in_neut_all = c(fraction_mono_replicated_in_neut_bin1,fraction_mono_replicated_in_neut_bin2,fraction_mono_replicated_in_neut_bin3,
+    fraction_mono_replicated_in_neut_bin4,fraction_mono_replicated_in_neut_bin5)
+
+plot_fractions(fraction_mono_replicated_in_neut_all,"monocytes","neutrophils")
+
+fraction_mono_replicated_in_tcel = get_common_fraction(map73_vs_72,map72_vs_72,-1,-1)
+fraction_mono_replicated_in_tcel_bin1 = get_common_fraction(map73_vs_72,map72_vs_72,0,0)
+fraction_mono_replicated_in_tcel_bin2 = get_common_fraction(map73_vs_72,map72_vs_72,1,1e03)
+fraction_mono_replicated_in_tcel_bin3 = get_common_fraction(map73_vs_72,map72_vs_72,1e03,1e04)
+fraction_mono_replicated_in_tcel_bin4 = get_common_fraction(map73_vs_72,map72_vs_72,1e04,1e05)
+fraction_mono_replicated_in_tcel_bin5 = get_common_fraction(map73_vs_72,map72_vs_72,1e05,1e06)
+fraction_mono_replicated_in_tcel_all = c(fraction_mono_replicated_in_tcel_bin1,fraction_mono_replicated_in_tcel_bin2,fraction_mono_replicated_in_tcel_bin3,
+    fraction_mono_replicated_in_tcel_bin4,fraction_mono_replicated_in_tcel_bin5)
+
+plot_fractions(fraction_mono_replicated_in_tcel_all,"monocytes","T cells")
+
+fraction_tcel_replicated_in_neut = get_common_fraction(map70_vs_73,map73_vs_73,-1,-1)
+fraction_tcel_replicated_in_neut_bin1 = get_common_fraction(map70_vs_73,map73_vs_73,0,0)
+fraction_tcel_replicated_in_neut_bin2 = get_common_fraction(map70_vs_73,map73_vs_73,1,1e03)
+fraction_tcel_replicated_in_neut_bin3 = get_common_fraction(map70_vs_73,map73_vs_73,1e03,1e04)
+fraction_tcel_replicated_in_neut_bin4 = get_common_fraction(map70_vs_73,map73_vs_73,1e04,1e05)
+fraction_tcel_replicated_in_neut_bin5 = get_common_fraction(map70_vs_73,map73_vs_73,1e05,1e06)
+fraction_tcel_replicated_in_neut_all = c(fraction_tcel_replicated_in_neut_bin1,fraction_tcel_replicated_in_neut_bin2,fraction_tcel_replicated_in_neut_bin3,
+    fraction_tcel_replicated_in_neut_bin4,fraction_tcel_replicated_in_neut_bin5)
+
+plot_fractions(fraction_tcel_replicated_in_neut_all,"T cells","neutrophils")
+
+
+fraction_tcel_replicated_in_mono = get_common_fraction(map72_vs_73,map73_vs_73,-1,-1)
+fraction_tcel_replicated_in_mono_bin1 = get_common_fraction(map72_vs_73,map73_vs_73,0,0)
+fraction_tcel_replicated_in_mono_bin2 = get_common_fraction(map72_vs_73,map73_vs_73,1,1e03)
+fraction_tcel_replicated_in_mono_bin3 = get_common_fraction(map72_vs_73,map73_vs_73,1e03,1e04)
+fraction_tcel_replicated_in_mono_bin4 = get_common_fraction(map72_vs_73,map73_vs_73,1e04,1e05)
+fraction_tcel_replicated_in_mono_bin5 = get_common_fraction(map72_vs_73,map73_vs_73,1e05,1e06)
+fraction_tcel_replicated_in_mono_all = c(fraction_tcel_replicated_in_mono_bin1,fraction_tcel_replicated_in_mono_bin2,fraction_tcel_replicated_in_mono_bin3,
+    fraction_tcel_replicated_in_mono_bin4,fraction_tcel_replicated_in_mono_bin5)
+
+plot_fractions(fraction_tcel_replicated_in_mono_all,"T cells","monocytes")
+
+pdf("Pairwise_comparisons_between_cell_types.pdf")
+M = matrix(c(1,fraction_neut_replicated_in_mono,fraction_neut_replicated_in_tcel,fraction_mono_replicated_in_neut,1,fraction_mono_replicated_in_tcel,
+    fraction_tcel_replicated_in_neut,fraction_tcel_replicated_in_mono,1),ncol=3,byrow=T)
+colnames(M) = c("Neutrophils","Monocytes","T cells")
+rownames(M) = c("Neutrophils","Monocytes","T cells")
+corrplot(M, method = "number",is.corr=F,col = "black",number.cex=1.5,cl.lim = c(0, 1))
+corrplot(M,is.corr=F,cl.lim = c(0, 1),p.mat = M,sig.level=-1,insig = "p-value",number.cex=1.5)
+dev.off()
+
+## Fig 3.5
+
+toplot = data.frame(NEU=c(55.92, 37.17, 6.919),MON=c(43.58, 47.07, 9.35),
+                     TCL=c(45.78, 34.25, 19.98),Group =c("1cell_type","2cell_types","3cell_types"))
