@@ -1,8 +1,12 @@
 library(ggplot2)
 library(corrplot)
+library(reshape2)
+library(data.table)
+library(ggmosaic)
 
 
 # Plot 3.5 and 3.4 from paper
+# /srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS
 
 
 get_common_fraction <- function(set,refset,mindist,maxdist){
@@ -34,39 +38,40 @@ plot_fractions <-function(fractions,discovered,replicated) {
     dev.off()
 }
 
-map70_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_70_mapping_gene_CRD_mean_ALL.txt')
+
+map70_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/70_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map70_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_72_mapping_gene_CRD_mean_ALL.txt')
+map70_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/70_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map70_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/70_vs_73_mapping_gene_CRD_mean_ALL.txt')
+map70_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/70_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map70_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_70_mapping_gene_CRD_mean_ALL.txt')
+map72_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/72_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_72_mapping_gene_CRD_mean_ALL.txt')
+map72_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/72_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map72_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/72_vs_73_mapping_gene_CRD_mean_ALL.txt')
+map72_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/72_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map72_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_70_mapping_gene_CRD_mean_ALL.txt')
+map73_vs_70 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/73_vs_70_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_70) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_72_mapping_gene_CRD_mean_ALL.txt')
+map73_vs_72 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/73_vs_72_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_72) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
-map73_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/73_vs_73_mapping_gene_CRD_mean_ALL.txt')
+map73_vs_73 = read.table('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/73_vs_73_mapping_gene_CRD_mean_ALL.txt')
 colnames(map73_vs_73) = c("gene","gene_chr","gene_start","gene_end","gene_strand","dummy","distance","CRD",
 "CRD_chr","CRD_start","CRD_end","pval","slope","rank")
 
@@ -155,7 +160,5 @@ corrplot(M, method = "number",is.corr=F,col = "black",number.cex=1.5,cl.lim = c(
 corrplot(M,is.corr=F,cl.lim = c(0, 1),p.mat = M,sig.level=-1,insig = "p-value",number.cex=1.5)
 dev.off()
 
-## Fig 3.5
-
-toplot = data.frame(NEU=c(55.92, 37.17, 6.919),MON=c(43.58, 47.07, 9.35),
-                     TCL=c(45.78, 34.25, 19.98),Group =c("1cell_type","2cell_types","3cell_types"))
+## Fig 3.5 , check in plots paper
+# how did i find this data? >fraction_of_genes_shared_btw_tissues.py
