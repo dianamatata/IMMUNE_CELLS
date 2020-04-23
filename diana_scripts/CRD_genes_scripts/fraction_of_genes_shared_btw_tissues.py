@@ -21,6 +21,19 @@ def calculate_gene_sharing_percentage(a, b, c):
     return round(shared1, 2), round(shared2, 2), round(shared3, 2)
 
 
+def calculate_gene_sharing_number(a, b, c):
+    """
+    :param a = set(dict_df['map70_vs_70'].gene)
+    :param b = set(dict_df['map72_vs_70'].gene)
+    :param c = set(dict_df['map73_vs_70'].gene)
+    :return: fractions of genes shared by 1 2 or 3 cell types
+    """
+    shared3 = len(a.intersection(b).intersection(c))
+    shared2 = (len(a.intersection(b)) + len(a.intersection(c)) - 2 * len(a.intersection(b).intersection(c)))
+    shared1 = len(a.difference(b).difference(c))
+    return round(shared1, 2), round(shared2, 2), round(shared3, 2)
+
+
 def survey(results, category_names, category_colors=None):
     """
     Parameters
@@ -73,7 +86,7 @@ for i in [70, 72, 73]:
     for j in [70, 72, 73]:
         name = 'map' + str(i) + '_vs_' + str(j)
 
-        path = '/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CELL_TYPE_COMPARISON_GENE_CRD_ASSOCIATIONS/mapping_aCRD_gene/' + str(i) + '_vs_' + str(j) \
+        path = '/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/' + str(i) + '_vs_' + str(j) \
                + '_mapping_gene_CRD_mean_ALL.txt'
         dict_df[name] = pd.read_csv(path, sep=' ', header=None)
         dict_df[name].columns = column_names
@@ -88,26 +101,28 @@ mono1, mono2, mono3 = calculate_gene_sharing_percentage(
 tcell1, tcell2, tcell3 = calculate_gene_sharing_percentage(
     set(dict_df['map70_vs_73'].gene), set(dict_df['map72_vs_73'].gene), set(dict_df['map73_vs_73'].gene))
 
+# for neutrophils CRDs (2nd 70), genes shared with 1 cell type, same for mono and tcells then
+neu1, neu2, neu3 = calculate_gene_sharing_number(
+    set(dict_df['map70_vs_70'].gene), set(dict_df['map72_vs_70'].gene), set(dict_df['map73_vs_70'].gene))
+mon1, mon2, mon3 = calculate_gene_sharing_number(
+    set(dict_df['map70_vs_72'].gene), set(dict_df['map72_vs_72'].gene), set(dict_df['map73_vs_72'].gene))
+tcel1, tcel2, tcel3 = calculate_gene_sharing_number(
+    set(dict_df['map70_vs_73'].gene), set(dict_df['map72_vs_73'].gene), set(dict_df['map73_vs_73'].gene))
 
-### try it reverse in case wrong values
-neut01, neut02, neut03 = calculate_gene_sharing_percentage(
-    set(dict_df['map70_vs_70'].gene), set(dict_df['map70_vs_72'].gene), set(dict_df['map70_vs_73'].gene))
-mono01, mono02, mono03 = calculate_gene_sharing_percentage(
-    set(dict_df['map72_vs_70'].gene), set(dict_df['map72_vs_72'].gene), set(dict_df['map72_vs_73'].gene))
-tcell01, tcell02, tcell03 = calculate_gene_sharing_percentage(
-    set(dict_df['map73_vs_70'].gene), set(dict_df['map73_vs_72'].gene), set(dict_df['map73_vs_73'].gene))
 
-# plot
+    # plot
+
 category_names = ['1 cell type', '2 cell types', '3 cell types']
 results = {
     'Neutrophils': [neut1, neut2, neut3],
     'Monocytes': [mono1, mono2, mono3],
     'T-cells': [tcell1, tcell2, tcell3],
 }
-results2 = {
-    'Neutrophils': [neut01, neut02, neut03],
-    'Monocytes': [mono01, mono02, mono03],
-    'T-cells': [tcell01, tcell02, tcell03],
+
+results_not_normalized = {
+    'Neutrophils': [neu1, neu2, neu3],
+    'Monocytes': [mon1, mon2, mon3],
+    'T-cells': [tcel1, tcel2, tcel3],
 }
 
 
