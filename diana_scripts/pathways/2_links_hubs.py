@@ -4,6 +4,8 @@ import sys
 import re
 import csv
 
+inFolder='/home/users/a/avalosma/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_crds2'
+inFolder='/Users/AvalosDiana/GitHub/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_crds2'
 
 def find_indices_of_occurence(dataframe, crds):
     """
@@ -45,9 +47,9 @@ def write_to_file(dataframe, outputfile):
 
 
 for cell in ('70', '72', '73'):
-    links_path = "/Users/dianaavalos/Programming/pathways/LINKS_%s.txt" % (cell)
+    links_path = "%s/LINKS_%s.txt" % (inFolder,cell)
     print(links_path)
-    links = pd.read_table(links_path, sep=' ')
+    links = pd.read_csv(links_path, sep=' ')
     node = 0
     while len(links) > 1:
         # for each node
@@ -70,5 +72,5 @@ for cell in ('70', '72', '73'):
             # add to structure holding all the dictionaries
             dict_sorted = {k: v for k, v in sorted(dict_node.items(), key=lambda item: item[1], reverse=True)}
             print(len(dict_sorted))
-            dict_sorted.to_csv( "/Users/dianaavalos/Programming/pathways/trans_hubs_crds/dict_%s_%d.csv" % (cell, node),
+            dict_sorted.to_csv( "%s/dict_%s_%d.csv" % (inFolder,cell, node),
                                 sep="\t")
