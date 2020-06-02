@@ -1,5 +1,7 @@
 # GENES TO CRD
 
+# SCRIPT OBSOLETE. we get the TRHs from /Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/trans/TRHIndex_3_cell_types.R
+
 # For each CRD, look at the genes they are regulating in cis. (careful, how do we know if it is the gene regulating the CRD or the CRD regulating the gene, which direction?)
 
 mapdataNEU = read.table('/Users/dianaavalos/Programming/pathways/mapping_gene_CRD_mean_ALL_70.txt',stringsAsFactors=F)
@@ -33,10 +35,10 @@ for ( i in list(1,2,3) ){
 
 
 # TRANS CRD CLUSTERS
-
-trans70 = read.table('/Users/dianaavalos/Programming/pathways/test.significant1FDR_trans_70.txt',header = TRUE,stringsAsFactors=F)
-trans72 = read.table('/Users/dianaavalos/Programming/pathways/test.significant1FDR_trans_72.txt',header = TRUE,stringsAsFactors=F)
-trans73 = read.table('/Users/dianaavalos/Programming/pathways/test.significant1FDR_trans_73.txt',header = TRUE,stringsAsFactors=F)
+path='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/transCRD_associations_significant'
+trans70 = read.table(file.path(path,'test.significant1FDR_trans_70.txt'),header = TRUE,stringsAsFactors=F)
+trans72 = read.table(file.path(path,'test.significant1FDR_trans_72.txt'),header = TRUE,stringsAsFactors=F)
+trans73 = read.table(file.path(path,'test.significant1FDR_trans_73.txt'),header = TRUE,stringsAsFactors=F)
 
 translist=list(trans70, trans72, trans73)
 
