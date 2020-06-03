@@ -17,7 +17,7 @@ def write_to_file(dataframe, outputfile):
 path = '/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways'
 path2='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/trans'
 
-# with opmmunity file from igraph community algo
+# with community file from igraph community algo
 
 for cell in ('70', '72', '73'):
     CRD_genes_list = pd.read_csv("%s/cisCRD-gene_associations/mapping_gene_CRD_mean_ALL_%s.txt" % (path, cell), header=None, sep=' ')
@@ -39,4 +39,8 @@ for cell in ('70', '72', '73'):
         if (len(genes) > 0):
             outname = "%s/trans_hubs_genes/genes_%s_cluster%s.csv" % (path, cell, cluster)
             genes.to_csv(outname, index=False, sep='\t')
+            genes.phenotype_ID = genes.phenotype_ID.apply(lambda x: x.split(".")[0])
             genes.phenotype_ID.to_csv("%s/trans_hubs_genes/genesonly_%s_cluster%s.csv" % (path, cell, cluster), index=False, sep='\t')
+
+        # with open("%s/trans_hubs_genes/genesonly_%s_cluster%s.csv" % (path, cell, cluster),'w') as outfile:
+        #     genes.phenotype_ID.to_string(outfile) pb it keeps the index
