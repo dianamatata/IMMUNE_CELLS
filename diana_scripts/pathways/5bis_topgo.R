@@ -54,59 +54,39 @@ allRes <- GenTable(sampleGOdata, classicFisher = resultFisher,
 showSigOfNodes(sampleGOdata, score(resultKS.elim), firstSigNodes = 5, useInfo = 'all')
 
 ####### ME
+# fix the allgenes 
 
-file="/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_genes/genesonly_70_cluster1.txt"
+library(biomaRt) # biomaRt provides an interface to a growing collection of databases. The most prominent examples of BioMart databases 
+# are maintain by Ensembl
+library(org.Hs.eg.db) #Genome wide annotation for Human, primarily based on mapping using Entrez Gene identifiers.
+
+file="/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_genes/genesonly_70_cluster3.txt"
 geneNames=list(read.table(file, header = FALSE, sep = "", dec = "."))
 
-geneID2GO <- readMappings(file = system.file("examples/geneid2go.map", package = "topGO"))
-str(head(geneID2GO))
+#all_genes <- rep(c(0, 1, 1), each = 991) # length(unlist(geneNames))
+all_genes <- rep(1,  length(unlist(geneNames)))
+names(all_genes) <- unlist(geneNames, use.names=FALSE)
 
-geneNames <- names(geneID2GO)
-
-## linking ensembl gene ID to GO term? https://www.biostars.org/p/102088/ 
-
-library(biomaRt)
-# select mart and data set
-bm <- useMart("ensembl")
-bm <- useDataset("hsapiens_gene_ensembl", mart=bm)
-
-# Get ensembl gene ids and GO terms
-EG2GO <- getBM(mart=bm, attributes=c('ensembl_gene_id','go_id'))
-
-# examine result
-head(EG2GO,15)
-# Remove blank entries
-EG2GO <- EG2GO[EG2GO$go_id != '',]
-
-# convert from table format to list format
-geneID2GO <- by(EG2GO$go_id,
-                EG2GO$ensembl_gene_id,
-                function(x) as.character(x))
-
-# examine result
-head(geneID2GO)
-
-# terms can be accessed using gene ids in various ways
-geneID2GO$ENSMUSG00000098488
-
-####
-
-# My genes are ensembl IDs and are not taken from a microarray, so feed "topGOdata" with a gene2GO list.
-# http://thread.gmane.org/gmane.science.biology.informatics.conductor/14627)
-# construct that list by mapping all ensembl IDs to GO IDs using the package "biomaRt".then
-
-GOdata <- new("topGOdata", ontology = "MF", allGenes = selectedList,
-  description = "Ensembl GO enrichment", annot = annFUN.gene2GO, gene2GO =gene2GO)
-
-GOdata <- new("topGOdata", ontology = "MF", allGenes = geneList, annot = annFUN.gene2GO, gene2GO = geneID2GO)
+GOdata <- new("topGOdata", description = "Test", ontology = "BP", allGenes = all_genes, geneSel = function(p) p < 
+                0.01,  annot = annFUN.org, mapping = "org.Hs.eg.db", 
+              ID = "Ensembl")
 
 
-# allGenes: named vector of type numeric or factor. The names attribute contains the genes identifiers. The genes listed in this object define the gene universe.
-sampleGOdata <- new("topGOdata",
-                    description = "Simple session", ontology = "BP",
-                    allGenes = geneList, geneSel = topDiffGenes,
-                    nodeSize = 10,
-                    annot = annFUN.db , affyLib = affyLib)
+resultFisher <- runTest(GOdata, algorithm = "classic", statistic = "fisher")
+resultKS <- runTest(GOdata, algorithm = "classic", statistic = "ks")
+resultKS.elim <- runTest(GOdata, algorithm = "elim", statistic = "ks")
+
+allRes <- GenTable(GOdata, classicFisher = resultFisher,
+                   classicKS = resultKS, elimKS = resultKS.elim,
+                   orderBy = "elimKS", ranksOf = "classicFisher", topNodes = 10)
+
+
+par(cex = 0.6)
+par(cex = 0.3)
+showSigOfNodes(GOdata, score(resultKS), firstSigNodes = 5, useInfo = 'all')
+
+
+
 
 
 
