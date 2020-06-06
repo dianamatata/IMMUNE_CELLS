@@ -28,7 +28,6 @@ find_HiC_overlap <- function(elem1,elem2) {
 }
 
 
-
 # concatenate the 3 CRDs info
 CRDs_all_cells = data.frame()
 for(i in list(70, 72,73)){
@@ -39,19 +38,32 @@ for(i in list(70, 72,73)){
 }
 
 
-
-
-#import files
+## import files
+# annotations
 path='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha'
 protein_coding_genes=as.data.frame(rtracklayer::import(file.path(path, 'gencode.v19.chr_patch_hapl_scaff.annotation.gtf')))
 long_nc_RNA_genes <- rtracklayer::import(file.path(path, 'gencode.v19.long_noncoding_RNAs.gtf'))
 long_nc_RNA_genes=as.data.frame(long_nc_RNA_genes)
 genelist = c(protein_coding_genes,long_nc_RNA_genes)
+
+# CRDinfo
 CRDinfo = fread(file.path(path, 'EGAD00001002673_CRDs_info.MOD1.NRE2.txt.gz'),header=F)
+for(i in 1:length(CRDinfo$V2)) {a[i]=paste0("chr", toString(CRDinfo$V2[i])) }
+CRDinfo$V2=a
+CRDinfo <- CRDinfo[, c(2, 3, 4, 1)]
+write.table(file=file.path(path, 'CRDinfo.txt'),CRDinfo,quote=F,row.names=F,sep='\t', col.names=FALSE)
 
-
+# Neha
 meth_dist = read.xls (file.path(path, 'Top50_differentially_methylated_distal_enhancers.xlsx'), sheet = 1, header = TRUE)
 meth_prox = read.xls (file.path(path, 'Top50_differentially_methylated_proximal_enhancers.xlsx'), sheet = 1, header = TRUE)
+
+meth_dist <- meth_dist[, c(2, 3, 4, 1)]
+meth_prox <- meth_prox[, c(2, 3, 4, 1)]
+write.table(file=file.path(path, 'meth_dist.txt'),meth_dist,quote=F,row.names=F,sep='\t', col.names=FALSE)
+write.table(file=file.path(path, 'meth_prox.txt'),meth_prox,quote=F,row.names=F,sep='\t', col.names=FALSE)
+
+########
+
 
 mapdata = read.table('/Users/dianaavalos/Programming/Hi-C_correlated_peaks/mapping_gene_CRD_mean_ALL_70.txt',stringsAsFactors=F)
 colnames(mapdata) = c("phenotype_ID","phenotype_ID_chr","phenotype_ID_start","phenotype_ID_end","phenotype_ID_strand",
@@ -60,10 +72,6 @@ colnames(mapdata) = c("phenotype_ID","phenotype_ID_chr","phenotype_ID_start","ph
 # remove chr7 to 7
 meth_dist$Chromosome=by(meth_dist, 1:nrow(meth_dist), function(row) unlist(strsplit(as.character(row$Chromosome),"r"))[2] )
 meth_prox$Chromosome=by(meth_prox, 1:nrow(meth_prox), function(row) unlist(strsplit(as.character(row$Chromosome),"r"))[2] )
-write.table(file=file.path(path, 'meth_dist.txt'),meth_dist,quote=F,row.names=F,sep='\t')
-write.table(file=file.path(path, 'meth_prox.txt'),meth_prox,quote=F,row.names=F,sep='\t')
-
-# which file for CRDs bedtools ?????????????????????
 
 
 # HiC
