@@ -86,15 +86,15 @@ tmp = rbind(as.data.frame(x),as.data.frame(y))
 validated.bwd = tmp[which(duplicated(tmp)),]
 
 validated = unique(rbind(validated.fwd,validated.bwd))
-
-hic_validated = rep(1,nrow(PCHiC))
-for(i in 1:nrow(validated)){
-    currenthic = validated$queryHits[i]
-    currentpval = mapdata$nominal_pval[validated$subjectHits[i]]
-    if(currentpval<hic_validated[currenthic]){ # <1
-        hic_validated[currenthic] = currentpval
-    }
-}
+# 
+# hic_validated = rep(1,nrow(PCHiC))
+# for(i in 1:nrow(validated)){
+#     currenthic = validated$queryHits[i]
+#     currentpval = mapdata$nominal_pval[validated$subjectHits[i]]
+#     if(currentpval<hic_validated[currenthic]){ # <1
+#         hic_validated[currenthic] = currentpval
+#     }
+# }
 
 mapdata_validated = rep(0,nrow(mapdata))
 for(i in 1:nrow(validated)){
@@ -111,6 +111,8 @@ for(i in 1:nrow(validated)){
         mapdata_validated[currentmap] = currentHiCScore
     }
 }
+
+mapdata$HIC=mapdata_validated
 
 crd_dist_bins = c(0,1,1e04,2e04,5e04,1e05,2e05,5e05,1e06)
 

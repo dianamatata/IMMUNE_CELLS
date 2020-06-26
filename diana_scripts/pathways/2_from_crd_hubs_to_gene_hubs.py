@@ -42,5 +42,5 @@ for cell in ('70', '72', '73'):
             genes.phenotype_ID = genes.phenotype_ID.apply(lambda x: x.split(".")[0])
             genes.phenotype_ID.to_csv("%s/trans_hubs_genes/genesonly_%s_cluster%s.csv" % (path, cell, cluster), index=False, sep='\t')
 
-        # with open("%s/trans_hubs_genes/genesonly_%s_cluster%s.csv" % (path, cell, cluster),'w') as outfile:
-        #     genes.phenotype_ID.to_string(outfile) pb it keeps the index
+         with open("%s/trans_hubs_genes/genesonly_%s_cluster%s.csv" % (path, cell, cluster),'w') as outfile:
+             genes.phenotype_ID.to_string(outfile) #pb it keeps the index

@@ -1,4 +1,5 @@
 # get links of CRDs
+# ie filter only the 2 CRDSs of each association
 
 inFolder='/Users/AvalosDiana/GitHub/IMMUNE_CELLS/diana_scripts/pathways/transCRD_associations_significant'
 outFolder='/Users/AvalosDiana/GitHub/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_crds2'

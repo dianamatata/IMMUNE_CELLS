@@ -1,7 +1,6 @@
+# SCRIPT OBSOLETE. we get the TRHs from /Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/trans/TRHIndex_3_cell_types.R using igraph algo
+
 # GENES TO CRD
-
-# SCRIPT OBSOLETE. we get the TRHs from /Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/trans/TRHIndex_3_cell_types.R
-
 # For each CRD, look at the genes they are regulating in cis. (careful, how do we know if it is the gene regulating the CRD or the CRD regulating the gene, which direction?)
 
 mapdataNEU = read.table('/Users/dianaavalos/Programming/pathways/mapping_gene_CRD_mean_ALL_70.txt',stringsAsFactors=F)
