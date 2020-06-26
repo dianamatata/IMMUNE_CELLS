@@ -27,9 +27,9 @@ dev.off()
 # very small results, up to 3% of shared peaks
 # these are the values for the bar plot
 
-peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
-peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
-peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
+peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002670.ALLchr.peaksID.txt',header=F))
+peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002672.ALLchr.peaksID.txt',header=F))
+peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002673.ALLchr.peaksID.txt',header=F))
 
 
 neut = length(peakset_neut$V1)
@@ -76,9 +76,9 @@ dev.off()
 #### Method 3: Look at the shared peaks belonging to CRDs among cell types
 # take the peaks of 1 CRD, what is the % of shared in the other cell type? if more than 50% shared, the CRD is shared amon the 2 cell types
 
-peakset_neut = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002670.ALLchr.peaksID.txt',header=F))
-peakset_mono = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002672.ALLchr.peaksID.txt',header=F))
-peakset_tcel = as.data.frame(fread('CRD_scripts/datafiles_for_plots_and_Rplots/EGAD00001002673.ALLchr.peaksID.txt',header=F))
+peakset_neut = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002670.ALLchr.peaksID.txt',header=F))
+peakset_mono = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002672.ALLchr.peaksID.txt',header=F))
+peakset_tcel = as.data.frame(fread('/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_scripts/analysis_files/EGAD00001002673.ALLchr.peaksID.txt',header=F))
 
 query=peakset_neut
 reference=peakset_mono
@@ -86,6 +86,7 @@ threshold=0.5
 j=1
 
 
+shared_CRDs=list()
 compare_CRD <- function(query,reference,threshold=0.5){
   CRD_IDs = unique(query$V2)
   n_replicated = 0
@@ -100,10 +101,13 @@ compare_CRD <- function(query,reference,threshold=0.5){
     }
     if(overlapping_peaks_in_same_CRD/length(current_peaks)>threshold){
       n_replicated = n_replicated + 1
+      shared_CRDs<- c(shared_CRDs, current_CRD)
     }
   }
   list(total= n_replicated,fraction=n_replicated/length(CRD_IDs))
 }
+
+length(unique(query$V2))- length(unique(shared_CRDs))
 
 mono_vs_neut = compare_CRD(peakset_mono,peakset_neut)
 mono_vs_tcel = compare_CRD(peakset_mono,peakset_tcel)
