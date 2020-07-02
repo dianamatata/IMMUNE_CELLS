@@ -1,0 +1,21 @@
+# cmds
+
+scp avalosma@baobab2.hpc.unige.ch:/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002670_CLOMICS_v3.0/mapping_aCRD_gene/mapping_gene_CRD_mean_ALL.txt mapping_gene_CRD_mean_70.txt
+
+scp avalosma@baobab2.hpc.unige.ch:/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002672_CLOMICS_v3.0/mapping_aCRD_gene/mapping_gene_CRD_mean_ALL.txt mapping_gene_CRD_mean_72.txt
+
+scp avalosma@baobab2.hpc.unige.ch:/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002673_CLOMICS_v3.0/mapping_aCRD_gene/mapping_gene_CRD_mean_ALL.txt mapping_gene_CRD_mean_73.txt
+
+########
+
+We are using this one because it is the one used in /srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/BLUEPRINT_SGX_94SAMPLES/CLOMICS/EGAD00001002670_CLOMICS_v3.0/7_analyse_gene_CRD_associations_v5.R :
+
+mapdata = read.table('mapping_gene_CRD_mean_ALL.txt',stringsAsFactors=F)
+d = read.table("gene_CRD_mean_permutations_full.txt.gz", hea=F, stringsAsFactors=F)
+
+Which one should we use?
+d has 20955 var and is further filtered with significant
+Mapdata 8560 observations
+Histogram of adjusted p-values%\n",nrow(mapdata): 8560," significant associations at 5% FDR"
+
+We are using the mapping_gene_CRD_mean_ALL.txt for the alt result
