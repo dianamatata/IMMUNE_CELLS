@@ -156,7 +156,7 @@ for (cell_type in cell_types){
 }
 
 ###
-
+cal
 # TO CHANGE 
 ID_enhancers=ID_enhancers_prox
 CRD_overlapping_list=read.table(file.path(files,'CRD_enhancer_intersect/output_intersect_prox.txt') ,header = FALSE,stringsAsFactors=F)
@@ -215,23 +215,34 @@ for (idx in 1:lengths(ID_enhancers)){
     }
   }
 }
-
+RESULT=as.data.frame(RES)
+table(RESULT$cell)
 
 # CHANGE
 RES_prox=as.data.frame(RES)
-table(RES_prox$cell)
 
-RESdist=as.data.frame(RES)
-table(RESdist$cell)
+RES_dist=as.data.frame(RES)
 
 #
 
-RES1=as.data.frame(RES)
-RES1$hic <- as.numeric(as.character(RES1$hic))
-RES_hic_cutoff=filter(RES1, hic > 5)
-table(RES_hic_cutoff$cell)
+RES_prox1=as.data.frame(RES_prox)
+RES_prox1$hic <- as.numeric(as.character(RES_prox1$hic))
+RES_prox_hic_cutoff=filter(RES_prox1, hic > 5)
+table(RES_prox_hic_cutoff$cell)
+write.table(file='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha/results_prox_hic',RES_prox1,quote=F, row.names=F,sep=' ')
+write.table(file='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha/results_prox_hic_cutoff5',RES_prox_hic_cutoff,quote=F, row.names=F,sep=' ')
+table(RES_prox1$cell)
+table(RES_prox_hic_cutoff$cell)
 
-write.table(file=outputfile,RES,quote=F, row.names=F,sep=' ')
+
+RES_dist1=as.data.frame(RES_dist)
+RES_dist1$hic <- as.numeric(as.character(RES_dist1$hic))
+RES_dist_hic_cutoff=filter(RES_dist1, hic > 5)
+table(RES_prox_hic_cutoff$cell)
+write.table(file='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha/results_dist_hic',RES_dist1,quote=F, row.names=F,sep=' ')
+write.table(file='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha/results_dist_hic_cutoff5',RES_dist_hic_cutoff,quote=F, row.names=F,sep=' ')
+table(RES_dist1$cell)
+table(RES_dist_hic_cutoff$cell)
 
 
 

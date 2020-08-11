@@ -6,26 +6,59 @@ library(gdata) #for reading excel files
 library(GenomicRanges) # for GRanges function in HIC data, findOverlaps defined from package "IRanges"
 # library(tidyverse)
 
+### CRDs doverlapping differentially methylated enhancers
+outputs='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/neha/output'
+
+dist70_CRDs=read.table(file.path(outputs,'output_intersect_dist_70.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+dist72_CRDs=read.table(file.path(outputs,'output_intersect_dist_72.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+dist73_CRDs=read.table(file.path(outputs,'output_intersect_dist_73.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+prox70_CRDs=read.table(file.path(outputs,'output_intersect_prox_70.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+prox72_CRDs=read.table(file.path(outputs,'output_intersect_prox_72.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+prox73_CRDs=read.table(file.path(outputs,'output_intersect_prox_73.txt'),header = FALSE,stringsAsFactors=F)[,c(8)]
+
+# TRANS CRD CLUSTERS, CRD-CRD significant correlation
+path='/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/transCRD_associations_significant'
+trans70 = read.table(file.path(path,'test.significant1FDR_trans_70.txt'),header = TRUE,stringsAsFactors=F)
+trans72 = read.table(file.path(path,'test.significant1FDR_trans_72.txt'),header = TRUE,stringsAsFactors=F)
+trans73 = read.table(file.path(path,'test.significant1FDR_trans_73.txt'),header = TRUE,stringsAsFactors=F)
+
+translist=list(trans70, trans72, trans73)
+cell_types = list('70','72','73')
+CRDs_dist  = list(dist70_CRDs, dist72_CRDs, dist73_CRDs)
+CRDs_prox  = list(prox70_CRDs, prox72_CRDs, prox73_CRDs)
+
+
+### filter CRDs, find the correlations in the trans files
+
+# filter for id1 and id2 columns
+crds_filtered=with(trans70, trans70[ grepl(paste(dist70_CRDs, collapse = "|"), id1) | grepl(paste(dist70_CRDs, collapse = "|"), id2), ])
+crds_list=append(unique(crds_filtered$id1),unique(crds_filtered$id2))
+length(crds_list)
+#look at cis genes associated
+CRD_genes_list_70 = read.table("/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/cisCRD-gene_associations/mapping_gene_CRD_mean_ALL_70.txt", header=FALSE, sep=' ')
+dplyr::filter(CRD_genes_list_70, grepl(paste(crds_list, collapse = "|"), V8))
+
+
+
+# look if these CRDs are connected 
+
+
+for ( i in list(1,2,3) ){
+  cell_type=cell_types[i]
+  trans=translist[i][[1]]
+  
+  
+}
+
+  
+  
+  
+  
+  
+
 
 # EGAD00001002673_CRDs_info.MOD1.NRE2.txt.gz for CRD name chr start end
-find_HiC_overlap <- function(elem1,elem2) {
-  # elem1 = genebed elem2 = CRDbed
-  
-  #fwd
-  x = findOverlaps(baitbed,elem1)
-  y = findOverlaps(oebed,elem2)
-  tmp = rbind(as.data.frame(x),as.data.frame(y))  # rbind() function combines vector, matrix or data frame by rows.
-  validated.fwd = tmp[which(duplicated(tmp)),]
-  
-  #bwd
-  x = findOverlaps(baitbed,elem2)
-  y = findOverlaps(oebed,elem1)
-  tmp = rbind(as.data.frame(x),as.data.frame(y))
-  validated.bwd = tmp[which(duplicated(tmp)),]
-  
-  validated = unique(rbind(validated.fwd,validated.bwd))
-  return(validated)
-}
+
 
 
 # concatenate the 3 CRDs info
@@ -48,10 +81,11 @@ genelist = c(protein_coding_genes,long_nc_RNA_genes)
 
 # CRDinfo
 CRDinfo = fread(file.path(path, 'EGAD00001002673_CRDs_info.MOD1.NRE2.txt.gz'),header=F)
+a = rep(0., length(CRDinfo$V2))
 for(i in 1:length(CRDinfo$V2)) {a[i]=paste0("chr", toString(CRDinfo$V2[i])) }
 CRDinfo$V2=a
 CRDinfo <- CRDinfo[, c(2, 3, 4, 1)]
-write.table(file=file.path(path, 'CRDinfo.txt'),CRDinfo,quote=F,row.names=F,sep='\t', col.names=FALSE)
+write.table(file=file.path(path, 'CRDinfo73.txt'),CRDinfo,quote=F,row.names=F,sep='\t', col.names=FALSE)
 
 # Neha
 meth_dist = read.xls (file.path(path, 'Top50_differentially_methylated_distal_enhancers.xlsx'), sheet = 1, header = TRUE)
@@ -64,6 +98,7 @@ write.table(file=file.path(path, 'meth_prox.txt'),meth_prox,quote=F,row.names=F,
 
 ########
 
+# cat CRDinfo73.txt | sort -V -k1,1 -k2,2n > CRDinfo73s.txt
 
 mapdata = read.table('/Users/dianaavalos/Programming/Hi-C_correlated_peaks/mapping_gene_CRD_mean_ALL_70.txt',stringsAsFactors=F)
 colnames(mapdata) = c("phenotype_ID","phenotype_ID_chr","phenotype_ID_start","phenotype_ID_end","phenotype_ID_strand",
