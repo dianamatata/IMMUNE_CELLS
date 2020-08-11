@@ -1,8 +1,34 @@
+###### GET aCRD aCRD TRANS ASSOCIATIONS
 
-Trans CRD-CRD significant associations: 
+In gwork, TRANS folder:
+- we have trans CRD-CRD significant associations.
+look into the run.sh how they are called, using CLOMICS trans which takes as input Hi-C values
 
+But confusing because if we look at 7_analyse_gene_CRD_association.R plotting file then it adds HiC data to the trans
+CRD associations and plots in HiC_support_gene_CRD_associations.pdf. In this case he would have used QTLTOOLS trans to
+obtain the associations. BUT it is CRD-gene cis associations supported by HiC. we do not call trans here
+
+folder:
 THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS-EQTL/Q0.01/aCRD
 /srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002673_CLOMICS_v3.0/TRANS/test.significant1FDR.txt
+
+QUESTION: should we also look at the sCRD-sCRD associations?
+
+
+###### COMPUTE TRHs
+
+We get the TRHs from /Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/trans/TRHIndex_3_cell_types.R using the
+ igraph algo. Haven't looked in depth at how it works and tuning of parameters.
+
+###### LOOK AT THE GENES IN THESE HUBS
+
+###### GO TERM ENRICHMENT ANALYSIS
+
+###### ANALYSIS PLOTS
+
+
+
+
 
 CRD-gene associations
 
@@ -13,3 +39,5 @@ Weird:
 get mapping_gene_CRD_mean_ALL_70.txt
 
 Why both with different size?? 70 vs 70 much smaller, 8000 to 5000 rows :s
+
+sed -e 's/^/Ensembl:/' genesonly_70_cluster1.txt > genesonly_70_cluster1_ens.txt to add at beginning of line for BINGO investigation
