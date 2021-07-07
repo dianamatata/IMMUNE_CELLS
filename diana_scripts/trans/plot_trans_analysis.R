@@ -8,11 +8,19 @@ library("circlize")
 library(igraph)
 
 # keep DATA when qvalue < 0.01
-DATA = as.data.frame(data.table::fread("/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/EGAD00001002670_ALL.ALLchr.txt.gz", head=FALSE, stringsAsFactors=FALSE))
+DATA = as.data.frame(data.table::fread("/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/EGAD00001002670_ALL.ALLchr.txt", head=FALSE, stringsAsFactors=FALSE))
 colnames(DATA) = c("idx1","chr1","start1","end1","id1","idx2","chr2","start2","end2","id2","corr","pval")
 Q = qvalue(DATA$pval)
 DATA$qval = Q$qvalues
 DATAs = DATA[Q$qvalue < 0.01, ]
+DATA=DATAs
+
+
+## new
+
+DATA2=as.data.frame(data.table::fread("/Users/dianaavalos/Programming/A_CRD_plots/trans_files/7_CRD_Trans:significant_bis/hist_neut_mean_trans.significant_0.01.txt", head=TRUE, stringsAsFactors=FALSE))
+colnames(DATA2) = c("idx1","chr1","start1","end1","id1","idx2","chr2","start2","end2","id2","corr","pval","qval","midplace","midplace2")
+DATA=DATA2
 
 #WRITE SIGNIFICANT HITS
 write.table(DATAs, "test.significant1FDR.txt", quote=FALSE, row.names=FALSE, col.names=TRUE)
@@ -52,14 +60,21 @@ for(i in 1:nrow(validated)){
     }
 }
 
+# hic_validated_guillaume=hic_validated
+# hic_validated_diana=hic_validated
 
+hic_validated=hic_validated_guillaume
+hic_validated=hic_validated_diana
+
+# seems to be the same one
 myhist_bg = hist(PCHiC$Neu,breaks = c(0,10,20,50,100,2000),plot=F)
 myhist_signif = hist(PCHiC$Neu[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
 
+
 pdf("HiC_validation.pdf",5,5)
-toplot = data.frame(counts = myhist_signif$counts/myhist_bg$counts*100,Number = c("0-10","11-20","21-50","51-100",">100"))
-toplot$Number = factor(toplot$Number,levels = c("0-10","11-20","21-50","51-100",">100"))
-g <- ggplot(toplot, aes(x = Number, y = counts))+ ggtitle("HiC contacts with CRD associations") +
+toplot1 = data.frame(counts = myhist_signif$counts/myhist_bg$counts*100,Number = c("0-10","11-20","21-50","51-100",">100"))
+toplot1$Number = factor(toplot1$Number,levels = c("0-10","11-20","21-50","51-100",">100"))
+g <- ggplot(toplot1, aes(x = Number, y = counts))+ ggtitle("HiC contacts with CRD associations") +
   geom_bar(stat = "identity",fill="#E69F00") +
   labs(x = "PC HiC Score",y = "Fraction (%)") +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
@@ -184,6 +199,29 @@ ggplot(toplot, aes(x = Number, y = counts))+ ggtitle("Connectivity of CRD trans 
   theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
 
 dev.off()
+
+#PLOT4: CONNECTIVITY 3 
+pdf("Connectivity.pdf", 6, 6)
+hist(table(c(DATAs.NEU$id1, DATAs.NEU$id2)), breaks=40, xlab="Number of connected modules (module degree)", main="")
+conhistNEU = hist(table(c(DATAs.NEU$id1, DATAs.NEU$id2)), breaks=c(0,5,10,20,50,100,200,500),plot=F)
+conhistMON = hist(table(c(DATAs.MON$id1, DATAs.MON$id2)), breaks=c(0,5,10,20,50,100,200,500),plot=F)
+conhistTCL = hist(table(c(DATAs.TCL$id1, DATAs.TCL$id2)), breaks=c(0,5,10,20,50,100,200,500),plot=F)
+
+fracNEU = conhistNEU$counts/sum(conhistNEU$counts)*100
+fracMON = conhistMON$counts/sum(conhistMON$counts)*100
+fracTCL = conhistTCL$counts/sum(conhistTCL$counts)*100
+
+barplot(frac,names = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
+toplot = data.frame(counts = frac,Number = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
+toplot$Number = factor(toplot$Number,levels = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
+ggplot(toplot, aes(x = Number, y = counts))+ ggtitle("Connectivity of CRD trans associations") +
+  geom_bar(stat = "identity",fill="#E69F00") +
+  labs(x = "Connectivity",y = "Fraction (%)") +
+  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
+
+dev.off()
+
 
 #PLOT5: NETWORK EXAMPLE OF THE 1000 BEST LINKS
 library('igraph')

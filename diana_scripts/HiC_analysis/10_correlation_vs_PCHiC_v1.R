@@ -104,17 +104,6 @@ for(i in 1:nrow(validated)){
 myhist_bg = hist(PCHiC$Neu[hic_validated<1],breaks = c(0,5,10,15,20,2000),plot=F)
 myhist_signif = hist(PCHiC$Neu[hic_validated<0.01],breaks = c(0,5,10,15,20,2000),plot=F)
 
-pdf("HiC_validation.pdf",5,5)
-toplot = data.frame(counts = myhist_signif$counts/myhist_bg$counts*100,Number = c("0-5","5-10","10-15","15-20",">20"))
-toplot$Number = factor(toplot$Number,levels = c("0-5","5-10","10-15","15-20",">20"))
-g <- ggplot(toplot, aes(x = Number, y = counts))+ ggtitle("HiC contacts with CRD associations") +
-  geom_bar(stat = "identity",fill="#E69F00") +
-  labs(x = "PC HiC Score",y = "Fraction of correlated peak pairs (%)") +
-  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
-  theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
-print(g)
-dev.off()
-
 dist_bins = c(0,1e04,2e04,5e04,1e05,2e05,5e05,1e06)
 
 compute_ratio_hic_mapdata <-function(CRDmindist,CRDmaxdist,cutoff=5,pval_cutoff=0.01){
@@ -137,6 +126,22 @@ for(i in 1:(length(dist_bins)-1)){
         mat_hic[i,1] = compute_ratio_hic_mapdata(dist_bins[i],dist_bins[i+1])
         mat_hic_signif[i,1] = compute_ratio_hic_mapdata_signif(dist_bins[i],dist_bins[i+1])
 }
+
+
+
+######### PLOTS
+
+pdf("HiC_validation.pdf",5,5)
+toplot = data.frame(counts = myhist_signif$counts/myhist_bg$counts*100,Number = c("0-5","5-10","10-15","15-20",">20"))
+toplot$Number = factor(toplot$Number,levels = c("0-5","5-10","10-15","15-20",">20"))
+g <- ggplot(toplot, aes(x = Number, y = counts))+ ggtitle("HiC contacts with CRD associations") +
+  geom_bar(stat = "identity",fill="#E69F00") +
+  labs(x = "PC HiC Score",y = "Fraction of correlated peak pairs (%)") +
+  theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
+print(g)
+dev.off()
+
 
 pdf("HiC_support_gene_CRD_associations.pdf")
 toplot = data.frame(correlated = mat_hic_signif[,1], uncorrelated = mat_hic[,1],dist = c("0-10kb","10-20kb","20-50kb","50-100kb","100-200kb","200-500kb","0.5-1Mb"))

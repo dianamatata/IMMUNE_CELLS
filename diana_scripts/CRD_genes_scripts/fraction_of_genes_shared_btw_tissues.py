@@ -85,9 +85,10 @@ dict_df = {}
 for i in [70, 72, 73]:
     for j in [70, 72, 73]:
         name = 'map' + str(i) + '_vs_' + str(j)
-
-        path = '/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/CRD_genes_scripts/analysis_files/' + str(i) + '_vs_' + str(j) \
-               + '_mapping_gene_CRD_mean_ALL.txt'
+        # hist_mono_loom_mapping_CRD_gene_ALL.txt.gz
+        # UPDATE PATH
+        path = '/Users/dianaavalos/Programming/A_CRD_plots/CRD_genes_5//merged/hist' + str(i) + '_vs_' + str(j) \
+               + '_mapping_CRD_gene_ALL.txt.gz'
         dict_df[name] = pd.read_csv(path, sep=' ', header=None)
         dict_df[name].columns = column_names
         exec(name + " = pd.read_csv(path, sep=' ', header=None) ")

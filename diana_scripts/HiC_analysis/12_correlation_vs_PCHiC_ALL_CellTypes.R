@@ -1,18 +1,19 @@
+####### fig 4.1 of the paper, wrong old colors
+
 library(ggplot2)
 library(reshape2)
 
 # path:/srv/nasac.unige.ch/funpopgen/data/unige/funpopgen/grey2/SYSCID/BLUEPRINT_DATA/CRD/THREE_CELL_TYPES/CLOMICS/EGAD00001002670_CLOMICS_v3.0/mapping_aCRD_gene%
 
-
-load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks_70/Correlation_vs_PCHiC_70.RData')
+load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks/Correlation_vs_PCHiC_70.RData')
 myhist_bg.NEU = hist(PCHiC$Neu[hic_validated<1],breaks = c(seq(0,20,2),2000),plot=F)
 myhist_signif.NEU = hist(PCHiC$Neu[hic_validated<0.01],breaks = c(seq(0,20,2),2000),plot=F)
 
-load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks_70/Correlation_vs_PCHiC_72.RData')
+load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks/Correlation_vs_PCHiC_72.RData')
 myhist_bg.MON = hist(PCHiC$Mon[hic_validated<1],breaks = c(seq(0,20,2),2000),plot=F)
 myhist_signif.MON = hist(PCHiC$Mon[hic_validated<0.01],breaks = c(seq(0,20,2),2000),plot=F)
 
-load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks_70/Correlation_vs_PCHiC_73.RData')
+load('/Users/dianaavalos/Programming/Hi-C_correlated_peaks/Correlation_vs_PCHiC_73.RData')
 myhist_bg.TCL = hist(PCHiC$nCD4[hic_validated<1],breaks = c(seq(0,20,2),2000),plot=F)
 myhist_signif.TCL = hist(PCHiC$nCD4[hic_validated<0.01],breaks = c(seq(0,20,2),2000),plot=F)
 
@@ -23,6 +24,9 @@ toplot.molten = melt(toplot,id.vars="Number")
 toplot.molten$Number = factor(toplot.molten$Number,levels = c(seq(2,20,2),">20"))
 colnames(toplot.molten)[2] = "CellType"
 
+
+
+####### fig 4.1 of the paper
 pdf("HiC_validation_ALL_CellTypes.pdf",7,5)
 g <- ggplot(toplot.molten, aes(x = Number, y = value,fill=CellType))+ ggtitle("") +
    geom_bar(position="dodge", stat="identity") + theme_classic() + scale_fill_manual(values =  c("#F1BB7B", "#FD6467", "#5B1A18")) +

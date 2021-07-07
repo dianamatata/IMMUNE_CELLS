@@ -8,9 +8,10 @@ OUT_FOLDER=/home/users/a/avalosma/scratch/1_CRD
 
 for cell_type in 'EGAD00001002670'  'EGAD00001002672' 'EGAD00001002673' ; do
         LI=$DATADIR/${cell_type}_merged_residuals.bed.gz
+	cat $OUT_FOLDER/${cell_type}_ALL.modules.MOD1.NRE2.txt.gz
         for c in $(seq 1 22); do
 		LO=$OUT_FOLDER/${cell_type}.chr$c
 		zcat ${LO}.module.txt.gz | awk '{ if ($30 == 1 && $25 > 1) print $4}'
-	done | gzip -c > $OUT_FOLDER/$cell_type\_ALL.modules.MOD1.NRE2.txt.gz
+	done | gzip -c > $OUT_FOLDER/${cell_type}_ALL.modules.MOD1.NRE2.txt.gz
 done
 

@@ -1,6 +1,11 @@
 #Load qvalue package
 suppressMessages(library(qvalue))
 
+# debug
+opt_input='/Users/dianaavalos/Programming/CRDs_nov20/methyl_tcell_vs_tcell_mapping_CRD_gene_permuts.txt.gz'
+opt_fdr=0.05
+opt_output='/Users/dianaavalos/Programming/CRDs_nov20/methyl_tcell_vs_tcell_mapping_CRD_gene_significant'
+
 #Read command line arguments
 args <- commandArgs(trailingOnly = TRUE)
 try(if(length(args) != 3) stop("Incorrect number of arguments, usage> Rscript runFDR.R INPUT FDR OUTPUT"))
@@ -17,7 +22,7 @@ cat("  * Output = [", opt_output, "]\n");
 #Read data
 cat("\nRead Input data\n");
 D = read.table(opt_input,hea=T, stringsAsFactors=FALSE,fill=TRUE)
-exon_offset = ifelse(ncol(D) == 19, 0, 2)
+exon_offset = ifelse(ncol(D) >= 19, 0, 2)
 if (exon_offset == 2) cat("  * Gene level correction detected\n")
 MASK=!is.na(D[,18+exon_offset])
 Dnas=D[!MASK,]

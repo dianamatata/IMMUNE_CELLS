@@ -1,4 +1,15 @@
 # Goal: plot 50 TRH index for 3 cell types
+# so far  this one
+
+# Clean environment
+rm(list=ls())
+gc()
+
+#############################################################################################
+#
+# PACKAGES
+#
+#############################################################################################
 
 library(qvalue)
 library(ggplot2)
@@ -7,6 +18,14 @@ library(data.table)
 library(tidyverse)
 library(igraph)
 
+directory='/Users/dianaavalos/Programming/A_CRD_plots/trans_files/7_CRD_Trans:significant/'
+files <- list.files(path=directory, pattern="*.txt", full.names=TRUE, recursive=FALSE)
+
+for (f in files){
+  file=basename(f)
+  cat (file)
+  TRH_signif = as.data.frame(data.table::fread(f, head=FALSE, stringsAsFactors=FALSE))
+}
 
 # keep DATA when qvalue < 0.01
 DATA_70 = as.data.frame(data.table::fread("/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/EGAD00001002670_ALL.ALLchr.txt.gz", head=FALSE, stringsAsFactors=FALSE))
@@ -23,13 +42,15 @@ DATAs = DATA[Q$qvalue < 0.01, ]
 LINKS.TRH = data.frame(from=DATAs$id1, to=DATAs$id2, weigth=ifelse(DATAs$corr>0, 1, 2), stringsAsFactors=FALSE)
 NODES.TRH = data.frame(id=names(table(c(LINKS.TRH$from, LINKS.TRH$to))), chr=matrix(unlist(strsplit(names(table(c(LINKS.TRH$from, LINKS.TRH$to))), split="_")), ncol=3, byrow=TRUE)[, 1], stringsAsFactors=FALSE)
 DATAnet.TRH = graph_from_data_frame(d=LINKS.TRH, vertices=NODES.TRH, directed=FALSE)
-# plot(DATAnet.TRH, vertex.label = V(DATAnet.TRH)$name)
+# do not plot takes a long time and aborts session #plot(DATAnet.TRH, vertex.label = V(DATAnet.TRH)$name)
 communities  = fastgreedy.community(DATAnet.TRH) # https://www.rdocumentation.org/packages/igraph/versions/0.4.1/topics/fastgreedy.community
 # this function tries to find dense subgraph, also called communities in graphs via directly optimizing a modularity score.
 N_TRH = max(communities$membership)
 N_TRH_TOSHOW = 50
 
+# number of TRH
 length(unique(communities$membership))
+# number of CRDs involved
 length(communities$names)
 COM = data.frame(communities$names, communities$membership)
 COM = COM[order(communities$membership),]
@@ -54,6 +75,7 @@ for (i in 1:N_TRH) {
     #print(length(read.table(file, header = FALSE, sep = "", dec = ".")$V1))
   }
 }
+
 df <-df[order(-df$GENE),]
 df$ID2=0
 for (j in 1:N_TRH) {  df$ID2[j]=j}
@@ -61,8 +83,7 @@ for (j in 1:N_TRH) {  df$ID2[j]=j}
 dff <- data.frame(head(df),100)
 
 dfff <- melt(df[c(2,3,4)], id.vars='ID2')
-p3<- ggplot(dfff, aes(ID2, value)) +   
-  geom_bar(aes(fill = variable), position = "dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1))  + scale_y_continuous(trans = 'log10')
+p3<- ggplot(head(dfff,10), aes(ID2, value)) +  geom_bar(aes(fill = variable), position = "dodge", stat="identity") + theme(axis.text.x = element_text(angle = 90, hjust = 1))  + scale_y_continuous(trans = 'log10')
 + theme_minimal() 
 
 

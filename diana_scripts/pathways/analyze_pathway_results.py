@@ -28,6 +28,11 @@ for methodName, method in zip(('gorilla', 'panther', 'gprofiler2'), (gorilla, pa
     method = method[method.columns.drop(list(method.filter(regex='Unnamed')))]
     # a=method[method['cluster'].isna() == True]
     method['TRHindex'] = method['cluster'].apply(lambda x: x.split('r')[1])
+    thisdict = {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 1964
+    }
 
     for cell_type in (70, 72, 73):
         # mask = method['cluster'].str.contains(r'%d' % cell_type, na=True)

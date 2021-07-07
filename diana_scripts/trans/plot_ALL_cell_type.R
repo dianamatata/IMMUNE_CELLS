@@ -18,40 +18,55 @@ getchromFreq <- function(){
     chromFreq
 }
 
-load('TRANS_analysis.rda')
-myhist_bg.NEU = hist(PCHiC$Neu,breaks = c(0,10,20,50,100,2000),plot=F)
-myhist_signif.NEU = hist(PCHiC$Neu[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
+
+# upload the Trans data by clicking on it if load doesn't work and then run the few lines under it
+path='/Users/dianaavalos/Programming/THREE_CELL_TYPES__CLOMICS__EGAD00001002670_CLOMICS_v3.0__TRANS/'
+
+load(paste0(path,'TRANS_analysis.rda'))
+myhist_bg1.NEU = hist(PCHiC$Neu,breaks = c(0,10,20,50,100,2000),plot=F)
+myhist_signif1.NEU = hist(PCHiC$Neu[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
 DATAs.NEU = DATA[Q$qvalue < 0.01,]
 chromFreq.NEU = getchromFreq()
 
-load('../../EGAD00001002672_CLOMICS_v3.0/TRANS/TRANS_analysis.rda')
-myhist_bg.MON = hist(PCHiC$Mon,breaks = c(0,10,20,50,100,2000),plot=F)
-myhist_signif.MON = hist(PCHiC$Mon[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
+load(paste0(path,'TRANS_analysis72.rda'))
+myhist_bg1.MON = hist(PCHiC$Mon,breaks = c(0,10,20,50,100,2000),plot=F)
+myhist_signif1.MON = hist(PCHiC$Mon[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
 DATAs.MON = DATA[Q$qvalue < 0.01,]
 chromFreq.MON = getchromFreq()
 
-
-load('../../EGAD00001002673_CLOMICS_v3.0/TRANS/TRANS_analysis.rda')
-myhist_bg.TCL = hist(PCHiC$nCD4,breaks = c(0,10,20,50,100,2000),plot=F)
-myhist_signif.TCL = hist(PCHiC$nCD4[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
+load(paste0(path,'TRANS_analysis73.rda'))
+myhist_bg1.TCL = hist(PCHiC$nCD4,breaks = c(0,10,20,50,100,2000),plot=F)
+myhist_signif1.TCL = hist(PCHiC$nCD4[hic_validated<0.05],breaks = c(0,10,20,50,100,2000),plot=F)
 DATAs.TCL = DATA[Q$qvalue < 0.01,]
 chromFreq.TCL = getchromFreq()
 
 stop()
 
+Paper=c("#00AFBB", "#E7B800", "#FC4E07" )
+mycolors= Paper
+
+
+##### 5E
 pdf("HiC_validation_ALL_CellTypes.pdf",5,7)
-toplot = data.frame(Number = c("0-10","11-20","21-50","51-100",">100"),NEU = myhist_signif.NEU$counts/myhist_bg.NEU$counts*100, MON = myhist_signif.MON$counts/myhist_bg.MON$counts*100,
-TCL = myhist_signif.TCL$counts/myhist_bg.TCL$counts*100)
-toplot.melted = reshape2::melt(toplot,id.vars = "Number", measure.vars = c("NEU","MON","TCL"))
-colnames(toplot.melted)[2] = "CellType"
-toplot.melted$Number = factor(toplot$Number,levels = c("0-10","11-20","21-50","51-100",">100"))
-g <- ggplot(toplot.melted, aes(x = Number, y = value,fill=CellType))+ ggtitle("") +
+
+toplot5 = data.frame(Number = c("0-10","11-20","21-50","51-100",">100"),NEU = myhist_signif1.NEU$counts/myhist_bg1.NEU$counts*100, 
+                     MON = myhist_signif1.MON$counts/myhist_bg1.MON$counts*100,
+TCL = myhist_signif1.TCL$counts/myhist_bg1.TCL$counts*100)
+
+toplot5.melted = reshape2::melt(toplot5,id.vars = "Number", measure.vars = c("NEU","MON","TCL"))
+colnames(toplot5.melted)[2] = "CellType"
+toplot5.melted$Number = factor(toplot5$Number,levels = c("0-10","11-20","21-50","51-100",">100"))
+f <- ggplot(toplot5.melted, aes(x = Number, y = value,fill=CellType))+ ggtitle("") +
   geom_bar(position="dodge", stat="identity") + labs(x = "PC HiC Score",y = "Fraction of associations (%)") +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
   theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
-print(g)
+f + scale_fill_manual(values=c("#00AFBB", "#E7B800", "#FC4E07" ))
+print(f)
+
 dev.off()
 
+
+### now plot Fig 5C
 pdf("Connectivity_ALL_CellTypes.pdf", 6, 6)
 hist.NEU = hist(table(c(DATAs.NEU$id1, DATAs.NEU$id2)), breaks=c(0,5,10,20,50,100,200,500),plot=F)
 hist.MON = hist(table(c(DATAs.MON$id1, DATAs.MON$id2)), breaks=c(0,5,10,20,50,100,200,500),plot=F)
@@ -61,18 +76,23 @@ frac.NEU = hist.NEU$counts/sum(hist.NEU$counts)*100
 frac.MON = hist.MON$counts/sum(hist.MON$counts)*100
 frac.TCL = hist.TCL$counts/sum(hist.TCL$counts)*100
 
-toplot = data.frame(NEU = frac.NEU,MON = frac.MON,TCL = frac.TCL,Number = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
-toplot.melted = reshape2::melt(toplot,id.vars = "Number", measure.vars = c("NEU","MON","TCL"))
-colnames(toplot.melted)[2] = "CellType"
-toplot.melted$Number = factor(toplot$Number,levels = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
-g <- ggplot(toplot.melted, aes(x = Number, y = value,fill=CellType))+ ggtitle("") +
+toplot5 = data.frame(NEU = frac.NEU,MON = frac.MON,TCL = frac.TCL,Number = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
+toplot5.melted = reshape2::melt(toplot5,id.vars = "Number", measure.vars = c("NEU","MON","TCL"))
+colnames(toplot5.melted)[2] = "CellType"
+toplot5.melted$Number = factor(toplot5$Number,levels = c("1-5","6-10","11-20","21-50","51-100","101-200","200-500"))
+
+g <- ggplot(toplot5.melted, aes(x = Number, y = value,fill=CellType))+ ggtitle("") +
   geom_bar(position="dodge", stat="identity") +
   labs(x = "Connectivity",y = "Fraction of CRDs (%)") +
   theme_bw() + theme(panel.border = element_blank(), panel.grid.major = element_blank(),panel.grid.minor = element_blank(), axis.line = element_line(colour = "black")) +
   theme(text = element_text(size=18),axis.title = element_text(size = 20),axis.text.x = element_text(size = 20, angle = 45, hjust = 1),axis.text.y = element_text(size = 20))
- print(g)
-dev.off()
 
+g + scale_fill_manual(values=c("#00AFBB", "#E7B800", "#FC4E07" ))
+
+print(g)
+ 
+
+######
 
 chromFreq = matrix(0,68,68)
 chromFreq.NEU.raw = chromFreq.NEU

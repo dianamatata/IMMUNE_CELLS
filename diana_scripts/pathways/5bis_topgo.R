@@ -58,7 +58,7 @@ showSigOfNodes(sampleGOdata, score(resultKS.elim), firstSigNodes = 5, useInfo = 
 
 library(biomaRt) # biomaRt provides an interface to a growing collection of databases. The most prominent examples of BioMart databases 
 # are maintain by Ensembl
-library(org.Hs.eg.db) #Genome wide annotation for Human, primarily based on mapping using Entrez Gene identifiers.
+library(org.Hs.eg.db) # Genome wide annotation for Human, primarily based on mapping using Entrez Gene identifiers.
 
 file="/Users/dianaavalos/Programming/IMMUNE_CELLS/diana_scripts/pathways/trans_hubs_genes/genesonly_70_cluster3.txt"
 geneNames=list(read.table(file, header = FALSE, sep = "", dec = "."))
@@ -82,7 +82,6 @@ allRes <- GenTable(GOdata, classicFisher = resultFisher,
 
 
 par(cex = 0.6)
-par(cex = 0.3)
 showSigOfNodes(GOdata, score(resultKS), firstSigNodes = 5, useInfo = 'all')
 
 

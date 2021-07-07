@@ -5,6 +5,12 @@ import os
 
 filename = sys.argv[1]
 assaytag = sys.argv[2]
+
+"""
+filename = "/Users/dianaavalos/Programming/EGAD00001002670_H3K4me1.quantif.txt"
+assaytag = "H3K4me1"
+"""
+
 output = filename.replace('.txt','.bed')
 phenotype_to_exclude = filename.replace('.txt','.pheno_to_exclude.txt')
 
@@ -18,6 +24,7 @@ new_columns[7:mydat.shape[1]] = [m.group(1) for l in list(mydat.ix[:,7:mydat.sha
 mydat.columns = new_columns
 
 #update chr names
+chrIDs = mydat.iloc[:,0]
 chrIDs = list(mydat.ix[:,1])
 chrIDs = [w.replace('chr', '') for w in chrIDs]
 mydat.ix[:,1]  = chrIDs
